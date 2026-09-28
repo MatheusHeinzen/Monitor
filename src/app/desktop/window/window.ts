@@ -1,9 +1,15 @@
 import { Component, inject, input } from '@angular/core';
+import { OutlookApp } from '../../apps/outlook/outlook';
+import { NotepadApp } from '../../apps/notepad/notepad';
+import { PictureViewer } from '../../apps/picture-viewer/picture-viewer';
+import { RecycleBin } from '../../apps/recycle-bin/recycle-bin';
 import { AppWindow } from '../../core/models/app-window';
 import { WindowManagerService } from '../../core/services/window-manager.service';
+import { AppGlyph } from '../../shared/app-glyph/app-glyph';
 
 @Component({
   selector: 'app-window',
+  imports: [AppGlyph, RecycleBin, OutlookApp, NotepadApp, PictureViewer],
   templateUrl: './window.html',
   styleUrl: './window.scss',
   host: {

@@ -22,10 +22,18 @@
   height: 26px;
   flex-shrink: 0;
   align-items: center;
-  padding: 0 3px 0 6px;
+  gap: 4px;
+  padding: 0 3px 0 4px;
   background: linear-gradient(180deg, #9db9eb 0%, #6d8ad8 50%, #6582d0 100%);
   cursor: default;
   user-select: none;
+}
+
+.title-icon {
+  display: block;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
 }
 
 .focused .titlebar {
@@ -70,8 +78,18 @@
 }
 
 .body {
+  display: flex;
   flex: 1;
   min-height: 0;
+  flex-direction: column;
+  overflow: hidden;
   border: 2px solid #ece9d8;
   background: #ece9d8;
+}
+
+.body > * {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
 }

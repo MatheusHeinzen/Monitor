@@ -2,6 +2,7 @@ import { DesktopIconKind } from './desktop-item';
 
 export interface AppWindow {
   id: string;
+  instanceKey: string;
   appId: string;
   title: string;
   icon: DesktopIconKind;
@@ -12,4 +13,5 @@ export interface AppWindow {
   zIndex: number;
   minimized: boolean;
   focused: boolean;
+  payload?: unknown;
 }

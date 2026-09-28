@@ -1,5 +1,8 @@
 <div class="frame" [class.focused]="win().focused">
   <div class="titlebar" (pointerdown)="onTitlePointerDown($event)">
+    <span class="title-icon" aria-hidden="true">
+      <app-glyph [kind]="win().icon" />
+    </span>
     <span class="title">{{ win().title }}</span>
     <div class="controls">
       <button type="button" class="ctrl min" (click)="minimize($event)" aria-label="Minimizar">
@@ -10,5 +13,20 @@
       </button>
     </div>
   </div>
-  <div class="body"></div>
+  <div class="body">
+    @switch (win().appId) {
+      @case ('recycle') {
+        <app-recycle-bin />
+      }
+      @case ('outlook') {
+        <app-outlook />
+      }
+      @case ('notepad') {
+        <app-notepad [payload]="win().payload" />
+      }
+      @case ('viewer') {
+        <app-picture-viewer [payload]="win().payload" />
+      }
+    }
+  </div>
 </div>

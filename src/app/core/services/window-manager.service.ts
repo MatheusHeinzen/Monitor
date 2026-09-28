@@ -13,8 +13,8 @@ export class WindowManagerService {
 
   readonly windows = this.windowsState.asReadonly();
 
-  open(item: DesktopItem): void {
-    const existing = this.windowsState().find((window) => window.appId === item.appId);
+  open(item: DesktopItem, payload?: unknown): void {
+    const existing = this.windowsState().find((window) => window.instanceKey === item.id);
     if (existing) {
       this.focus(existing.id);
       return;
@@ -25,16 +25,18 @@ export class WindowManagerService {
 
     const window: AppWindow = {
       id: `win-${this.nextId++}`,
+      instanceKey: item.id,
       appId: item.appId,
-      title: item.label,
+      title: item.windowTitle ?? item.label,
       icon: item.icon,
-      x: 80 + offset,
-      y: 48 + offset,
-      width: 480,
-      height: 320,
+      x: 48 + offset,
+      y: 32 + offset,
+      width: item.width ?? 480,
+      height: item.height ?? 320,
       zIndex: this.nextZ,
       minimized: false,
       focused: true,
+      payload,
     };
 
     this.windowsState.update((list) => [

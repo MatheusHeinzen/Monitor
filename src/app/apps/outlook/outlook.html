@@ -1,0 +1,81 @@
+<div class="outlook">
+  <div class="menubar">
+    <span>Arquivo</span>
+    <span>Editar</span>
+    <span>Exibir</span>
+    <span>Ir</span>
+    <span>Ferramentas</span>
+    <span>Ações</span>
+    <span>Ajuda</span>
+  </div>
+
+  <div class="toolbar">
+    <span class="btn">Novo</span>
+    <span class="btn">Responder</span>
+    <span class="btn">Encaminhar</span>
+    <span class="sep"></span>
+    <span class="btn">Enviar/Receber</span>
+    <span class="btn">Excluir</span>
+  </div>
+
+  <div class="workspace">
+    <nav class="nav">
+      <p class="fav-title">Pastas Favoritas</p>
+      @for (item of folders; track item.id) {
+        <button
+          type="button"
+          class="folder"
+          [class.active]="folder() === item.id"
+          (click)="openFolder(item.id)"
+        >
+          <span>{{ item.label }}</span>
+          @if (unreadCount(item.id) > 0) {
+            <b>({{ unreadCount(item.id) }})</b>
+          }
+        </button>
+      }
+
+      <div class="modules">
+        <button type="button" class="mod on">Correio</button>
+        <button type="button" class="mod">Calendário</button>
+        <button type="button" class="mod">Contatos</button>
+        <button type="button" class="mod">Tarefas</button>
+      </div>
+    </nav>
+
+    <section class="list">
+      <header class="cols">
+        <span>De</span>
+        <span>Assunto</span>
+        <span>Recebida</span>
+      </header>
+      @for (mail of messages(); track mail.id) {
+        <button
+          type="button"
+          class="row"
+          [class.active]="selected()?.id === mail.id"
+          [class.unread]="isUnread(mail)"
+          (click)="openMail(mail)"
+        >
+          <span>{{ mail.from }}</span>
+          <span>{{ mail.subject }}</span>
+          <span>{{ mail.received }}</span>
+        </button>
+      }
+    </section>
+
+    <article class="reading">
+      @if (selected(); as mail) {
+        <header class="head">
+          <p><span>De:</span> {{ mail.from }} &lt;{{ mail.fromEmail }}&gt;</p>
+          <p><span>Enviada em:</span> {{ mail.received }}</p>
+          <p><span>Para:</span> {{ mail.to }}</p>
+          <p class="subject"><span>Assunto:</span> {{ mail.subject }}</p>
+        </header>
+        <pre>{{ mail.body }}</pre>
+      }
+    </article>
+  </div>
+
+  <footer class="status">Todos os itens são mostrados</footer>
+</div>

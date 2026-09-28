@@ -1,0 +1,204 @@
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.outlook {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  background: #cfddee;
+  color: #000;
+  font-size: 11px;
+}
+
+.menubar,
+.toolbar,
+.status {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  user-select: none;
+}
+
+.menubar {
+  gap: 12px;
+  height: 20px;
+  padding: 0 8px;
+  background: #ece9d8;
+  border-bottom: 1px solid #aca899;
+}
+
+.toolbar {
+  gap: 6px;
+  height: 28px;
+  padding: 0 6px;
+  background: linear-gradient(#f4f8fc, #d5e4f2);
+  border-bottom: 1px solid #9fb6cc;
+}
+
+.btn {
+  padding: 3px 8px;
+  border: 1px solid transparent;
+}
+
+.sep {
+  width: 1px;
+  height: 16px;
+  background: #9fb6cc;
+}
+
+.workspace {
+  display: grid;
+  min-height: 0;
+  flex: 1;
+  grid-template-columns: 176px minmax(270px, 0.95fr) 1.15fr;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 6px 0;
+  background: linear-gradient(#d7e6f5, #b9d2ea);
+  border-right: 1px solid #7a9bb8;
+}
+
+.fav-title {
+  margin: 0 0 6px;
+  color: #1f4e79;
+  font-weight: 700;
+}
+
+.folder {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 4px 6px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: #000;
+  text-align: left;
+  cursor: default;
+}
+
+.folder.active {
+  border-color: #d6a84a;
+  background: #f8d48a;
+}
+
+.modules {
+  margin-top: auto;
+}
+
+.mod {
+  display: block;
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid #8aa4ba;
+  border-bottom: none;
+  background: linear-gradient(#f3f7fb, #d4e3f1);
+  color: #1f4e79;
+  text-align: left;
+  cursor: default;
+}
+
+.mod:last-child {
+  border-bottom: 1px solid #8aa4ba;
+}
+
+.mod.on {
+  background: linear-gradient(#f7c875, #e08a1c);
+  color: #000;
+  font-weight: 700;
+}
+
+.list {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  background: #fff;
+  border-right: 1px solid #9fb6cc;
+}
+
+.cols,
+.row {
+  display: grid;
+  grid-template-columns: 1.1fr 1.4fr 0.9fr;
+  gap: 4px;
+}
+
+.cols {
+  padding: 4px 8px;
+  background: linear-gradient(#fff, #e6eef6);
+  border-bottom: 1px solid #c5d3e0;
+}
+
+.row {
+  padding: 4px 8px;
+  border: none;
+  border-bottom: 1px solid #eef2f6;
+  background: #fff;
+  color: #222;
+  text-align: left;
+  cursor: default;
+}
+
+.row span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.row.unread {
+  font-weight: 700;
+}
+
+.row.active {
+  background: #cde8ff;
+}
+
+.reading {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  background: #fff;
+}
+
+.head {
+  padding: 8px 12px;
+  border-bottom: 1px solid #c5d3e0;
+  background: #f4f8fc;
+}
+
+.head p {
+  margin: 0 0 3px;
+}
+
+.head span {
+  display: inline-block;
+  width: 84px;
+  color: #555;
+}
+
+.subject {
+  font-weight: 700;
+}
+
+pre {
+  flex: 1;
+  margin: 0;
+  padding: 10px 12px;
+  overflow: auto;
+  font-family: Tahoma, 'Segoe UI', sans-serif;
+  font-size: 12px;
+  white-space: pre-wrap;
+}
+
+.status {
+  height: 20px;
+  padding: 0 8px;
+  background: #ece9d8;
+  border-top: 1px solid #aca899;
+}

@@ -1,0 +1,15 @@
+<div class="notepad">
+  <div class="menubar">
+    <span>Arquivo</span>
+    <span>Editar</span>
+    <button type="button" class="menu" (click)="toggleWrap()">Formatar</button>
+    <span>Exibir</span>
+    <span>Ajuda</span>
+  </div>
+  <textarea
+    [class.wrap]="wordWrap()"
+    [value]="text()"
+    (input)="onInput($event)"
+    spellcheck="false"
+  ></textarea>
+</div>
