@@ -1,0 +1,14 @@
+<div class="frame" [class.focused]="win().focused">
+  <div class="titlebar" (pointerdown)="onTitlePointerDown($event)">
+    <span class="title">{{ win().title }}</span>
+    <div class="controls">
+      <button type="button" class="ctrl min" (click)="minimize($event)" aria-label="Minimizar">
+        _
+      </button>
+      <button type="button" class="ctrl close" (click)="close($event)" aria-label="Fechar">
+        ×
+      </button>
+    </div>
+  </div>
+  <div class="body"></div>
+</div>

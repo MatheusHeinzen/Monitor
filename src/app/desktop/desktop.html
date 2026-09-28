@@ -1,0 +1,20 @@
+<div class="desktop" (click)="clearSelection()">
+  <div class="icons">
+    @for (item of items; track item.id) {
+      <app-desktop-icon
+        [item]="item"
+        [selected]="selectedId() === item.id"
+        (select)="select($event)"
+        (open)="open($event)"
+      />
+    }
+  </div>
+
+  @for (win of windows(); track win.id) {
+    @if (!win.minimized) {
+      <app-window [win]="win" />
+    }
+  }
+
+  <app-taskbar />
+</div>

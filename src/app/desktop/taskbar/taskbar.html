@@ -1,0 +1,28 @@
+<div class="bar" (click)="$event.stopPropagation()">
+  <button type="button" class="start" aria-label="Iniciar">
+    <svg class="logo" viewBox="0 0 16 16" aria-hidden="true">
+      <rect x="1" y="1" width="6" height="6" fill="#f35325" />
+      <rect x="9" y="1" width="6" height="6" fill="#81bc06" />
+      <rect x="1" y="9" width="6" height="6" fill="#05a6f0" />
+      <rect x="9" y="9" width="6" height="6" fill="#ffba08" />
+    </svg>
+    iniciar
+  </button>
+
+  <div class="tasks">
+    @for (win of windows(); track win.id) {
+      <button
+        type="button"
+        class="task"
+        [class.active]="win.focused && !win.minimized"
+        (click)="onTaskClick(win)"
+      >
+        {{ win.title }}
+      </button>
+    }
+  </div>
+
+  <div class="tray">
+    <time>{{ time() }}</time>
+  </div>
+</div>
