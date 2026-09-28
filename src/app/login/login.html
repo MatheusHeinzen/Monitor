@@ -1,0 +1,89 @@
+<div class="screen">
+  <header class="chrome top"></header>
+
+  <main class="welcome">
+    <section class="brand">
+      <div class="logo">
+        <svg class="flag" viewBox="0 0 88 88" aria-hidden="true">
+          <path fill="#f25022" d="M4 16 41 10v32H4z" />
+          <path fill="#7fba00" d="M47 9 84 2v40H47z" />
+          <path fill="#00a4ef" d="M4 46h37v32L4 72z" />
+          <path fill="#ffb900" d="M47 46h37v40l-37-8z" />
+        </svg>
+        <div class="wordmark">
+          <span class="ms">Microsoft</span>
+          <span class="win">Windows <em>xp</em></span>
+        </div>
+      </div>
+      <p class="prompt">Para começar, clique no seu nome de usuário</p>
+    </section>
+
+    <div class="split" aria-hidden="true"></div>
+
+    <section class="users">
+      <form class="account" (ngSubmit)="submit()">
+        <div class="picture" aria-hidden="true">
+          <svg viewBox="0 0 48 48">
+            <rect width="48" height="48" fill="#c0392b" />
+            <rect x="8" y="10" width="32" height="28" fill="#7b241c" />
+            <rect x="12" y="14" width="24" height="20" fill="#ead2a8" />
+            <circle cx="20" cy="22" r="3" fill="#1c2833" />
+            <circle cx="28" cy="22" r="3" fill="#1c2833" />
+            <rect x="18" y="28" width="12" height="2" fill="#1c2833" />
+          </svg>
+        </div>
+
+        <div class="fields">
+          <p class="name">{{ displayName }}</p>
+          <label for="login-pass">Digite sua senha</label>
+          <div class="row">
+            <input
+              id="login-pass"
+              name="password"
+              type="password"
+              autocomplete="current-password"
+              autofocus
+              [(ngModel)]="password"
+            />
+            <button type="submit" class="icon-btn go" aria-label="Entrar">
+              <svg viewBox="0 0 16 16" aria-hidden="true">
+                <path fill="#fff" d="M1 7h8L6.2 4.2 7.6 2.8 13 8l-5.4 5.2-1.4-1.4L9 9H1z" />
+              </svg>
+            </button>
+            <button
+              type="button"
+              class="icon-btn help"
+              aria-label="Ajuda"
+              (click)="revealHint()"
+            >
+              ?
+            </button>
+          </div>
+
+          @if (showHint()) {
+            <p class="error">Usuário ou senha inválidos.</p>
+            <p class="hint">{{ hint }}</p>
+          }
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="chrome bottom">
+    <button type="button" class="power">
+      <span class="power-glyph" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10" fill="#e74c3c" />
+          <path
+            fill="none"
+            stroke="#fff"
+            stroke-width="2.2"
+            d="M12 7v6M8.2 9.2a5.2 5.2 0 1 0 7.6 0"
+          />
+        </svg>
+      </span>
+      Desligar o computador
+    </button>
+    <p class="footer-hint">{{ footer }}</p>
+  </footer>
+</div>

@@ -1,1 +1,5 @@
-<app-desktop />
+@if (auth.isLoggedIn()) {
+  <app-desktop />
+} @else {
+  <app-login />
+}
