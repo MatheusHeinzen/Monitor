@@ -24,6 +24,12 @@
       @case ('notepad') {
         <app-notepad [payload]="win().payload" />
       }
+      @case ('word') {
+        <app-word [payload]="win().payload" />
+      }
+      @case ('lab') {
+        <app-lab-monitor />
+      }
       @case ('viewer') {
         <app-picture-viewer [payload]="win().payload" />
       }

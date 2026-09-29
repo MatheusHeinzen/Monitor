@@ -1,4 +1,4 @@
-export type RecycleKind = 'text' | 'image';
+export type RecycleKind = 'text' | 'document' | 'image';
 
 export interface RecycleFile {
   id: string;

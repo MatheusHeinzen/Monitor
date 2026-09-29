@@ -1,0 +1,269 @@
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.word {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  background: #d6e3f0;
+  color: #1f1f1f;
+  font: 11px 'Segoe UI', Tahoma, sans-serif;
+}
+
+.chrome {
+  display: flex;
+  flex-shrink: 0;
+  align-items: flex-end;
+  gap: 6px;
+  height: 28px;
+  padding: 0 6px;
+  background: linear-gradient(#f3f7fb, #cfddeb);
+  border-bottom: 1px solid #8fa8c1;
+}
+
+.orb {
+  width: 28px;
+  height: 28px;
+  margin-bottom: -2px;
+  border: 1px solid #9a3a00;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 30%, #ffd28a, #f08a12 45%, #c45a00 78%),
+    #ef8a12;
+  box-shadow: inset 0 1px 0 #ffe2b0;
+  cursor: default;
+}
+
+.quick {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  margin-bottom: 4px;
+}
+
+.qa {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 1px solid transparent;
+  background: #5b7fa3;
+  opacity: 0.85;
+}
+
+.qa.save {
+  clip-path: polygon(20% 10%, 80% 10%, 80% 90%, 20% 90%);
+}
+
+.qa.undo,
+.qa.redo {
+  border-radius: 50% 50% 50% 0;
+  background: #4f6f92;
+}
+
+.qa.redo {
+  transform: scaleX(-1);
+}
+
+.tabs {
+  display: flex;
+  align-items: flex-end;
+  gap: 1px;
+  margin-left: 4px;
+  height: 100%;
+}
+
+.tab {
+  height: 22px;
+  padding: 0 10px;
+  border: 1px solid transparent;
+  border-bottom: none;
+  border-radius: 3px 3px 0 0;
+  background: transparent;
+  color: #1f3550;
+  font: inherit;
+  cursor: default;
+}
+
+.tab.active {
+  border-color: #8fa8c1;
+  background: linear-gradient(#fff, #e8f0f8);
+  font-weight: 600;
+}
+
+.ribbon {
+  display: flex;
+  flex-shrink: 0;
+  gap: 2px;
+  min-height: 78px;
+  padding: 4px 4px 2px;
+  background: linear-gradient(#eef4fa, #d5e4f3 55%, #c4d7ea);
+  border-bottom: 1px solid #8fa8c1;
+}
+
+.group {
+  display: flex;
+  min-width: 88px;
+  flex-direction: column;
+  padding: 2px 6px 0;
+  border-right: 1px solid #a9bdd2;
+}
+
+.group.grow {
+  flex: 1;
+}
+
+.tools {
+  display: flex;
+  flex: 1;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ctl {
+  padding: 3px 6px;
+  border: 1px solid transparent;
+  color: #1f3550;
+  white-space: nowrap;
+}
+
+.ctl.wide {
+  padding: 8px 10px;
+  border: 1px solid #b7c8da;
+  background: linear-gradient(#f8fbfe, #dce8f5);
+}
+
+.ctl.tall {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.ctl.square {
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: 1px solid #b7c8da;
+  background: #f4f8fc;
+  text-align: center;
+  line-height: 18px;
+}
+
+.ctl.on {
+  border-color: #f0c36a;
+  background: linear-gradient(#fff4ce, #ffe08a);
+}
+
+.font,
+.size {
+  display: inline-flex;
+  align-items: center;
+  height: 20px;
+  padding: 0 6px;
+  border: 1px solid #8fa8c1;
+  background: #fff;
+}
+
+.font {
+  min-width: 90px;
+}
+
+.size {
+  min-width: 28px;
+}
+
+.sep {
+  width: 1px;
+  height: 18px;
+  margin: 0 2px;
+  background: #a9bdd2;
+}
+
+.caption {
+  margin: 2px 0 0;
+  color: #5a7390;
+  font-size: 10px;
+  text-align: center;
+}
+
+.ruler {
+  flex-shrink: 0;
+  height: 18px;
+  padding: 0 48px;
+  background: linear-gradient(#f7fafc, #e4ecf5);
+  border-bottom: 1px solid #9bb0c5;
+}
+
+.track {
+  position: relative;
+  height: 100%;
+  border-bottom: 1px solid #7f96ad;
+}
+
+.mark {
+  position: absolute;
+  bottom: 0;
+  width: 1px;
+  height: 6px;
+  background: #7f96ad;
+}
+
+.canvas {
+  display: flex;
+  min-height: 0;
+  flex: 1;
+  justify-content: center;
+  padding: 12px 8px;
+  overflow: auto;
+  background: #808080;
+}
+
+.page {
+  width: min(100%, 520px);
+  min-height: 100%;
+  background: #fff;
+  box-shadow: 0 0 0 1px #5a5a5a, 2px 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+textarea {
+  display: block;
+  width: 100%;
+  min-height: 100%;
+  height: 100%;
+  padding: 36px 44px;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #000;
+  font: 12px Calibri, 'Segoe UI', Tahoma, sans-serif;
+  line-height: 1.45;
+  resize: none;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+}
+
+.status {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 14px;
+  height: 22px;
+  padding: 0 8px;
+  background: linear-gradient(#d7e5f4, #b9cfe6);
+  border-top: 1px solid #8fa8c1;
+  color: #1f3550;
+  user-select: none;
+}
+
+.spacer {
+  flex: 1;
+}

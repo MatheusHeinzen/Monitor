@@ -1,4 +1,4 @@
-export type DesktopIconKind = 'recycle' | 'outlook' | 'notepad' | 'image';
+export type DesktopIconKind = 'recycle' | 'outlook' | 'notepad' | 'word' | 'lab' | 'image';
 
 export interface DesktopItem {
   id: string;

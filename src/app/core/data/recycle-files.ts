@@ -40,7 +40,7 @@ Não deixar isso na área de trabalho.
     deletedAt: '21/09/2006 16:05',
     size: '24 KB',
     type: 'Documento do Microsoft Word',
-    kind: 'text',
+    kind: 'document',
     content: `RELATÓRIO ANUAL — SETOR DE MONITORAMENTO
 
 Resumo

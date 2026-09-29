@@ -42,6 +42,26 @@ export class RecycleBin {
       return;
     }
 
+    if (file.kind === 'document') {
+      this.wm.open(
+        {
+          id: `file-${file.id}`,
+          label: file.name,
+          icon: 'word',
+          appId: 'word',
+          windowTitle: `${file.name} - Microsoft Word`,
+          width: 640,
+          height: 480,
+          minWidth: 420,
+          minHeight: 320,
+          maxWidth: 1100,
+          maxHeight: 800,
+        },
+        { content: file.content },
+      );
+      return;
+    }
+
     this.wm.open(
       {
         id: `file-${file.id}`,
@@ -60,7 +80,10 @@ export class RecycleBin {
     );
   }
 
-  iconFor(file: RecycleFile): 'notepad' | 'image' {
-    return file.kind === 'image' ? 'image' : 'notepad';
+  iconFor(file: RecycleFile): 'notepad' | 'word' | 'image' {
+    if (file.kind === 'image') {
+      return 'image';
+    }
+    return file.kind === 'document' ? 'word' : 'notepad';
   }
 }

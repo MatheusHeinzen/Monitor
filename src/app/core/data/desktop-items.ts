@@ -40,4 +40,17 @@ export const DESKTOP_ITEMS: DesktopItem[] = [
     maxWidth: 1000,
     maxHeight: 720,
   },
+  {
+    id: 'lab',
+    label: 'GeoSense 2006',
+    icon: 'lab',
+    appId: 'lab',
+    windowTitle: 'GeoSense Monitor 1.4 - Estação Vulcão',
+    width: 760,
+    height: 520,
+    minWidth: 560,
+    minHeight: 380,
+    maxWidth: 1200,
+    maxHeight: 860,
+  },
 ];

@@ -1,0 +1,141 @@
+<div class="word">
+  <div class="chrome">
+    <button type="button" class="orb" aria-label="Botão do Microsoft Office"></button>
+    <div class="quick">
+      <span class="qa save" title="Salvar"></span>
+      <span class="qa undo" title="Desfazer"></span>
+      <span class="qa redo" title="Refazer"></span>
+    </div>
+    <div class="tabs">
+      @for (item of tabs; track item.id) {
+        <button
+          type="button"
+          class="tab"
+          [class.active]="tab() === item.id"
+          (click)="selectTab(item.id)"
+        >
+          {{ item.label }}
+        </button>
+      }
+    </div>
+  </div>
+
+  <div class="ribbon">
+    @switch (tab()) {
+      @case ('inicio') {
+        <section class="group">
+          <div class="tools">
+            <span class="ctl wide">Colar</span>
+            <div class="stack">
+              <span class="ctl">Recortar</span>
+              <span class="ctl">Copiar</span>
+            </div>
+          </div>
+          <p class="caption">Área de Transferência</p>
+        </section>
+        <section class="group grow">
+          <div class="tools">
+            <span class="font">Calibri</span>
+            <span class="size">11</span>
+            <span class="sep"></span>
+            <b class="ctl square">N</b>
+            <i class="ctl square">I</i>
+            <u class="ctl square">S</u>
+          </div>
+          <p class="caption">Fonte</p>
+        </section>
+        <section class="group">
+          <div class="tools">
+            <span class="ctl">≡</span>
+            <span class="ctl">≡</span>
+            <span class="ctl">≡</span>
+          </div>
+          <p class="caption">Parágrafo</p>
+        </section>
+        <section class="group">
+          <div class="tools">
+            <span class="ctl wide tall">Estilos</span>
+          </div>
+          <p class="caption">Estilos</p>
+        </section>
+      }
+      @case ('inserir') {
+        <section class="group grow">
+          <div class="tools">
+            <span class="ctl wide">Tabela</span>
+            <span class="ctl wide">Imagem</span>
+            <span class="ctl wide">Formas</span>
+            <span class="ctl wide">Hiperlink</span>
+          </div>
+          <p class="caption">Ilustrações</p>
+        </section>
+      }
+      @case ('layout') {
+        <section class="group grow">
+          <div class="tools">
+            <span class="ctl wide">Margens</span>
+            <span class="ctl wide">Orientação</span>
+            <span class="ctl wide">Tamanho</span>
+            <span class="ctl wide">Colunas</span>
+          </div>
+          <p class="caption">Configurar Página</p>
+        </section>
+      }
+      @case ('revisao') {
+        <section class="group grow">
+          <div class="tools">
+            <span class="ctl wide">Ortografia</span>
+            <span class="ctl wide">Comentários</span>
+            <span class="ctl wide">Controlar Alterações</span>
+          </div>
+          <p class="caption">Revisão</p>
+        </section>
+      }
+      @case ('exibicao') {
+        <section class="group grow">
+          <div class="tools">
+            <span class="ctl wide on">Layout de Impressão</span>
+            <span class="ctl wide">Leitura em Tela Inteira</span>
+            <span class="ctl wide">Zoom</span>
+          </div>
+          <p class="caption">Modos de Exibição</p>
+        </section>
+      }
+    }
+  </div>
+
+  <div class="ruler">
+    <div class="track">
+      <span class="mark" style="left: 8%"></span>
+      <span class="mark" style="left: 16%"></span>
+      <span class="mark" style="left: 24%"></span>
+      <span class="mark" style="left: 32%"></span>
+      <span class="mark" style="left: 40%"></span>
+      <span class="mark" style="left: 48%"></span>
+      <span class="mark" style="left: 56%"></span>
+      <span class="mark" style="left: 64%"></span>
+      <span class="mark" style="left: 72%"></span>
+      <span class="mark" style="left: 80%"></span>
+      <span class="mark" style="left: 88%"></span>
+    </div>
+  </div>
+
+  <div class="canvas">
+    <div class="page">
+      <textarea
+        [value]="text()"
+        (input)="onInput($event)"
+        spellcheck="false"
+        aria-label="Documento"
+      ></textarea>
+    </div>
+  </div>
+
+  <footer class="status">
+    <span>Página 1 de 1</span>
+    <span>Palavras: {{ wordCount() }}</span>
+    <span class="spacer"></span>
+    <span>Português (Brasil)</span>
+    <span>100%</span>
+  </footer>
+</div>

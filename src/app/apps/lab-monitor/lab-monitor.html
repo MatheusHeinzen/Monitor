@@ -1,0 +1,70 @@
+<div class="lab">
+  <div class="menubar">
+    <span>Arquivo</span>
+    <span>Exibir</span>
+    <span>Sensores</span>
+    <span>Alarmes</span>
+    <span>Ferramentas</span>
+    <span>Ajuda</span>
+  </div>
+
+  <div class="toolbar">
+    <span class="btn">Atualizar</span>
+    <span class="btn">Calibrar</span>
+    <span class="sep"></span>
+    <span class="btn">Relatório</span>
+    <span class="btn">Imprimir</span>
+    <span class="sep"></span>
+    <span class="meta">EST-VULC-07 · Subsolo -3 · Base do cone</span>
+  </div>
+
+  <header class="banner">
+    <div>
+      <h1>GeoSense Monitor 1.4</h1>
+      <p>Laboratório de Vigilância Vulcânica — rede local 10.0.7.x</p>
+    </div>
+    <div class="live">
+      <span class="dot" [class.down]="!linkOk()"></span>
+      <span>{{ linkOk() ? 'LINK OK' : 'LINK INSTÁVEL' }}</span>
+      <b>{{ clock() }}</b>
+    </div>
+  </header>
+
+  <div class="workspace">
+    <section class="gauges">
+      @for (sensor of sensors(); track sensor.id) {
+        <article class="gauge" [attr.data-status]="sensor.status">
+          <h2>{{ sensor.label }}</h2>
+          <p class="lcd">
+            <b>{{ sensor.value }}</b>
+            <small>{{ sensor.unit }}</small>
+          </p>
+          <div class="bar">
+            <span [style.width.%]="barWidth(sensor)"></span>
+          </div>
+          <footer>
+            <span>{{ sensor.min }}–{{ sensor.max }} {{ sensor.unit }}</span>
+            <em>{{ levelLabel(sensor.status) }}</em>
+          </footer>
+        </article>
+      }
+    </section>
+
+    <aside class="log">
+      <h2>Registro de eventos</h2>
+      <ul>
+        @for (alert of alerts; track alert.time + alert.message) {
+          <li [attr.data-level]="alert.level">
+            <time>{{ alert.time }}</time>
+            <span class="tag">{{ levelLabel(alert.level) }}</span>
+            <p>{{ alert.message }}</p>
+          </li>
+        }
+      </ul>
+    </aside>
+  </div>
+
+  <footer class="status">
+    Amostragem 1,8 s · Firmware sonda v3.02 · Operador: turnos A/B
+  </footer>
+</div>

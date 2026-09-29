@@ -1,8 +1,10 @@
 import { Component, inject, input } from '@angular/core';
+import { LabMonitorApp } from '../../apps/lab-monitor/lab-monitor';
 import { OutlookApp } from '../../apps/outlook/outlook';
 import { NotepadApp } from '../../apps/notepad/notepad';
 import { PictureViewer } from '../../apps/picture-viewer/picture-viewer';
 import { RecycleBin } from '../../apps/recycle-bin/recycle-bin';
+import { WordApp } from '../../apps/word/word';
 import { AppWindow, ResizeEdge } from '../../core/models/app-window';
 import { WindowManagerService } from '../../core/services/window-manager.service';
 import { AppGlyph } from '../../shared/app-glyph/app-glyph';
@@ -11,7 +13,7 @@ const RESIZE_EDGES: ResizeEdge[] = ['n', 's', 'e', 'w', 'ne', 'nw', 'se', 'sw'];
 
 @Component({
   selector: 'app-window',
-  imports: [AppGlyph, RecycleBin, OutlookApp, NotepadApp, PictureViewer],
+  imports: [AppGlyph, RecycleBin, OutlookApp, NotepadApp, WordApp, LabMonitorApp, PictureViewer],
   templateUrl: './window.html',
   styleUrl: './window.scss',
   host: {
