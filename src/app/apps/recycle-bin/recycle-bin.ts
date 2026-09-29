@@ -32,6 +32,10 @@ export class RecycleBin {
           windowTitle: file.name,
           width: 460,
           height: 390,
+          minWidth: 280,
+          minHeight: 220,
+          maxWidth: 900,
+          maxHeight: 700,
         },
         { scene: file.scene },
       );
@@ -47,6 +51,10 @@ export class RecycleBin {
         windowTitle: `${file.name} - Bloco de notas`,
         width: 520,
         height: 380,
+        minWidth: 280,
+        minHeight: 180,
+        maxWidth: 1000,
+        maxHeight: 720,
       },
       { content: file.content },
     );

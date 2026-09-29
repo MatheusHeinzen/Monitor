@@ -9,6 +9,10 @@ export const DESKTOP_ITEMS: DesktopItem[] = [
     windowTitle: 'Lixeira',
     width: 620,
     height: 430,
+    minWidth: 420,
+    minHeight: 280,
+    maxWidth: 1100,
+    maxHeight: 760,
   },
   {
     id: 'outlook',
@@ -18,6 +22,10 @@ export const DESKTOP_ITEMS: DesktopItem[] = [
     windowTitle: 'Caixa de Entrada - Microsoft Outlook',
     width: 820,
     height: 540,
+    minWidth: 560,
+    minHeight: 360,
+    maxWidth: 1280,
+    maxHeight: 860,
   },
   {
     id: 'notepad',
@@ -27,5 +35,9 @@ export const DESKTOP_ITEMS: DesktopItem[] = [
     windowTitle: 'notas.txt - Bloco de notas',
     width: 520,
     height: 380,
+    minWidth: 280,
+    minHeight: 180,
+    maxWidth: 1000,
+    maxHeight: 720,
   },
 ];

@@ -29,4 +29,11 @@
       }
     }
   </div>
+
+  @for (edge of edges; track edge) {
+    <div
+      [class]="'resize edge-' + edge"
+      (pointerdown)="onResizePointerDown($event, edge)"
+    ></div>
+  }
 </div>

@@ -3,9 +3,11 @@ import { OutlookApp } from '../../apps/outlook/outlook';
 import { NotepadApp } from '../../apps/notepad/notepad';
 import { PictureViewer } from '../../apps/picture-viewer/picture-viewer';
 import { RecycleBin } from '../../apps/recycle-bin/recycle-bin';
-import { AppWindow } from '../../core/models/app-window';
+import { AppWindow, ResizeEdge } from '../../core/models/app-window';
 import { WindowManagerService } from '../../core/services/window-manager.service';
 import { AppGlyph } from '../../shared/app-glyph/app-glyph';
+
+const RESIZE_EDGES: ResizeEdge[] = ['n', 's', 'e', 'w', 'ne', 'nw', 'se', 'sw'];
 
 @Component({
   selector: 'app-window',
@@ -24,6 +26,7 @@ import { AppGlyph } from '../../shared/app-glyph/app-glyph';
 export class WindowFrame {
   private readonly wm = inject(WindowManagerService);
   readonly win = input.required<AppWindow>();
+  readonly edges = RESIZE_EDGES;
 
   onFocus(): void {
     this.wm.focus(this.win().id);
@@ -51,6 +54,34 @@ export class WindowFrame {
 
     title.addEventListener('pointermove', onMove);
     title.addEventListener('pointerup', onUp);
+  }
+
+  onResizePointerDown(event: PointerEvent, edge: ResizeEdge): void {
+    event.stopPropagation();
+    event.preventDefault();
+
+    const current = this.win();
+    this.wm.focus(current.id);
+
+    const origin = {
+      window: { ...current },
+      pointerX: event.clientX,
+      pointerY: event.clientY,
+    };
+
+    const handle = event.currentTarget as HTMLElement;
+    handle.setPointerCapture(event.pointerId);
+
+    const onMove = (moveEvent: PointerEvent) => {
+      this.wm.resize(current.id, edge, moveEvent.clientX, moveEvent.clientY, origin);
+    };
+    const onUp = () => {
+      handle.removeEventListener('pointermove', onMove);
+      handle.removeEventListener('pointerup', onUp);
+    };
+
+    handle.addEventListener('pointermove', onMove);
+    handle.addEventListener('pointerup', onUp);
   }
 
   minimize(event: Event): void {
