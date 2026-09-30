@@ -7,16 +7,37 @@ export const MAIL_MESSAGES: MailMessage[] = [
     from: 'RH Sindiminas',
     fromEmail: 'rh@sindiminas.org',
     to: 'h.vance@lab.local',
-    subject: 'Re: Verba para perfuração profunda – Poço 04',
+    subject: 'Re: Verba Poço 04 — nomenclatura nos relatórios',
     received: '10/08/2026 09:22',
     unread: true,
     audience: 'helio',
     body: `Hélio,
 
-A diretoria aprovou o investimento inicial para o aproveitamento geotérmico do setor. Porém, reforçamos: a atividade oficial deste laboratório deve constar como Estação de Pesquisa Mineral e Captura de Geotermia. Nada sobre coleta de amostras vivas deve constar nos relatórios públicos.
+A verba inicial foi aprovada. Só reforçando o que já combinamos com a diretoria: nos documentos externos a unidade deve aparecer como Estação de Pesquisa Mineral e Captura de Geotermia.
 
-Atenciosamente,
-Departamento de RH / Sindiminas
+Evitem termos que soem a “coleta especial” ou material vivo. Auditoria externa no mês que vem.
+
+RH / Sindiminas
+`,
+  },
+  {
+    id: 'mail-orcamento',
+    folder: 'projetos',
+    from: 'Contabilidade',
+    fromEmail: 'contabilidade@sindiminas.org',
+    to: 'h.vance@lab.local',
+    subject: 'Planilha Q3 — aproveitamento térmico',
+    received: '08/08/2026 15:40',
+    unread: false,
+    audience: 'helio',
+    body: `Dr. Vance,
+
+Segue lembrete da planilha de custos do Poço 04 (perfuração + sensores).
+Prazo interno: sexta.
+
+Sem novidades no contrato do Projeto Vulkanos — vigência 2026.
+
+Contabilidade
 `,
   },
   {
@@ -25,17 +46,39 @@ Departamento de RH / Sindiminas
     from: 'Dra. Mariana Dias',
     fromEmail: 'm.dias@lab.local',
     to: 'h.vance@lab.local',
-    subject: 'Amostra do Nível -400m (Leitura anômala)',
+    subject: 'Poço 04 / fragmento -400m — sensor estranho',
     received: '12/08/2026 17:48',
     unread: true,
     audience: 'helio',
     body: `Hélio,
 
-A sonda recuperou o fragmento magmático do Poço 04. Não é rocha derretida comum. A viscosidade e a emissão de calor não batem com basalto ou dacito. Quando jogamos nitrogênio líquido para resfriar no Becker, a temperatura subiu em vez de cair. Parecia estar... reagindo defensivamente.
+Trouxemos o fragmento do -400m. Viscosidade não bate com basalto nem dacito que eu conheço.
 
-Precisamos isolar a amostra no setor térmico B.
+Tentamos resfriar com N₂ no Becker e a leitura de temperatura SUBIU. Acho que o termopar está com defeito — ou a calibração do banco B. Vou isolar no setor térmico B até a gente olhar com calma.
 
-Mariana
+Não manda isso pra fora ainda.
+
+M.
+`,
+  },
+  {
+    id: 'mail-auditoria',
+    folder: 'projetos',
+    from: 'Auditoria Interna',
+    fromEmail: 'auditoria@lab.local',
+    to: 'h.vance@lab.local',
+    subject: 'Classificação da amostra do Poço 04',
+    received: '13/08/2026 10:05',
+    unread: false,
+    audience: 'helio',
+    body: `Prezado,
+
+Para o relatório trimestral, a amostra recuperada deve constar como mineral / fragmento ígneo.
+Não usar categoria biológica sem laudo formal.
+
+Qualquer dúvida, responder este fio.
+
+Auditoria Interna
 `,
   },
   {
@@ -44,17 +87,38 @@ Mariana
     from: 'Alerta de Segurança',
     fromEmail: 'alerta_seguranca@lab.local',
     to: 'h.vance@lab.local',
-    subject: '[ALERTA DE TEMPERATURA] Setor B3 - Câmara de Isolamento',
+    subject: '[SENSOR] B3 — limiares excedidos',
     received: '14/08/2026 20:41',
     unread: true,
     audience: 'helio',
-    body: `Leitura de temperatura acima dos 1.200°C na câmara B3.
-Falha nas bombas de água de refrigeração.
-Variação de massa detectada no sensor de peso: de 45kg para 380kg em 48 horas.
+    body: `Código: TH-B3-1200
+Unidade: Câmara de isolamento B3
 
-Recomenda-se evacuação de emergência.
+Temp. registrada: > 1.200 °C
+Fluxo refrigeração: abaixo do mínimo
+Sensor de peso: 45 kg → 380 kg (janela 48 h)
 
-— Sistema automático de monitoramento
+Ticket gerado automaticamente. Sem operador na sala no horário do pico.
+`,
+  },
+  {
+    id: 'mail-facilities',
+    folder: 'inbox',
+    from: 'Facilities',
+    fromEmail: 'facilities@lab.local',
+    to: 'h.vance@lab.local',
+    subject: 'Nível 2 — turno da tarde sem retorno',
+    received: '14/08/2026 19:55',
+    unread: true,
+    audience: 'helio',
+    body: `Dr. Vance,
+
+Equipe de manutenção reportou vazamento / vapor no corredor do Nível 2 por volta das 18h.
+Três técnicos não bateram o ponto de saída. Rádio sem resposta.
+
+Vamos manter o gerador como está até orientação de vocês. Não mexemos nas válvulas sem ordem.
+
+Facilities
 `,
   },
   {
@@ -63,16 +127,32 @@ Recomenda-se evacuação de emergência.
     from: 'Facilities',
     fromEmail: 'facilities@lab.local',
     to: 'h.vance@lab.local',
-    subject: 'Agendamento: troca de óleo gerador auxiliar',
+    subject: 'Agendamento: óleo gerador auxiliar',
     received: '11/08/2026 14:05',
     unread: false,
     audience: 'helio',
-    body: `Dr. Vance,
+    body: `Confirmado: sexta, 08h–10h.
+Gerador auxiliar offline só com autorização do plantão.
 
-Confirmamos a janela de manutenção do gerador auxiliar para sexta, 08h–10h.
-Levem o gerador offline apenas com autorização do plantão.
+Facilities
+`,
+  },
+  {
+    id: 'mail-impressora',
+    folder: 'inbox',
+    from: 'Helpdesk',
+    fromEmail: 'helpdesk@lab.local',
+    to: 'h.vance@lab.local',
+    subject: 'Impressora 1B — toner preto',
+    received: '12/08/2026 09:11',
+    unread: false,
+    audience: 'helio',
+    body: `Olá,
 
-Facilities / Vulkanos
+Toner preto da impressora da Sala 1B está em 8%.
+Pedido #2291 aberto no almoxarifado.
+
+Helpdesk
 `,
   },
   {
@@ -81,17 +161,30 @@ Facilities / Vulkanos
     from: 'Agenda',
     fromEmail: 'agenda@lab.local',
     to: 'h.vance@lab.local',
-    subject: 'Reunião semanal — captura geotérmica',
+    subject: 'Reunião semanal cancelada',
     received: '09/08/2026 08:30',
     unread: false,
     audience: 'helio',
-    body: `Lembrete automático
+    body: `A reunião de terça (Poço 04 / Setor B) foi cancelada.
+Próxima data: a confirmar.
 
-Assunto: Acompanhamento Poço 04 / Setor B
-Horário: terça, 10h
-Sala: Nível 1 — Sala 1B
+Sala 1B liberada.
+`,
+  },
+  {
+    id: 'mail-ferias',
+    folder: 'inbox',
+    from: 'RH Sindiminas',
+    fromEmail: 'rh@sindiminas.org',
+    to: 'h.vance@lab.local',
+    subject: 'Saldo de férias — lembrete automático',
+    received: '05/08/2026 07:00',
+    unread: false,
+    audience: 'helio',
+    body: `Lembrete: você possui 12 dias de férias acumulados.
+Agendar até o fim do semestre.
 
-Leve o diário de sondagem atualizado.
+RH
 `,
   },
   {
@@ -100,15 +193,15 @@ Leve o diário de sondagem atualizado.
     from: 'Dr. Hélio Vance',
     fromEmail: 'h.vance@lab.local',
     to: 'm.dias@lab.local',
-    subject: 'Re: Amostra do Nível -400m',
+    subject: 'Re: Poço 04 / fragmento -400m',
     received: '12/08/2026 18:10',
     unread: false,
     audience: 'helio',
     body: `Mariana,
 
-Isole no B3 e não publique nada ainda. Vou revisar a análise orgânica amanhã.
+B3. Sem publicação. Olho a planilha amanhã.
 
-Hélio
+H.
 `,
   },
   {
@@ -117,11 +210,11 @@ Hélio
     from: 'Dr. Hélio Vance',
     fromEmail: 'h.vance@lab.local',
     to: 'm.dias@lab.local',
-    subject: '(rascunho) Não desligue o incinerador',
+    subject: '(rascunho sem assunto)',
     received: '14/08/2026 21:12',
     unread: false,
     audience: 'helio',
-    body: `Mariana, não desligue o incinerador! O que quer que esteja dentro da rocha está se alimentando do calor do gerador geotérmico. Se cortarmos a energia, ela vai descer direto para a fenda magmática do vulcão e...
+    body: `Mariana — não mexam no incinerador ainda. Se a fonte de calor cair, o que estiver no B3 pode...
 `,
   },
   {
@@ -130,19 +223,37 @@ Hélio
     from: 'TI Corporativo',
     fromEmail: 'ti@lab.local',
     to: 'suporte_ti@lab.local',
-    subject: 'Atenção: política de senhas — conta dr.helio',
+    subject: 'Política de senhas — conta administrativa',
     received: '07/08/2026 11:16',
     unread: true,
     audience: 'guest',
-    body: `Equipe de suporte,
+    body: `Plantão,
 
-O Dr. Hélio foi novamente advertido por usar o ano do projeto no login da estação.
+O usuário dr.helio foi advertido de novo. Continua colocando o ano do contrato na senha da estação.
 
-Lembrete da política: misturar letras e números. Exemplo de padrão que ele insiste em repetir: inicial + nome abreviado + @ + ano do projeto (2026).
+Não enviem credenciais por e-mail. Só reforçar na próxima passagem.
 
-Não compartilhar credenciais por e-mail. Este aviso é só para o plantão.
+TI
+`,
+  },
+  {
+    id: 'mail-ti-contrato',
+    folder: 'inbox',
+    from: 'RH Sindiminas',
+    fromEmail: 'rh@sindiminas.org',
+    to: 'suporte_ti@lab.local',
+    subject: 'Cópia: vigência Projeto Vulkanos',
+    received: '06/08/2026 16:20',
+    unread: true,
+    audience: 'guest',
+    body: `Para o arquivo do suporte (acesso a pastas / contas):
 
-TI / Lab.local
+Projeto Vulkanos — vigência 2026
+Responsável técnico: h.vance@lab.local
+
+Anexo omitido (servidor de arquivos).
+
+RH
 `,
   },
   {
@@ -151,16 +262,43 @@ TI / Lab.local
     from: 'Monitoramento',
     fromEmail: 'noc@lab.local',
     to: 'suporte_ti@lab.local',
-    subject: 'Servidor de e-mail local — fila atrasada',
+    subject: 'Fila SMTP atrasada 12 min',
     received: '13/08/2026 16:02',
     unread: true,
     audience: 'guest',
     body: `Plantão,
 
-A fila SMTP do servidor local atrasou 12 minutos hoje às 15h40.
-GeoSense e Outlook da estação do Chefe de Pesquisa continuam na rede 10.0.7.x.
+Fila SMTP atrasou 12 minutos às 15h40.
+GeoSense e Outlook da estação do chefe na 10.0.7.x — ok.
 
-Sem ação urgente — registrar no ticket #4412.
+Ticket #4412.
+`,
+  },
+  {
+    id: 'mail-ti-ssl',
+    folder: 'inbox',
+    from: 'Certificados',
+    fromEmail: 'certs@lab.local',
+    to: 'suporte_ti@lab.local',
+    subject: 'Certificado interno expira em 40 dias',
+    received: '11/08/2026 08:00',
+    unread: false,
+    audience: 'guest',
+    body: `monitor-estacao.lab.local — renovar antes de 20/09.
+Procedimento padrão no wiki interno.
+`,
+  },
+  {
+    id: 'mail-ti-impressora',
+    folder: 'inbox',
+    from: 'Almoxarifado',
+    fromEmail: 'almox@lab.local',
+    to: 'suporte_ti@lab.local',
+    subject: 'Pedido #2291 toner — aguardando',
+    received: '12/08/2026 11:30',
+    unread: false,
+    audience: 'guest',
+    body: `Toner preto 1B ainda sem estoque. Previsão: quarta.
 `,
   },
   {
@@ -173,9 +311,8 @@ Sem ação urgente — registrar no ticket #4412.
     received: '14/08/2026 03:10',
     unread: false,
     audience: 'guest',
-    body: `Backup noturno da pasta compartilhada concluído com sucesso.
-
-Volumes: Documentos (parcial — Sigilosos omitido por ACL), GeoSense logs, caixa de correio geral.
+    body: `Backup noturno ok.
+Pasta compartilhada parcial (alguns diretórios omitidos por ACL).
 `,
   },
   {
@@ -184,11 +321,12 @@ Volumes: Documentos (parcial — Sigilosos omitido por ACL), GeoSense logs, caix
     from: 'Suporte TI',
     fromEmail: 'suporte_ti@lab.local',
     to: 'ti@lab.local',
-    subject: 'Re: política de senhas — conta dr.helio',
+    subject: 'Re: Política de senhas',
     received: '07/08/2026 11:40',
     unread: false,
     audience: 'guest',
-    body: `Recebido. Vou reforçar no próximo plantão e deixar uma nota de backup na área de trabalho do visitante.
+    body: `Ok. Deixei um checklist na área do visitante e uma nota sobre o padrão de digitação dele.
+Não colo a senha montada em lugar nenhum.
 `,
   },
   {
@@ -201,7 +339,7 @@ Volumes: Documentos (parcial — Sigilosos omitido por ACL), GeoSense logs, caix
     received: '01/08/2026 09:00',
     unread: false,
     audience: 'both',
-    body: `Mensagem de teste do servidor de correio local. Pode excluir.
+    body: `Mensagem de teste do servidor de correio local.
 `,
   },
 ];

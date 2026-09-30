@@ -27,8 +27,6 @@ export const AUTH_ACCOUNTS: AuthAccount[] = [
   },
 ];
 
-export const LOGIN_FOOTER =
-  'Laboratório Vulkanos — Estação de Pesquisa Mineral e Captura de Geotermia';
+export const LOGIN_FOOTER = 'Estação Monitor · rede local 10.0.7.x';
 
-export const LOGIN_POSTIT =
-  "A senha do Dr. Hélio é a data do primeiro surto geotérmico (DD/MM/AAAA) com a palavra 'vulkanos' na frente.";
+export const LOGIN_POSTIT = 'HV: vulkanos + ???';

@@ -1,5 +1,5 @@
 import { DesktopItem } from '../models/desktop-item';
-import { DEFAULT_NOTES, SENHAS_BACKUP_NOTES } from './notes';
+import { DEFAULT_NOTES, SENHAS_BACKUP_NOTES, SUPORTE_STICKY } from './notes';
 import { UserRole } from './auth';
 
 export const DESKTOP_ITEMS: DesktopItem[] = [
@@ -40,7 +40,7 @@ export const DESKTOP_ITEMS: DesktopItem[] = [
     label: 'GeoSense 2006',
     icon: 'lab',
     appId: 'lab',
-    windowTitle: 'GeoSense Monitor 1.4 - Estação Vulcão',
+    windowTitle: 'GeoSense Monitor 1.4 - Estação Monitor',
     desktopSide: 'left',
     desktopX: 22,
     desktopY: 250,
@@ -71,10 +71,10 @@ export const DESKTOP_ITEMS: DesktopItem[] = [
   },
   {
     id: 'senhas-backup',
-    label: 'senhas_backup.txt',
+    label: 'checklist_plantao.txt',
     icon: 'notepad',
     appId: 'notepad',
-    windowTitle: 'senhas_backup.txt - Bloco de notas',
+    windowTitle: 'checklist_plantao.txt - Bloco de notas',
     desktopSide: 'left',
     desktopX: 58,
     desktopY: 372,
@@ -86,6 +86,24 @@ export const DESKTOP_ITEMS: DesktopItem[] = [
     maxHeight: 720,
     roles: ['guest'],
     payload: { content: SENHAS_BACKUP_NOTES },
+  },
+  {
+    id: 'suporte-sticky',
+    label: 'nota_suporte.txt',
+    icon: 'notepad',
+    appId: 'notepad',
+    windowTitle: 'nota_suporte.txt - Bloco de notas',
+    desktopSide: 'right',
+    desktopX: 28,
+    desktopY: 168,
+    width: 480,
+    height: 320,
+    minWidth: 280,
+    minHeight: 180,
+    maxWidth: 900,
+    maxHeight: 640,
+    roles: ['guest'],
+    payload: { content: SUPORTE_STICKY },
   },
   {
     id: 'docs',

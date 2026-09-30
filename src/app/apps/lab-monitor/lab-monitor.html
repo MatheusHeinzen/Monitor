@@ -19,13 +19,13 @@
       Controle de Válvulas
     </button>
     <span class="sep"></span>
-    <span class="meta">EST-VULC-07 · Subsolo -3 · Base do cone</span>
+    <span class="meta">EST-MON-07 · Poço 04 · Subsolo</span>
   </div>
 
   <header class="banner">
     <div>
       <h1>GeoSense Monitor 1.4</h1>
-      <p>Laboratório de Vigilância Vulcânica — rede local 10.0.7.x</p>
+      <p>Monitoramento de planta — rede local 10.0.7.x</p>
     </div>
     <div class="live">
       <span class="dot" [class.down]="!linkOk()"></span>
@@ -37,8 +37,8 @@
   @if (tab() === 'status') {
     <div class="workspace status-tab">
       <section class="panel chart-panel">
-        <h2>Temperatura — Poço 04 / baseline geotérmico</h2>
-        <p class="hint">Estável ~200 °C até o salto no dia do incidente (~1.400 °C).</p>
+        <h2>Temperatura — Poço 04 / sonda de fundo</h2>
+        <p class="hint">Série das últimas semanas. Pico no dia 14/08.</p>
         <svg
           class="chart"
           [attr.viewBox]="'0 0 ' + chart.width + ' ' + chart.height"
@@ -73,9 +73,9 @@
             <li><b>Superfície</b> — acesso / ventilação</li>
             <li><b>Nível 1</b> — Escritórios</li>
             <li><b>Nível 2</b> — Laboratórios / Setor B</li>
-            <li class="magma"><b>Nível 3</b> — Câmara Magmática do Vulcão (dormente)</li>
+            <li class="magma"><b>Nível 3</b> — Câmara térmica profunda</li>
           </ol>
-          <p class="note">A base foi construída dentro do duto de um vulcão dormente.</p>
+          <p class="note">Poço 04 alinhado ao eixo do conduto da formação ígnea (ver diário de sondagem).</p>
         </div>
       </section>
 
@@ -127,8 +127,7 @@
           }
         </ul>
         <p class="note">
-          Silo de nitrogênio CHEIO — tanque portátil pode ser carregado manualmente na sala técnica
-          (Nível 2) para uso no campo.
+          Silo de reserva: nível CHEIO. Retirada manual na sala técnica (Nível 2).
         </p>
       </section>
     </div>
@@ -146,7 +145,7 @@
             type="text"
             [value]="overrideInput()"
             (input)="overrideInput.set($any($event.target).value)"
-            placeholder="ex.: override_refrigeracao_99"
+            placeholder="comando de manutenção…"
           />
           <button type="button" class="btn on" (click)="runOverride()">Executar</button>
         </div>

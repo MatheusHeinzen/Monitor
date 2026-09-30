@@ -60,7 +60,7 @@ export class LabMonitorApp implements OnInit {
   runOverride(): void {
     if (this.overrideInput().trim() === 'override_refrigeracao_99') {
       this.overrideMsg.set(
-        'Comando aceito no log local. Tubulação principal permanece ROMPIDA — ação física necessária na sala técnica.',
+        'Comando registrado no log. Estado das válvulas inalterado — verificar painel de status.',
       );
       return;
     }

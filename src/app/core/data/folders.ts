@@ -35,6 +35,22 @@ export const FOLDERS: FolderDefinition[] = [
         childFolderId: 'sigilosos',
         requiredRole: 'helio',
       },
+      {
+        id: 'horarios',
+        name: 'horarios_turno.txt',
+        size: '1 KB',
+        type: 'Documento de Texto',
+        modified: '01/08/2026 08:00',
+        kind: 'text',
+        content: `Turnos — Estação Monitor
+
+Manhã  06:00–14:00
+Tarde  14:00–22:00
+Noite  22:00–06:00
+
+Plantão Facilities: rádio canal 3
+`,
+      },
     ],
   },
   {
@@ -53,6 +69,23 @@ export const FOLDERS: FolderDefinition[] = [
         kind: 'folder',
         childFolderId: 'relatorios',
       },
+      {
+        id: 'ata-orcamento',
+        name: 'ata_reuniao_orcamento.doc',
+        size: '14 KB',
+        type: 'Documento do Microsoft Word',
+        modified: '04/08/2026 11:20',
+        kind: 'document',
+        content: `ATA — Reunião de orçamento Q3
+Presentes: Contabilidade, RH, Chefe de Pesquisa
+
+1. Aprovação parcial da verba do Poço 04
+2. Pedido de redução em “materiais especiais” — indeferido
+3. Próxima reunião: após entrega da planilha térmica
+
+Sem outros assuntos.
+`,
+      },
     ],
   },
   {
@@ -63,6 +96,25 @@ export const FOLDERS: FolderDefinition[] = [
     parentId: 'pesquisa',
     entries: [
       {
+        id: 'relatorio-oficial',
+        name: 'Producao_Termica_Semanal.doc',
+        size: '22 KB',
+        type: 'Documento do Microsoft Word',
+        modified: '11/08/2026 17:00',
+        kind: 'document',
+        content: `RELATÓRIO SEMANAL — PRODUÇÃO TÉRMICA
+Estação Monitor · Poço 04
+Período: 04–10/08/2026
+
+Resumo
+- Extração térmica dentro da faixa contratada
+- Disponibilidade de sensores: 98,2%
+- Incidentes de segurança: nenhum registrado no período
+
+Observação para diretoria: operação estável. Sem necessidade de visita externa.
+`,
+      },
+      {
         id: 'diario',
         name: 'Diario_Sondagem_2026_08_12.doc',
         size: '28 KB',
@@ -71,16 +123,16 @@ export const FOLDERS: FolderDefinition[] = [
         kind: 'document',
         content: `DIÁRIO DE SONDAGEM — Poço 04
 Data: 12/08/2026
-Operador: equipe de perfuração / Dr. Hélio Vance
+Operador: equipe de perfuração
 
-Iniciamos a extração na câmara magmática inativa abaixo da crosta. O objetivo primário é capturar energia térmica de alta densidade sem acionar o duto vulcânico dormente.
+Objetivo do dia: avançar a coluna e recuperar material do intervalo -380 / -400 m para análise de condutividade.
 
-Observações:
-- Profundidade nominal: -400 m
-- Temperatura de fundo estável em torno de 200 °C (baseline geotérmico)
-- Reforço da fachada oficial: Estação de Pesquisa Mineral e Captura de Geotermia
+Notas de campo:
+- Temperatura de fundo ~200 °C (baseline esperado)
+- Formação ígnea dormente abaixo da crosta — risco residual de acionar o conduto se a perfuração for agressiva demais
+- Amostras encaminhadas ao Setor B
 
-Próximo passo: recuperação de fragmento do Nível -400 m para análise no Setor B.
+Assinatura: H. Vance
 `,
       },
       {
@@ -90,23 +142,22 @@ Próximo passo: recuperação de fragmento do Nível -400 m para análise no Set
         type: 'Documento do Microsoft Word',
         modified: '13/08/2026 11:18',
         kind: 'document',
-        content: `RELATÓRIO TÉCNICO — Análise Orgânica / Amostra V
-Setor Térmico B · Confidencial
+        content: `LAUDO INTERNO — Amostra V (Poço 04)
+Setor B · rascunho de bancada
 
-Tabela resumida:
-| Parâmetro              | Resultado                                      |
-|------------------------|------------------------------------------------|
-| DNA baseado em carbono | Não detectado                                  |
-| Matriz estrutural      | Rede de silicato vítreo                        |
-| Carga energética       | Plasma magmático residual                      |
-| Resposta a impacto     | Absorção cinética → conversão em calor         |
-| Resposta a N₂ líquido  | Elevação de temperatura (reação defensiva)     |
+Tabela de resultados:
+| Parâmetro              | Resultado                          |
+|------------------------|------------------------------------|
+| DNA (base C)           | não detectado                      |
+| Matriz                 | silicato vítreo em rede            |
+| Assinatura energética  | residual tipo plasma / íon térmico |
+| Impacto mecânico       | energia dissipada → calor          |
+| Ensaio N₂ líquido      | ΔT positivo (inesperado)           |
 
-Nota do cientista:
-"Não é um mineral. É um organismo plasmônico-magmático. Ele absorve impacto cinético e converte em calor."
+Comentário (rascunho, apagar antes de protocolar):
+se não é mineral estável, o que...
 
-Implicação operacional: dano físico convencional pode aquecer a amostra em vez de neutralizá-la.
-Isolamento recomendado no setor térmico B. Não interromper o incinerador/fonte térmica sem protocolo.
+[fim do arquivo — salvamento interrompido]
 `,
       },
     ],
@@ -125,13 +176,43 @@ Isolamento recomendado no setor térmico B. Não interromper o incinerador/fonte
         type: 'Documento de Texto',
         modified: '08/08/2026 19:04',
         kind: 'text',
-        content: `Compras / reposição do lab
+        content: `Compras
 
-- Café (pacote grande)
+- Café
 - Filtro de ar
 - Pilhas AA
 - Creme para queimadura
-- Leite em pó (sala de reunião)
+- Leite em pó
+`,
+      },
+      {
+        id: 'placa',
+        name: 'placa_entrada_scan.txt',
+        size: '1 KB',
+        type: 'Documento de Texto',
+        modified: '03/08/2026 12:15',
+        kind: 'text',
+        content: `OCR — foto da placa na portaria (celular)
+
+ESTAÇÃO VULKANOS
+Pesquisa mineral · aproveitamento térmico
+
+Fundação / 1º evento geotérmico registrado: 1988
+Visitantes: credenciar na recepção
+
+(arquivo pessoal — não distribuir)
+`,
+      },
+      {
+        id: 'recibo-cafe',
+        name: 'recibo_cafe.txt',
+        size: '1 KB',
+        type: 'Documento de Texto',
+        modified: '02/08/2026 07:40',
+        kind: 'text',
+        content: `Cantina Nível 1
+Café + pão — R$ 8,50
+02/08/2026
 `,
       },
     ],
@@ -145,40 +226,37 @@ Isolamento recomendado no setor térmico B. Não interromper o incinerador/fonte
     requiredRole: 'helio',
     entries: [
       {
-        id: 'evacuacao',
-        name: 'ORDEM_EVACUACAO_B3.doc',
+        id: 'memo',
+        name: 'memo_interno_1418.doc',
         size: '16 KB',
         type: 'Documento do Microsoft Word',
         modified: '14/08/2026 20:58',
         kind: 'document',
-        content: `ORDEM INTERNA — EVACUAÇÃO SETOR B3
-Classificação: SIGILOSO
+        content: `MEMO INTERNO 1418
+Distribuição: plantão / diretoria
+Classificação: restrito
 
-Motivo: variação de massa na câmara de isolamento (45 kg → 380 kg / 48 h) e falha das bombas de refrigeração.
+Checklist operacional (Nível 2):
+[ ] Não desligar o gerador sem autorização do Chefe de Pesquisa
+[ ] Extintor industrial CO₂ — armário 03
+[ ] Silo de N₂ reserva — acesso manual, sala técnica
+[ ] Corredor B: acesso limitado até nova ordem
 
-Ações:
-1. Evacuar Nível 2 (laboratórios) e Nível 1 (escritórios).
-2. Não cortar o gerador geotérmico sem autorização do Chefe de Pesquisa.
-3. Extintor industrial de CO₂ permanece no armário 03 do Nível 2.
-4. Silo de reserva de nitrogênio: acesso manual na sala técnica (Nível 2).
-
-Distribuição: diretoria / plantão de segurança.
+Referência sensores: ver ticket TH-B3-1200 no sistema.
 `,
       },
       {
         id: 'amostra-nota',
-        name: 'nota_amostra_v.txt',
+        name: 'rascunho_caderno.txt',
         size: '1 KB',
         type: 'Documento de Texto',
         modified: '13/08/2026 22:11',
         kind: 'text',
-        content: `Amostra V — notas privadas
+        content: `caderno — página rasgada
 
-Ela não está "morta" dentro da rocha.
-Parece se alimentar do calor do gerador.
-Se descer até a fenda magmática... não quero pensar nisso.
-
-Manter isolamento. Não publicar.
+não está morta
+se a temperatura cair...
+não protocolar isso
 `,
       },
     ],

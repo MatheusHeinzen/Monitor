@@ -86,7 +86,7 @@ export const LAB_SENSORS: LabSensor[] = [
   },
   {
     id: 'chamber',
-    label: 'Câmara Magmática',
+    label: 'Câmara térmica N3',
     unit: '°C',
     value: 1186,
     min: 900,

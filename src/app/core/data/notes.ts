@@ -1,16 +1,28 @@
-export const DEFAULT_NOTES = `Lembretes:
+export const DEFAULT_NOTES = `Lembretes — plantão
 
-1. Chamar a manutenção para o selo da porta do Setor B (está derretendo a borracha de vedação).
-2. Trocar o óleo do gerador auxiliar.
-3. Se a leitora de crachá do arquivo mestre travar de novo, use o comando override_refrigeracao_99 na aba de ferramentas do sistema.
-4. Não deixar a Dra. Mariana alimentar a "Amostra V" depois das 18h. Ela está crescendo rápido demais.
+- Manutenção: borracha do selo Setor B (está ressecada)
+- Óleo do gerador auxiliar (sexta?)
+- Pedir café pra sala 1B
+- override_refri… (completar — post-it sala técnica)
+- Ligar pra Facilities sobre o cheiro no Nível 2
 `;
 
-export const SENHAS_BACKUP_NOTES = `BACKUP DE DICAS — NÃO DEIXAR NA MESA DO CHEFE
+export const SENHAS_BACKUP_NOTES = `CHECKLIST PLANTÃO TI — rascunho
 
-A senha do Dr. Hélio é a data do primeiro surto geotérmico (DD/MM/AAAA) com a palavra "vulkanos" na frente.
+[ ] Reiniciar fila SMTP se atraso > 10 min
+[ ] Conferir ACL da pasta compartilhada
+[ ] Contas administrativas: o chefe ainda usa o padrão antigo
+    → projeto + ano do evento fundador
+    (não anotar a senha montada neste arquivo)
 
-Ex.: se o surto foi em 1988, algo como vulkanos1988.
+Obs: se a leitora do arquivo mestre travar, alguém deixou
+um comando na aba Ferramentas do GeoSense. Não testei.
+`;
 
-Arquivo gerado pelo plantão do suporte_ti.
+export const SUPORTE_STICKY = `nota suporte (não imprimir)
+
+padrão do HV nas contas locais:
+leet do primeiro nome + @
+tipo H3l1o@…
+(ano? ele muda. ver contrato / RH)
 `;

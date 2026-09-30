@@ -3,24 +3,27 @@ import { RecycleFile } from '../models/recycle-file';
 export const RECYCLE_FILES: RecycleFile[] = [
   {
     id: 'audio-log',
-    name: 'audio_log_final_transcricao.txt',
-    originalPath: 'C:\\Usuários\\dr.helio\\Documentos\\audio_log_final_transcricao.txt',
+    name: 'gravacao_14ago_corte.txt',
+    originalPath: 'C:\\Usuários\\dr.helio\\Documentos\\gravacao_14ago_corte.txt',
     deletedAt: '14/08/2026 22:47',
-    size: '3 KB',
+    size: '2 KB',
     type: 'Documento de Texto',
     kind: 'text',
-    content: `TRANSCRIÇÃO — audio_log_final.wav
-Origem: gravador de bolso / Setor B
-Data aproximada: incidente
+    content: `Arquivo: gravacao_14ago.wav (trecho)
+Origem: gravador de bolso
+Qualidade: ruim
 
 ---
 
-Se alguém estiver ouvindo isso... nós erramos. Achávamos que era só uma rocha energizada... mas ela tem fome. Ela não quer a energia das nossas pilhas, ela quer alcançar o núcleo do vulcão logo abaixo do piso do Setor B! Se ela chegar na câmara de magma pura, o calor acumulado vai...
-
-[Som de metal rasgando e alarme altíssimo, seguido de ruído estático]
+...alguém aí? o piso do B está—
+[estática]
+não é só a rocha, ela—
+[alarme / metal]
+está embaixo, se chegar no—
+[corte]
 
 ---
-Fim da gravação.
+fim do arquivo
 `,
   },
   {
@@ -34,11 +37,26 @@ Fim da gravação.
     content: `Pedido almoxarifado — rascunho
 
 - luvas térmicas (par)
-- filtros HEPA reposição
+- filtros HEPA
 - café industrial 5kg
 - fita isolante alta temperatura
 
-(descartado — pedido oficial foi pelo sistema)
+(pedido oficial foi pelo sistema)
+`,
+  },
+  {
+    id: 'rascunho-email',
+    name: 'rascunho_email_cortado.txt',
+    originalPath: 'C:\\Usuários\\dr.helio\\Desktop\\rascunho_email_cortado.txt',
+    deletedAt: '14/08/2026 21:15',
+    size: '1 KB',
+    type: 'Documento de Texto',
+    kind: 'text',
+    content: `colei aqui pra não perder — apagar depois
+
+"...está se alimentando do calor do gerador. Se cortarmos..."
+
+(resto no rascunho do Outlook)
 `,
   },
 ];
