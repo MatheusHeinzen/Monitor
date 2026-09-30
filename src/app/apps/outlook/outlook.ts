@@ -1,6 +1,7 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { MAIL_MESSAGES } from '../../core/data/emails';
 import { MailFolder, MailMessage } from '../../core/models/mail-message';
+import { AuthService } from '../../core/services/auth.service';
 
 @Component({
   selector: 'app-outlook',
@@ -8,18 +9,36 @@ import { MailFolder, MailMessage } from '../../core/models/mail-message';
   styleUrl: './outlook.scss',
 })
 export class OutlookApp {
-  readonly folders: { id: MailFolder; label: string }[] = [
-    { id: 'inbox', label: 'Caixa de Entrada' },
-    { id: 'sent', label: 'Itens Enviados' },
-    { id: 'deleted', label: 'Itens Excluídos' },
-  ];
+  private readonly auth = inject(AuthService);
+
+  readonly folders = computed(() => {
+    const role = this.auth.currentUser()?.role;
+    const base: { id: MailFolder; label: string }[] = [
+      { id: 'inbox', label: 'Caixa de Entrada' },
+    ];
+    if (role === 'helio') {
+      base.push({ id: 'projetos', label: 'Projetos' });
+    }
+    base.push(
+      { id: 'sent', label: 'Itens Enviados' },
+      { id: 'deleted', label: 'Itens Excluídos' },
+    );
+    return base;
+  });
 
   readonly folder = signal<MailFolder>('inbox');
-  readonly selectedId = signal(MAIL_MESSAGES[0].id);
+  readonly selectedId = signal('');
   private readonly readIds = signal(new Set<string>());
 
+  private readonly visibleMail = computed(() => {
+    const role = this.auth.currentUser()?.role ?? 'guest';
+    return MAIL_MESSAGES.filter(
+      (mail) => mail.audience === 'both' || mail.audience === role,
+    );
+  });
+
   readonly messages = computed(() =>
-    MAIL_MESSAGES.filter((mail) => mail.folder === this.folder()),
+    this.visibleMail().filter((mail) => mail.folder === this.folder()),
   );
 
   readonly selected = computed(() => {
@@ -32,12 +51,12 @@ export class OutlookApp {
   }
 
   unreadCount(id: MailFolder): number {
-    return MAIL_MESSAGES.filter((mail) => mail.folder === id && this.isUnread(mail)).length;
+    return this.visibleMail().filter((mail) => mail.folder === id && this.isUnread(mail)).length;
   }
 
   openFolder(id: MailFolder): void {
     this.folder.set(id);
-    const first = MAIL_MESSAGES.find((mail) => mail.folder === id);
+    const first = this.visibleMail().find((mail) => mail.folder === id);
     this.selectedId.set(first?.id ?? '');
   }
 

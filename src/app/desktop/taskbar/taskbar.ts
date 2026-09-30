@@ -1,7 +1,8 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { interval } from 'rxjs';
 import { AppWindow } from '../../core/models/app-window';
+import { AuthService } from '../../core/services/auth.service';
 import { WindowManagerService } from '../../core/services/window-manager.service';
 
 @Component({
@@ -11,8 +12,10 @@ import { WindowManagerService } from '../../core/services/window-manager.service
 })
 export class Taskbar {
   private readonly wm = inject(WindowManagerService);
+  private readonly auth = inject(AuthService);
   readonly windows = this.wm.windows;
   readonly time = signal(formatClock(new Date()));
+  readonly userLabel = computed(() => this.auth.currentUser()?.username ?? '');
 
   constructor() {
     interval(1000)
@@ -22,6 +25,10 @@ export class Taskbar {
 
   onTaskClick(win: AppWindow): void {
     this.wm.focus(win.id);
+  }
+
+  logout(): void {
+    this.auth.logout();
   }
 }
 

@@ -84,6 +84,10 @@ export class WindowManagerService {
     this.windowsState.update((list) => list.filter((window) => window.id !== id));
   }
 
+  closeAll(): void {
+    this.windowsState.set([]);
+  }
+
   move(id: string, x: number, y: number): void {
     const maxX = globalThis.innerWidth - 80;
     const maxY = globalThis.innerHeight - TASKBAR_HEIGHT - TITLE_BAR_HEIGHT;

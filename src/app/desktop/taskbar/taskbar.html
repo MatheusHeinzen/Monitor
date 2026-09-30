@@ -23,6 +23,8 @@
   </div>
 
   <div class="tray">
+    <span class="user" [title]="userLabel()">{{ userLabel() }}</span>
+    <button type="button" class="logout" (click)="logout()">Sair</button>
     <time>{{ time() }}</time>
   </div>
 </div>

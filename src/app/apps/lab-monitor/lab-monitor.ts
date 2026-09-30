@@ -1,5 +1,14 @@
 import { Component, DestroyRef, inject, OnInit, signal } from '@angular/core';
-import { LAB_ALERTS, LAB_SENSORS, LabSensor, SensorStatus } from '../../core/data/lab-readings';
+import {
+  LAB_ALERTS,
+  LAB_SENSORS,
+  LabSensor,
+  SensorStatus,
+  TEMP_HISTORY,
+  VALVE_STATUS,
+} from '../../core/data/lab-readings';
+
+type LabTab = 'status' | 'valves' | 'tools';
 
 @Component({
   selector: 'app-lab-monitor',
@@ -10,8 +19,15 @@ export class LabMonitorApp implements OnInit {
   private readonly destroyRef = inject(DestroyRef);
   readonly sensors = signal<LabSensor[]>(LAB_SENSORS.map((sensor) => ({ ...sensor })));
   readonly alerts = LAB_ALERTS;
+  readonly history = TEMP_HISTORY;
+  readonly valves = VALVE_STATUS;
   readonly clock = signal(formatClock(new Date()));
   readonly linkOk = signal(true);
+  readonly tab = signal<LabTab>('status');
+  readonly overrideInput = signal('');
+  readonly overrideMsg = signal('');
+
+  readonly chart = buildChart(TEMP_HISTORY);
 
   ngOnInit(): void {
     const timer = globalThis.setInterval(() => {
@@ -21,6 +37,11 @@ export class LabMonitorApp implements OnInit {
     }, 1800);
 
     this.destroyRef.onDestroy(() => globalThis.clearInterval(timer));
+  }
+
+  setTab(tab: LabTab): void {
+    this.tab.set(tab);
+    this.overrideMsg.set('');
   }
 
   barWidth(sensor: LabSensor): number {
@@ -35,6 +56,43 @@ export class LabMonitorApp implements OnInit {
     }
     return level === 'warn' ? 'AVISO' : 'OK';
   }
+
+  runOverride(): void {
+    if (this.overrideInput().trim() === 'override_refrigeracao_99') {
+      this.overrideMsg.set(
+        'Comando aceito no log local. Tubulação principal permanece ROMPIDA — ação física necessária na sala técnica.',
+      );
+      return;
+    }
+    this.overrideMsg.set('Comando não reconhecido.');
+  }
+}
+
+function buildChart(points: typeof TEMP_HISTORY): {
+  polyline: string;
+  area: string;
+  dots: { x: number; y: number; label: string; value: number }[];
+  width: number;
+  height: number;
+} {
+  const width = 420;
+  const height = 160;
+  const padX = 28;
+  const padY = 16;
+  const maxY = 1500;
+  const minY = 0;
+  const spanX = Math.max(1, points.length - 1);
+
+  const coords = points.map((point, index) => {
+    const x = padX + (index / spanX) * (width - padX * 2);
+    const y = padY + (1 - (point.celsius - minY) / (maxY - minY)) * (height - padY * 2);
+    return { x, y, label: point.label, value: point.celsius };
+  });
+
+  const polyline = coords.map((c) => `${c.x},${c.y}`).join(' ');
+  const area = `${padX},${height - padY} ${polyline} ${width - padX},${height - padY}`;
+
+  return { polyline, area, dots: coords, width, height };
 }
 
 function jitter(sensor: LabSensor): LabSensor {
@@ -47,6 +105,9 @@ function jitter(sensor: LabSensor): LabSensor {
     status = 'alarm';
   } else if (next >= mid) {
     status = 'warn';
+  }
+  if (sensor.id === 'coolant') {
+    status = next <= 5 ? 'alarm' : next <= 10 ? 'warn' : 'ok';
   }
   return {
     ...sensor,

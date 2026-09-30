@@ -41,6 +41,15 @@
 .tool {
   padding: 2px 8px;
   border: 1px solid transparent;
+  background: transparent;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.tool:disabled {
+  opacity: 0.45;
+  cursor: default;
 }
 
 .sep {

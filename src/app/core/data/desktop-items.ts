@@ -1,4 +1,6 @@
 import { DesktopItem } from '../models/desktop-item';
+import { DEFAULT_NOTES, SENHAS_BACKUP_NOTES } from './notes';
+import { UserRole } from './auth';
 
 export const DESKTOP_ITEMS: DesktopItem[] = [
   {
@@ -42,19 +44,19 @@ export const DESKTOP_ITEMS: DesktopItem[] = [
     desktopSide: 'left',
     desktopX: 22,
     desktopY: 250,
-    width: 760,
-    height: 520,
-    minWidth: 560,
-    minHeight: 380,
-    maxWidth: 1200,
-    maxHeight: 860,
+    width: 820,
+    height: 560,
+    minWidth: 640,
+    minHeight: 420,
+    maxWidth: 1280,
+    maxHeight: 900,
   },
   {
     id: 'notepad',
-    label: 'notas.txt',
+    label: 'Notas_Importantes.txt',
     icon: 'notepad',
     appId: 'notepad',
-    windowTitle: 'notas.txt - Bloco de notas',
+    windowTitle: 'Notas_Importantes.txt - Bloco de notas',
     desktopSide: 'left',
     desktopX: 58,
     desktopY: 372,
@@ -64,6 +66,26 @@ export const DESKTOP_ITEMS: DesktopItem[] = [
     minHeight: 180,
     maxWidth: 1000,
     maxHeight: 720,
+    roles: ['helio'],
+    payload: { content: DEFAULT_NOTES },
+  },
+  {
+    id: 'senhas-backup',
+    label: 'senhas_backup.txt',
+    icon: 'notepad',
+    appId: 'notepad',
+    windowTitle: 'senhas_backup.txt - Bloco de notas',
+    desktopSide: 'left',
+    desktopX: 58,
+    desktopY: 372,
+    width: 520,
+    height: 380,
+    minWidth: 280,
+    minHeight: 180,
+    maxWidth: 1000,
+    maxHeight: 720,
+    roles: ['guest'],
+    payload: { content: SENHAS_BACKUP_NOTES },
   },
   {
     id: 'docs',
@@ -81,20 +103,8 @@ export const DESKTOP_ITEMS: DesktopItem[] = [
     maxWidth: 1100,
     maxHeight: 760,
   },
-  {
-    id: 'backup-zip',
-    label: 'backup.zip',
-    icon: 'zip',
-    appId: 'folder',
-    windowTitle: 'backup.zip',
-    desktopSide: 'right',
-    desktopX: 56,
-    desktopY: 168,
-    width: 640,
-    height: 430,
-    minWidth: 420,
-    minHeight: 280,
-    maxWidth: 1100,
-    maxHeight: 760,
-  },
 ];
+
+export function getDesktopItemsForRole(role: UserRole): DesktopItem[] {
+  return DESKTOP_ITEMS.filter((item) => !item.roles || item.roles.includes(role));
+}

@@ -1,6 +1,6 @@
 <div class="desktop" (click)="clearSelection()">
   <div class="icons">
-    @for (item of items; track item.id) {
+    @for (item of items(); track item.id) {
       <app-desktop-icon
         [item]="item"
         [selected]="selectedId() === item.id"

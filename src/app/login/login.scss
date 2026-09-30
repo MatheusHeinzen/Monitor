@@ -33,6 +33,7 @@
 }
 
 .welcome {
+  position: relative;
   display: grid;
   flex: 1;
   grid-template-columns: 1fr 1px 1fr;
@@ -120,6 +121,15 @@ label,
   padding-left: 7%;
 }
 
+.account-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 .account {
   display: inline-flex;
   align-items: flex-start;
@@ -129,6 +139,52 @@ label,
   border-radius: 8px;
   background: linear-gradient(180deg, rgb(255 255 255 / 16%), rgb(255 255 255 / 4%));
   box-shadow: 0 0 14px rgb(170 210 255 / 28%);
+}
+
+.account.pick {
+  width: 280px;
+  cursor: pointer;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+}
+
+.account.pick:hover {
+  background: linear-gradient(180deg, rgb(255 255 255 / 28%), rgb(255 255 255 / 10%));
+}
+
+.sub {
+  margin: 0 0 6px;
+  color: #dcecff;
+  font-size: 11px;
+  text-shadow: 1px 1px 2px rgb(0 0 0 / 35%);
+}
+
+.postit {
+  position: absolute;
+  right: 28px;
+  bottom: 24px;
+  width: 210px;
+  padding: 12px 14px 16px;
+  background: #fff59a;
+  color: #333;
+  font-family: 'Comic Sans MS', 'Segoe Print', cursive, sans-serif;
+  font-size: 12px;
+  line-height: 1.35;
+  box-shadow: 2px 3px 6px rgb(0 0 0 / 35%);
+  transform: rotate(-3deg);
+}
+
+.postit-title {
+  margin: 0 0 6px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.postit p:last-child {
+  margin: 0;
 }
 
 .picture,

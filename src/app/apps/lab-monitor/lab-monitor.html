@@ -4,7 +4,7 @@
     <span>Exibir</span>
     <span>Sensores</span>
     <span>Alarmes</span>
-    <span>Ferramentas</span>
+    <button type="button" class="menu-link" (click)="setTab('tools')">Ferramentas</button>
     <span>Ajuda</span>
   </div>
 
@@ -12,8 +12,12 @@
     <span class="btn">Atualizar</span>
     <span class="btn">Calibrar</span>
     <span class="sep"></span>
-    <span class="btn">Relatório</span>
-    <span class="btn">Imprimir</span>
+    <button type="button" class="btn tab" [class.on]="tab() === 'status'" (click)="setTab('status')">
+      Status da Geotermia
+    </button>
+    <button type="button" class="btn tab" [class.on]="tab() === 'valves'" (click)="setTab('valves')">
+      Controle de Válvulas
+    </button>
     <span class="sep"></span>
     <span class="meta">EST-VULC-07 · Subsolo -3 · Base do cone</span>
   </div>
@@ -30,39 +34,128 @@
     </div>
   </header>
 
-  <div class="workspace">
-    <section class="gauges">
-      @for (sensor of sensors(); track sensor.id) {
-        <article class="gauge" [attr.data-status]="sensor.status">
-          <h2>{{ sensor.label }}</h2>
-          <p class="lcd">
-            <b>{{ sensor.value }}</b>
-            <small>{{ sensor.unit }}</small>
-          </p>
-          <div class="bar">
-            <span [style.width.%]="barWidth(sensor)"></span>
-          </div>
-          <footer>
-            <span>{{ sensor.min }}–{{ sensor.max }} {{ sensor.unit }}</span>
-            <em>{{ levelLabel(sensor.status) }}</em>
-          </footer>
-        </article>
-      }
-    </section>
+  @if (tab() === 'status') {
+    <div class="workspace status-tab">
+      <section class="panel chart-panel">
+        <h2>Temperatura — Poço 04 / baseline geotérmico</h2>
+        <p class="hint">Estável ~200 °C até o salto no dia do incidente (~1.400 °C).</p>
+        <svg
+          class="chart"
+          [attr.viewBox]="'0 0 ' + chart.width + ' ' + chart.height"
+          role="img"
+          aria-label="Gráfico de temperatura"
+        >
+          <line x1="28" y1="16" x2="28" y2="144" stroke="#8d8a7a" />
+          <line x1="28" y1="144" x2="392" y2="144" stroke="#8d8a7a" />
+          <text x="4" y="22" class="axis">1500</text>
+          <text x="8" y="90" class="axis">750</text>
+          <text x="12" y="144" class="axis">0</text>
+          <polygon [attr.points]="chart.area" fill="#c45b5b33" />
+          <polyline
+            [attr.points]="chart.polyline"
+            fill="none"
+            stroke="#b33"
+            stroke-width="2.2"
+          />
+          @for (dot of chart.dots; track dot.label) {
+            <circle [attr.cx]="dot.x" [attr.cy]="dot.y" r="3.2" fill="#7a1f1f" />
+          }
+        </svg>
+        <div class="xlabels">
+          @for (dot of chart.dots; track dot.label) {
+            <span>{{ dot.label }}</span>
+          }
+        </div>
 
-    <aside class="log">
-      <h2>Registro de eventos</h2>
-      <ul>
-        @for (alert of alerts; track alert.time + alert.message) {
-          <li [attr.data-level]="alert.level">
-            <time>{{ alert.time }}</time>
-            <span class="tag">{{ levelLabel(alert.level) }}</span>
-            <p>{{ alert.message }}</p>
-          </li>
+        <div class="levels">
+          <h3>Esquema lateral da instalação</h3>
+          <ol>
+            <li><b>Superfície</b> — acesso / ventilação</li>
+            <li><b>Nível 1</b> — Escritórios</li>
+            <li><b>Nível 2</b> — Laboratórios / Setor B</li>
+            <li class="magma"><b>Nível 3</b> — Câmara Magmática do Vulcão (dormente)</li>
+          </ol>
+          <p class="note">A base foi construída dentro do duto de um vulcão dormente.</p>
+        </div>
+      </section>
+
+      <aside class="side">
+        <section class="gauges compact">
+          @for (sensor of sensors(); track sensor.id) {
+            <article class="gauge" [attr.data-status]="sensor.status">
+              <h2>{{ sensor.label }}</h2>
+              <p class="lcd">
+                <b>{{ sensor.value }}</b>
+                <small>{{ sensor.unit }}</small>
+              </p>
+              <div class="bar">
+                <span [style.width.%]="barWidth(sensor)"></span>
+              </div>
+            </article>
+          }
+        </section>
+        <section class="log">
+          <h2>Registro de eventos</h2>
+          <ul>
+            @for (alert of alerts; track alert.time + alert.message) {
+              <li [attr.data-level]="alert.level">
+                <time>{{ alert.time }}</time>
+                <span class="tag">{{ levelLabel(alert.level) }}</span>
+                <p>{{ alert.message }}</p>
+              </li>
+            }
+          </ul>
+        </section>
+      </aside>
+    </div>
+  }
+
+  @if (tab() === 'valves') {
+    <div class="workspace valves-tab">
+      <section class="panel">
+        <h2>Controle de Válvulas de Refrigeração</h2>
+        <p class="hint">Somente status. Intervenções físicas devem ser feitas no local.</p>
+        <ul class="valves">
+          @for (valve of valves; track valve.id) {
+            <li [attr.data-state]="valve.state">
+              <div>
+                <h3>{{ valve.name }}</h3>
+                <p>{{ valve.detail }}</p>
+              </div>
+              <strong>{{ valve.stateLabel }}</strong>
+            </li>
+          }
+        </ul>
+        <p class="note">
+          Silo de nitrogênio CHEIO — tanque portátil pode ser carregado manualmente na sala técnica
+          (Nível 2) para uso no campo.
+        </p>
+      </section>
+    </div>
+  }
+
+  @if (tab() === 'tools') {
+    <div class="workspace tools-tab">
+      <section class="panel">
+        <h2>Ferramentas do sistema</h2>
+        <p class="hint">Console de manutenção local (sem controle de portas físicas).</p>
+        <label for="override-cmd">Comando</label>
+        <div class="cmd-row">
+          <input
+            id="override-cmd"
+            type="text"
+            [value]="overrideInput()"
+            (input)="overrideInput.set($any($event.target).value)"
+            placeholder="ex.: override_refrigeracao_99"
+          />
+          <button type="button" class="btn on" (click)="runOverride()">Executar</button>
+        </div>
+        @if (overrideMsg()) {
+          <p class="override-msg">{{ overrideMsg() }}</p>
         }
-      </ul>
-    </aside>
-  </div>
+      </section>
+    </div>
+  }
 
   <footer class="status">
     Amostragem 1,8 s · Firmware sonda v3.02 · Operador: turnos A/B

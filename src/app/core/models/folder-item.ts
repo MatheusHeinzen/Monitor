@@ -1,4 +1,6 @@
-export type FolderEntryKind = 'text' | 'document' | 'image';
+import { UserRole } from '../data/auth';
+
+export type FolderEntryKind = 'text' | 'document' | 'image' | 'folder';
 
 export interface FolderEntry {
   id: string;
@@ -9,6 +11,8 @@ export interface FolderEntry {
   kind: FolderEntryKind;
   content?: string;
   scene?: string;
+  childFolderId?: string;
+  requiredRole?: UserRole;
 }
 
 export interface FolderDefinition {
@@ -17,5 +21,7 @@ export interface FolderDefinition {
   path: string;
   icon: 'folder' | 'zip';
   password?: string;
+  requiredRole?: UserRole;
+  parentId?: string;
   entries: FolderEntry[];
 }

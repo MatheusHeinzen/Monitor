@@ -31,6 +31,15 @@
   border-bottom: 1px solid #aca899;
 }
 
+.menu-link {
+  padding: 0;
+  border: none;
+  background: transparent;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
 .toolbar {
   gap: 6px;
   height: 28px;
@@ -42,6 +51,17 @@
 .btn {
   padding: 3px 8px;
   border: 1px solid transparent;
+  background: transparent;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.btn.tab.on,
+.btn.on {
+  border-color: #7a7768;
+  background: #fff;
+  box-shadow: inset 1px 1px 0 #fff;
 }
 
 .sep {
@@ -84,7 +104,7 @@
   gap: 8px;
   padding: 4px 8px;
   border: 1px solid #6f97c4;
-  background: rgba(0, 0, 0, 0.18);
+  background: rgb(0 0 0 / 18%);
   font-weight: 700;
 }
 
@@ -105,23 +125,103 @@
   display: grid;
   min-height: 0;
   flex: 1;
-  grid-template-columns: 1.45fr 0.9fr;
+  overflow: hidden;
+}
+
+.status-tab {
+  grid-template-columns: 1.2fr 1fr;
+}
+
+.valves-tab,
+.tools-tab {
+  grid-template-columns: 1fr;
+}
+
+.panel {
+  min-height: 0;
+  overflow: auto;
+  padding: 10px 12px;
+  background: #c9c5b5;
+}
+
+.panel h2,
+.levels h3 {
+  margin: 0 0 6px;
+  font-size: 12px;
+}
+
+.hint,
+.note {
+  margin: 0 0 10px;
+  color: #444;
+  line-height: 1.35;
+}
+
+.note {
+  padding: 8px;
+  border: 1px solid #8d8a7a;
+  background: #f3f0e4;
+}
+
+.chart {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  border: 1px solid #8d8a7a;
+  background: #f7f5ea;
+}
+
+.axis {
+  fill: #555;
+  font-size: 9px;
+}
+
+.xlabels {
+  display: flex;
+  max-width: 420px;
+  justify-content: space-between;
+  margin: 4px 0 14px;
+  color: #555;
+  font-size: 9px;
+}
+
+.levels ol {
+  margin: 0 0 8px;
+  padding-left: 18px;
+  line-height: 1.55;
+}
+
+.levels .magma {
+  color: #8a1f1f;
+  font-weight: 700;
+}
+
+.side {
+  display: grid;
+  min-width: 0;
+  min-height: 0;
+  grid-template-rows: 1fr 1fr;
+  border-left: 1px solid #8d8a7a;
 }
 
 .gauges {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 8px;
+  gap: 6px;
   padding: 8px;
   overflow: auto;
   background: #c9c5b5;
 }
 
+.gauges.compact .lcd b {
+  font-size: 16px;
+}
+
 .gauge {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  padding: 8px;
+  gap: 4px;
+  padding: 6px;
   border: 1px solid #8d8a7a;
   background: linear-gradient(#f7f5ea, #e4e0d2);
   box-shadow: inset 1px 1px 0 #fff;
@@ -130,7 +230,7 @@
 .gauge h2 {
   margin: 0;
   color: #333;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 700;
 }
 
@@ -139,7 +239,7 @@
   align-items: baseline;
   gap: 6px;
   margin: 0;
-  padding: 6px 8px;
+  padding: 4px 6px;
   border: 1px solid #1c2a1c;
   background: #0d1a0d;
   color: #66ff66;
@@ -147,18 +247,17 @@
 }
 
 .lcd b {
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 700;
-  letter-spacing: 1px;
 }
 
 .lcd small {
   color: #3ca83c;
-  font-size: 11px;
+  font-size: 10px;
 }
 
 .bar {
-  height: 10px;
+  height: 8px;
   overflow: hidden;
   border: 1px solid #7a7768;
   background: #f0eee4;
@@ -186,31 +285,12 @@
   color: #ff6b6b;
 }
 
-.gauge footer {
-  display: flex;
-  justify-content: space-between;
-  color: #555;
-}
-
-.gauge em {
-  font-style: normal;
-  font-weight: 700;
-}
-
-.gauge[data-status='warn'] em {
-  color: #8a6a00;
-}
-
-.gauge[data-status='alarm'] em {
-  color: #9a1f1f;
-}
-
 .log {
   display: flex;
   min-width: 0;
   flex-direction: column;
-  border-left: 1px solid #8d8a7a;
   background: #ece9d8;
+  border-top: 1px solid #8d8a7a;
 }
 
 .log h2 {
@@ -258,6 +338,72 @@ li[data-level='alarm'] .tag {
 
 .log p {
   margin: 4px 0 0;
+  line-height: 1.35;
+}
+
+.valves {
+  margin: 0 0 12px;
+  padding: 0;
+  list-style: none;
+}
+
+.valves li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+  padding: 10px 12px;
+  border: 1px solid #8d8a7a;
+  background: #f7f5ea;
+}
+
+.valves h3 {
+  margin: 0 0 4px;
+  font-size: 12px;
+}
+
+.valves p {
+  margin: 0;
+  color: #555;
+}
+
+.valves strong {
+  flex-shrink: 0;
+  padding: 4px 8px;
+  border: 1px solid #8d8a7a;
+  font-size: 11px;
+}
+
+.valves li[data-state='alarm'] strong {
+  background: #f5b4b4;
+  color: #6a1010;
+}
+
+.valves li[data-state='ok'] strong {
+  background: #cfe8cf;
+  color: #1f5a1f;
+}
+
+.cmd-row {
+  display: flex;
+  gap: 8px;
+  margin: 6px 0 10px;
+}
+
+.cmd-row input {
+  flex: 1;
+  height: 24px;
+  padding: 0 6px;
+  border: 1px solid #7f9db9;
+  font: inherit;
+}
+
+.override-msg {
+  margin: 0;
+  padding: 8px;
+  border: 1px solid #8d8a7a;
+  background: #fff8d0;
   line-height: 1.35;
 }
 

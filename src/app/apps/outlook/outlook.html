@@ -21,7 +21,7 @@
   <div class="workspace">
     <nav class="nav">
       <p class="fav-title">Pastas Favoritas</p>
-      @for (item of folders; track item.id) {
+      @for (item of folders(); track item.id) {
         <button
           type="button"
           class="folder"

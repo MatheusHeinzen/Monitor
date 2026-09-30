@@ -1,10 +1,16 @@
-export const DEFAULT_NOTES = `Lembretes - 28/09/2006
+export const DEFAULT_NOTES = `Lembretes:
 
-- Conferir a caixa de entrada do Outlook
-- Não esquecer a senha do correio (está na lixeira?!)
-- Reunião com a TI às 14h30
-- Tirar as fotos das férias da lixeira antes de esvaziar
-- Senha do backup.zip = senha do wifi (está na lixeira)
+1. Chamar a manutenção para o selo da porta do Setor B (está derretendo a borracha de vedação).
+2. Trocar o óleo do gerador auxiliar.
+3. Se a leitora de crachá do arquivo mestre travar de novo, use o comando override_refrigeracao_99 na aba de ferramentas do sistema.
+4. Não deixar a Dra. Mariana alimentar a "Amostra V" depois das 18h. Ela está crescendo rápido demais.
+`;
 
-P.S. se o bloco de notas travar, é só fechar e abrir de novo.
+export const SENHAS_BACKUP_NOTES = `BACKUP DE DICAS — NÃO DEIXAR NA MESA DO CHEFE
+
+A senha do Dr. Hélio é a data do primeiro surto geotérmico (DD/MM/AAAA) com a palavra "vulkanos" na frente.
+
+Ex.: se o surto foi em 1988, algo como vulkanos1988.
+
+Arquivo gerado pelo plantão do suporte_ti.
 `;

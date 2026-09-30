@@ -21,52 +21,84 @@
     <div class="split" aria-hidden="true"></div>
 
     <section class="users">
-      <form class="account" (ngSubmit)="submit()">
-        <div class="picture" aria-hidden="true">
-          <svg viewBox="0 0 48 48">
-            <rect width="48" height="48" fill="#c0392b" />
-            <rect x="8" y="10" width="32" height="28" fill="#7b241c" />
-            <rect x="12" y="14" width="24" height="20" fill="#ead2a8" />
-            <circle cx="20" cy="22" r="3" fill="#1c2833" />
-            <circle cx="28" cy="22" r="3" fill="#1c2833" />
-            <rect x="18" y="28" width="12" height="2" fill="#1c2833" />
-          </svg>
-        </div>
-
-        <div class="fields">
-          <p class="name">{{ displayName }}</p>
-          <label for="login-pass">Digite sua senha</label>
-          <div class="row">
-            <input
-              id="login-pass"
-              name="password"
-              type="password"
-              autocomplete="current-password"
-              autofocus
-              [(ngModel)]="password"
-            />
-            <button type="submit" class="icon-btn go" aria-label="Entrar">
-              <svg viewBox="0 0 16 16" aria-hidden="true">
-                <path fill="#fff" d="M1 7h8L6.2 4.2 7.6 2.8 13 8l-5.4 5.2-1.4-1.4L9 9H1z" />
-              </svg>
-            </button>
-            <button
-              type="button"
-              class="icon-btn help"
-              aria-label="Ajuda"
-              (click)="revealHint()"
-            >
-              ?
-            </button>
+      @if (selected(); as account) {
+        <form class="account" (ngSubmit)="submit()">
+          <div class="picture helio" aria-hidden="true">
+            <svg viewBox="0 0 48 48">
+              <rect width="48" height="48" fill="#2c5aa0" />
+              <circle cx="24" cy="18" r="8" fill="#ead2a8" />
+              <path d="M10 42c2-10 8-14 14-14s12 4 14 14" fill="#1a3a6e" />
+            </svg>
           </div>
 
-          @if (showHint()) {
-            <p class="error">Usuário ou senha inválidos.</p>
-            <p class="hint">{{ hint }}</p>
+          <div class="fields">
+            <p class="name">{{ account.displayName }}</p>
+            <p class="sub">{{ account.username }}</p>
+            <label for="login-pass">Digite sua senha</label>
+            <div class="row">
+              <input
+                id="login-pass"
+                name="password"
+                type="password"
+                autocomplete="current-password"
+                autofocus
+                [(ngModel)]="password"
+              />
+              <button type="submit" class="icon-btn go" aria-label="Entrar">
+                <svg viewBox="0 0 16 16" aria-hidden="true">
+                  <path fill="#fff" d="M1 7h8L6.2 4.2 7.6 2.8 13 8l-5.4 5.2-1.4-1.4L9 9H1z" />
+                </svg>
+              </button>
+              <button
+                type="button"
+                class="icon-btn help"
+                aria-label="Voltar"
+                (click)="clearSelection()"
+              >
+                ←
+              </button>
+            </div>
+
+            @if (showError()) {
+              <p class="error">Senha inválida.</p>
+            }
+          </div>
+        </form>
+      } @else {
+        <ul class="account-list">
+          @for (account of accounts; track account.id) {
+            <li>
+              <button type="button" class="account pick" (click)="selectAccount(account)">
+                <div class="picture" [class.helio]="account.role === 'helio'" [class.guest]="account.role === 'guest'" aria-hidden="true">
+                  @if (account.role === 'helio') {
+                    <svg viewBox="0 0 48 48">
+                      <rect width="48" height="48" fill="#2c5aa0" />
+                      <circle cx="24" cy="18" r="8" fill="#ead2a8" />
+                      <path d="M10 42c2-10 8-14 14-14s12 4 14 14" fill="#1a3a6e" />
+                    </svg>
+                  } @else {
+                    <svg viewBox="0 0 48 48">
+                      <rect width="48" height="48" fill="#5a7a3a" />
+                      <circle cx="24" cy="18" r="8" fill="#d8c4a0" />
+                      <path d="M10 42c2-10 8-14 14-14s12 4 14 14" fill="#3a5228" />
+                    </svg>
+                  }
+                </div>
+                <div class="fields">
+                  <p class="name">{{ account.displayName }}</p>
+                  <p class="sub">{{ account.subtitle }}</p>
+                </div>
+              </button>
+            </li>
           }
-        </div>
-      </form>
+        </ul>
+      }
     </section>
+
+    <aside class="postit" aria-label="Nota adesiva">
+      <p class="postit-title">lembrete</p>
+      <p>{{ postit }}</p>
+    </aside>
   </main>
 
   <footer class="chrome bottom">

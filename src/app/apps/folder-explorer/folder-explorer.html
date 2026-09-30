@@ -1,4 +1,4 @@
-@if (folder; as current) {
+@if (folder(); as current) {
   <div class="explorer">
     <div class="menubar">
       <span>Arquivo</span>
@@ -10,7 +10,7 @@
     </div>
 
     <div class="toolbar">
-      <span class="tool">Voltar</span>
+      <button type="button" class="tool" [disabled]="!current.parentId" (click)="goBack()">Voltar</button>
       <span class="tool">Avançar</span>
       <span class="sep"></span>
       <span class="tool">Pesquisar</span>
@@ -57,6 +57,17 @@
           </div>
         </div>
       </div>
+    } @else if (denied()) {
+      <div class="lock">
+        <div class="dialog">
+          <div class="dialog-title">Acesso negado</div>
+          <div class="dialog-body">
+            <p>Você não tem permissão para abrir esta pasta.</p>
+            <p>Contate o Chefe de Pesquisa ou use uma conta autorizada.</p>
+            <button type="button" class="tool" (click)="goBack()">Voltar</button>
+          </div>
+        </div>
+      </div>
     } @else {
       <div class="workspace">
         <aside class="tasks">
@@ -83,7 +94,7 @@
               </tr>
             </thead>
             <tbody>
-              @for (entry of current.entries; track entry.id) {
+              @for (entry of visibleEntries(); track entry.id) {
                 <tr
                   role="button"
                   tabindex="0"
@@ -112,7 +123,7 @@
       </div>
 
       <footer class="status">
-        {{ current.entries.length }} objeto(s) — clique duas vezes para abrir
+        {{ visibleEntries().length }} objeto(s) — clique duas vezes para abrir
       </footer>
     }
   </div>

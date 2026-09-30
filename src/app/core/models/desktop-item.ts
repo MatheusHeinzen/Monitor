@@ -1,3 +1,5 @@
+import { UserRole } from '../data/auth';
+
 export type DesktopIconKind =
   | 'recycle'
   | 'outlook'
@@ -23,4 +25,6 @@ export interface DesktopItem {
   minHeight?: number;
   maxWidth?: number;
   maxHeight?: number;
+  roles?: UserRole[];
+  payload?: Record<string, unknown>;
 }
