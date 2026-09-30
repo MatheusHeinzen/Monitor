@@ -33,6 +33,9 @@
       @case ('viewer') {
         <app-picture-viewer [payload]="win().payload" />
       }
+      @case ('folder') {
+        <app-folder-explorer [payload]="win().payload" />
+      }
     }
   </div>
 

@@ -24,6 +24,10 @@ export class Desktop {
 
   open(item: DesktopItem): void {
     this.selectedId.set(item.id);
+    if (item.appId === 'folder') {
+      this.wm.open(item, { folderId: item.id });
+      return;
+    }
     this.wm.open(item);
   }
 

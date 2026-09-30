@@ -7,7 +7,11 @@ import { AppGlyph } from '../../shared/app-glyph/app-glyph';
   imports: [AppGlyph],
   templateUrl: './desktop-icon.html',
   styleUrl: './desktop-icon.scss',
-  host: { style: 'display:block' },
+  host: {
+    '[style.top.px]': 'item().desktopY ?? 0',
+    '[style.left.px]': 'item().desktopSide === "right" ? null : (item().desktopX ?? 0)',
+    '[style.right.px]': 'item().desktopSide === "right" ? (item().desktopX ?? 0) : null',
+  },
 })
 export class DesktopIcon {
   readonly item = input.required<DesktopItem>();

@@ -1,4 +1,12 @@
-export type DesktopIconKind = 'recycle' | 'outlook' | 'notepad' | 'word' | 'lab' | 'image';
+export type DesktopIconKind =
+  | 'recycle'
+  | 'outlook'
+  | 'notepad'
+  | 'word'
+  | 'lab'
+  | 'image'
+  | 'folder'
+  | 'zip';
 
 export interface DesktopItem {
   id: string;
@@ -6,6 +14,9 @@ export interface DesktopItem {
   icon: DesktopIconKind;
   appId: string;
   windowTitle?: string;
+  desktopX?: number;
+  desktopY?: number;
+  desktopSide?: 'left' | 'right';
   width?: number;
   height?: number;
   minWidth?: number;

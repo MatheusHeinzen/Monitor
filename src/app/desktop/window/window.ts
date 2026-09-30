@@ -1,4 +1,5 @@
 import { Component, inject, input } from '@angular/core';
+import { FolderExplorer } from '../../apps/folder-explorer/folder-explorer';
 import { LabMonitorApp } from '../../apps/lab-monitor/lab-monitor';
 import { OutlookApp } from '../../apps/outlook/outlook';
 import { NotepadApp } from '../../apps/notepad/notepad';
@@ -13,7 +14,16 @@ const RESIZE_EDGES: ResizeEdge[] = ['n', 's', 'e', 'w', 'ne', 'nw', 'se', 'sw'];
 
 @Component({
   selector: 'app-window',
-  imports: [AppGlyph, RecycleBin, OutlookApp, NotepadApp, WordApp, LabMonitorApp, PictureViewer],
+  imports: [
+    AppGlyph,
+    RecycleBin,
+    OutlookApp,
+    NotepadApp,
+    WordApp,
+    LabMonitorApp,
+    PictureViewer,
+    FolderExplorer,
+  ],
   templateUrl: './window.html',
   styleUrl: './window.scss',
   host: {

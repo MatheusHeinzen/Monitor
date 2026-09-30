@@ -1,0 +1,119 @@
+@if (folder; as current) {
+  <div class="explorer">
+    <div class="menubar">
+      <span>Arquivo</span>
+      <span>Editar</span>
+      <span>Exibir</span>
+      <span>Favoritos</span>
+      <span>Ferramentas</span>
+      <span>Ajuda</span>
+    </div>
+
+    <div class="toolbar">
+      <span class="tool">Voltar</span>
+      <span class="tool">Avançar</span>
+      <span class="sep"></span>
+      <span class="tool">Pesquisar</span>
+      <span class="tool">Pastas</span>
+    </div>
+
+    <div class="address">
+      <span class="addr-label">Endereço</span>
+      <div class="addr-field">
+        <span class="addr-icon" aria-hidden="true">
+          <app-glyph [kind]="current.icon" />
+        </span>
+        {{ current.path }}
+      </div>
+    </div>
+
+    @if (needsPassword) {
+      <div class="lock">
+        <div class="dialog">
+          <div class="dialog-title">
+            <span class="dialog-icon" aria-hidden="true">
+              <app-glyph kind="zip" />
+            </span>
+            Digite a senha
+          </div>
+          <div class="dialog-body">
+            <p>O arquivo <strong>{{ current.title }}</strong> está protegido por senha.</p>
+            <label for="zip-pass">Senha:</label>
+            <form class="pass-row" (ngSubmit)="tryUnlock()">
+              <input
+                id="zip-pass"
+                name="password"
+                type="password"
+                autocomplete="off"
+                autofocus
+                [ngModel]="password()"
+                (ngModelChange)="password.set($event)"
+              />
+              <button type="submit">OK</button>
+            </form>
+            @if (error()) {
+              <p class="error">Senha incorreta. Tente novamente.</p>
+            }
+          </div>
+        </div>
+      </div>
+    } @else {
+      <div class="workspace">
+        <aside class="tasks">
+          <section class="box">
+            <h3>{{ current.icon === 'zip' ? 'Arquivo compactado' : 'Tarefas de pasta' }}</h3>
+            <p>Fazer uma cópia</p>
+            <p>Mover este item</p>
+          </section>
+          <section class="box">
+            <h3>Outros lugares</h3>
+            <p>Área de trabalho</p>
+            <p>Meus documentos</p>
+          </section>
+        </aside>
+
+        <div class="files">
+          <table>
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Data de modificação</th>
+                <th>Tipo</th>
+                <th>Tamanho</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (entry of current.entries; track entry.id) {
+                <tr
+                  role="button"
+                  tabindex="0"
+                  [class.selected]="selectedId() === entry.id"
+                  [attr.aria-label]="'Abrir ' + entry.name"
+                  (click)="select(entry)"
+                  (dblclick)="openEntry(entry)"
+                  (keydown.enter)="openEntry(entry)"
+                >
+                  <td>
+                    <span class="name">
+                      <span class="file-icon">
+                        <app-glyph [kind]="iconFor(entry)" />
+                      </span>
+                      {{ entry.name }}
+                    </span>
+                  </td>
+                  <td>{{ entry.modified }}</td>
+                  <td>{{ entry.type }}</td>
+                  <td>{{ entry.size }}</td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <footer class="status">
+        {{ current.entries.length }} objeto(s) — clique duas vezes para abrir
+      </footer>
+    }
+  </div>
+}
