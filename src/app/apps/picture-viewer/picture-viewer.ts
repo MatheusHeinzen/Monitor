@@ -8,8 +8,19 @@ import { Component, computed, input } from '@angular/core';
 export class PictureViewer {
   readonly payload = input<unknown>();
 
-  readonly title = computed(() => {
+  readonly scene = computed(() => {
     const payload = this.payload() as { scene?: string } | undefined;
-    return payload?.scene === 'beach' ? 'ferias_2006.jpg' : 'Imagem';
+    return payload?.scene ?? '';
+  });
+
+  readonly title = computed(() => {
+    switch (this.scene()) {
+      case 'placa':
+        return 'placa_entrada.jpg';
+      case 'beach':
+        return 'ferias_2006.jpg';
+      default:
+        return 'Imagem';
+    }
   });
 }

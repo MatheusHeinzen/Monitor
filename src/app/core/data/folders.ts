@@ -12,7 +12,7 @@ export const FOLDERS: FolderDefinition[] = [
         name: 'Pesquisa',
         size: '',
         type: 'Pasta de arquivos',
-        modified: '12/08/2026 09:10',
+        modified: '12/08/1988 09:10',
         kind: 'folder',
         childFolderId: 'pesquisa',
       },
@@ -21,7 +21,7 @@ export const FOLDERS: FolderDefinition[] = [
         name: 'Pessoal',
         size: '',
         type: 'Pasta de arquivos',
-        modified: '05/08/2026 18:22',
+        modified: '05/08/1988 18:22',
         kind: 'folder',
         childFolderId: 'pessoal',
       },
@@ -30,7 +30,7 @@ export const FOLDERS: FolderDefinition[] = [
         name: 'Sigilosos',
         size: '',
         type: 'Pasta de arquivos',
-        modified: '14/08/2026 21:05',
+        modified: '14/08/1988 21:05',
         kind: 'folder',
         childFolderId: 'sigilosos',
         requiredRole: 'helio',
@@ -40,7 +40,7 @@ export const FOLDERS: FolderDefinition[] = [
         name: 'horarios_turno.txt',
         size: '1 KB',
         type: 'Documento de Texto',
-        modified: '01/08/2026 08:00',
+        modified: '01/08/1988 08:00',
         kind: 'text',
         content: `Turnos — Estação Monitor
 
@@ -65,7 +65,7 @@ Plantão Facilities: rádio canal 3
         name: 'Relatorios_Diarios',
         size: '',
         type: 'Pasta de arquivos',
-        modified: '12/08/2026 16:40',
+        modified: '12/08/1988 16:40',
         kind: 'folder',
         childFolderId: 'relatorios',
       },
@@ -74,7 +74,7 @@ Plantão Facilities: rádio canal 3
         name: 'ata_reuniao_orcamento.doc',
         size: '14 KB',
         type: 'Documento do Microsoft Word',
-        modified: '04/08/2026 11:20',
+        modified: '04/08/1988 11:20',
         kind: 'document',
         content: `ATA — Reunião de orçamento Q3
 Presentes: Contabilidade, RH, Chefe de Pesquisa
@@ -100,11 +100,11 @@ Sem outros assuntos.
         name: 'Producao_Termica_Semanal.doc',
         size: '22 KB',
         type: 'Documento do Microsoft Word',
-        modified: '11/08/2026 17:00',
+        modified: '11/08/1988 17:00',
         kind: 'document',
         content: `RELATÓRIO SEMANAL — PRODUÇÃO TÉRMICA
 Estação Monitor · Poço 04
-Período: 04–10/08/2026
+Período: 04–10/08/1988
 
 Resumo
 - Extração térmica dentro da faixa contratada
@@ -116,13 +116,13 @@ Observação para diretoria: operação estável. Sem necessidade de visita exte
       },
       {
         id: 'diario',
-        name: 'Diario_Sondagem_2026_08_12.doc',
+        name: 'Diario_Sondagem_1988_08_12.doc',
         size: '28 KB',
         type: 'Documento do Microsoft Word',
-        modified: '12/08/2026 16:40',
+        modified: '12/08/1988 16:40',
         kind: 'document',
         content: `DIÁRIO DE SONDAGEM — Poço 04
-Data: 12/08/2026
+Data: 12/08/1988
 Operador: equipe de perfuração
 
 Objetivo do dia: avançar a coluna e recuperar material do intervalo -380 / -400 m para análise de condutividade.
@@ -140,7 +140,7 @@ Assinatura: H. Vance
         name: 'Analise_Organica_Amostra_V.doc',
         size: '42 KB',
         type: 'Documento do Microsoft Word',
-        modified: '13/08/2026 11:18',
+        modified: '13/08/1988 11:18',
         kind: 'document',
         content: `LAUDO INTERNO — Amostra V (Poço 04)
 Setor B · rascunho de bancada
@@ -174,7 +174,7 @@ se não é mineral estável, o que...
         name: 'compras_mercado.txt',
         size: '1 KB',
         type: 'Documento de Texto',
-        modified: '08/08/2026 19:04',
+        modified: '08/08/1988 19:04',
         kind: 'text',
         content: `Compras
 
@@ -187,32 +187,23 @@ se não é mineral estável, o que...
       },
       {
         id: 'placa',
-        name: 'placa_entrada_scan.txt',
-        size: '1 KB',
-        type: 'Documento de Texto',
-        modified: '03/08/2026 12:15',
-        kind: 'text',
-        content: `OCR — foto da placa na portaria (celular)
-
-ESTAÇÃO VULKANOS
-Pesquisa mineral · aproveitamento térmico
-
-Fundação / 1º evento geotérmico registrado: 1988
-Visitantes: credenciar na recepção
-
-(arquivo pessoal — não distribuir)
-`,
+        name: 'placa_entrada.jpg',
+        size: '248 KB',
+        type: 'Imagem JPEG',
+        modified: '03/08/1988 12:15',
+        kind: 'image',
+        scene: 'placa',
       },
       {
         id: 'recibo-cafe',
         name: 'recibo_cafe.txt',
         size: '1 KB',
         type: 'Documento de Texto',
-        modified: '02/08/2026 07:40',
+        modified: '02/08/1988 07:40',
         kind: 'text',
         content: `Cantina Nível 1
 Café + pão — R$ 8,50
-02/08/2026
+02/08/1988
 `,
       },
     ],
@@ -230,7 +221,7 @@ Café + pão — R$ 8,50
         name: 'memo_interno_1418.doc',
         size: '16 KB',
         type: 'Documento do Microsoft Word',
-        modified: '14/08/2026 20:58',
+        modified: '14/08/1988 20:58',
         kind: 'document',
         content: `MEMO INTERNO 1418
 Distribuição: plantão / diretoria
@@ -250,7 +241,7 @@ Referência sensores: ver ticket TH-B3-1200 no sistema.
         name: 'rascunho_caderno.txt',
         size: '1 KB',
         type: 'Documento de Texto',
-        modified: '13/08/2026 22:11',
+        modified: '13/08/1988 22:11',
         kind: 'text',
         content: `caderno — página rasgada
 

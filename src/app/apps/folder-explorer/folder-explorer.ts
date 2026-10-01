@@ -100,6 +100,7 @@ export class FolderExplorer {
     }
 
     if (entry.kind === 'image') {
+      const isPlaca = entry.scene === 'placa';
       this.wm.open(
         {
           id: `file-${entry.id}`,
@@ -107,8 +108,8 @@ export class FolderExplorer {
           icon: 'image',
           appId: 'viewer',
           windowTitle: entry.name,
-          width: 460,
-          height: 390,
+          width: isPlaca ? 420 : 460,
+          height: isPlaca ? 420 : 390,
           minWidth: 280,
           minHeight: 220,
           maxWidth: 900,

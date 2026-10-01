@@ -8,7 +8,7 @@ export const MAIL_MESSAGES: MailMessage[] = [
     fromEmail: 'rh@sindiminas.org',
     to: 'h.vance@lab.local',
     subject: 'Re: Verba Poço 04 — nomenclatura nos relatórios',
-    received: '10/08/2026 09:22',
+    received: '10/08/1988 09:22',
     unread: true,
     audience: 'helio',
     body: `Hélio,
@@ -27,7 +27,7 @@ RH / Sindiminas
     fromEmail: 'contabilidade@sindiminas.org',
     to: 'h.vance@lab.local',
     subject: 'Planilha Q3 — aproveitamento térmico',
-    received: '08/08/2026 15:40',
+    received: '08/08/1988 15:40',
     unread: false,
     audience: 'helio',
     body: `Dr. Vance,
@@ -35,7 +35,7 @@ RH / Sindiminas
 Segue lembrete da planilha de custos do Poço 04 (perfuração + sensores).
 Prazo interno: sexta.
 
-Sem novidades no contrato do Projeto Vulkanos — vigência 2026.
+Sem novidades no contrato do Projeto Vulkanos — vigência 1988.
 
 Contabilidade
 `,
@@ -47,7 +47,7 @@ Contabilidade
     fromEmail: 'm.dias@lab.local',
     to: 'h.vance@lab.local',
     subject: 'Poço 04 / fragmento -400m — sensor estranho',
-    received: '12/08/2026 17:48',
+    received: '12/08/1988 17:48',
     unread: true,
     audience: 'helio',
     body: `Hélio,
@@ -68,7 +68,7 @@ M.
     fromEmail: 'auditoria@lab.local',
     to: 'h.vance@lab.local',
     subject: 'Classificação da amostra do Poço 04',
-    received: '13/08/2026 10:05',
+    received: '13/08/1988 10:05',
     unread: false,
     audience: 'helio',
     body: `Prezado,
@@ -88,7 +88,7 @@ Auditoria Interna
     fromEmail: 'alerta_seguranca@lab.local',
     to: 'h.vance@lab.local',
     subject: '[SENSOR] B3 — limiares excedidos',
-    received: '14/08/2026 20:41',
+    received: '14/08/1988 20:41',
     unread: true,
     audience: 'helio',
     body: `Código: TH-B3-1200
@@ -108,7 +108,7 @@ Ticket gerado automaticamente. Sem operador na sala no horário do pico.
     fromEmail: 'facilities@lab.local',
     to: 'h.vance@lab.local',
     subject: 'Nível 2 — turno da tarde sem retorno',
-    received: '14/08/2026 19:55',
+    received: '14/08/1988 19:55',
     unread: true,
     audience: 'helio',
     body: `Dr. Vance,
@@ -128,7 +128,7 @@ Facilities
     fromEmail: 'facilities@lab.local',
     to: 'h.vance@lab.local',
     subject: 'Agendamento: óleo gerador auxiliar',
-    received: '11/08/2026 14:05',
+    received: '11/08/1988 14:05',
     unread: false,
     audience: 'helio',
     body: `Confirmado: sexta, 08h–10h.
@@ -144,7 +144,7 @@ Facilities
     fromEmail: 'helpdesk@lab.local',
     to: 'h.vance@lab.local',
     subject: 'Impressora 1B — toner preto',
-    received: '12/08/2026 09:11',
+    received: '12/08/1988 09:11',
     unread: false,
     audience: 'helio',
     body: `Olá,
@@ -162,7 +162,7 @@ Helpdesk
     fromEmail: 'agenda@lab.local',
     to: 'h.vance@lab.local',
     subject: 'Reunião semanal cancelada',
-    received: '09/08/2026 08:30',
+    received: '09/08/1988 08:30',
     unread: false,
     audience: 'helio',
     body: `A reunião de terça (Poço 04 / Setor B) foi cancelada.
@@ -178,7 +178,7 @@ Sala 1B liberada.
     fromEmail: 'rh@sindiminas.org',
     to: 'h.vance@lab.local',
     subject: 'Saldo de férias — lembrete automático',
-    received: '05/08/2026 07:00',
+    received: '05/08/1988 07:00',
     unread: false,
     audience: 'helio',
     body: `Lembrete: você possui 12 dias de férias acumulados.
@@ -194,7 +194,7 @@ RH
     fromEmail: 'h.vance@lab.local',
     to: 'm.dias@lab.local',
     subject: 'Re: Poço 04 / fragmento -400m',
-    received: '12/08/2026 18:10',
+    received: '12/08/1988 18:10',
     unread: false,
     audience: 'helio',
     body: `Mariana,
@@ -211,7 +211,7 @@ H.
     fromEmail: 'h.vance@lab.local',
     to: 'm.dias@lab.local',
     subject: '(rascunho sem assunto)',
-    received: '14/08/2026 21:12',
+    received: '14/08/1988 21:12',
     unread: false,
     audience: 'helio',
     body: `Mariana — não mexam no incinerador ainda. Se a fonte de calor cair, o que estiver no B3 pode...
@@ -224,7 +224,7 @@ H.
     fromEmail: 'ti@lab.local',
     to: 'suporte_ti@lab.local',
     subject: 'Política de senhas — conta administrativa',
-    received: '07/08/2026 11:16',
+    received: '07/08/1988 11:16',
     unread: true,
     audience: 'guest',
     body: `Plantão,
@@ -243,12 +243,12 @@ TI
     fromEmail: 'rh@sindiminas.org',
     to: 'suporte_ti@lab.local',
     subject: 'Cópia: vigência Projeto Vulkanos',
-    received: '06/08/2026 16:20',
+    received: '06/08/1988 16:20',
     unread: true,
     audience: 'guest',
     body: `Para o arquivo do suporte (acesso a pastas / contas):
 
-Projeto Vulkanos — vigência 2026
+Projeto Vulkanos — vigência 1988
 Responsável técnico: h.vance@lab.local
 
 Anexo omitido (servidor de arquivos).
@@ -263,7 +263,7 @@ RH
     fromEmail: 'noc@lab.local',
     to: 'suporte_ti@lab.local',
     subject: 'Fila SMTP atrasada 12 min',
-    received: '13/08/2026 16:02',
+    received: '13/08/1988 16:02',
     unread: true,
     audience: 'guest',
     body: `Plantão,
@@ -281,7 +281,7 @@ Ticket #4412.
     fromEmail: 'certs@lab.local',
     to: 'suporte_ti@lab.local',
     subject: 'Certificado interno expira em 40 dias',
-    received: '11/08/2026 08:00',
+    received: '11/08/1988 08:00',
     unread: false,
     audience: 'guest',
     body: `monitor-estacao.lab.local — renovar antes de 20/09.
@@ -295,7 +295,7 @@ Procedimento padrão no wiki interno.
     fromEmail: 'almox@lab.local',
     to: 'suporte_ti@lab.local',
     subject: 'Pedido #2291 toner — aguardando',
-    received: '12/08/2026 11:30',
+    received: '12/08/1988 11:30',
     unread: false,
     audience: 'guest',
     body: `Toner preto 1B ainda sem estoque. Previsão: quarta.
@@ -308,7 +308,7 @@ Procedimento padrão no wiki interno.
     fromEmail: 'backup@lab.local',
     to: 'suporte_ti@lab.local',
     subject: 'Backup diário concluído',
-    received: '14/08/2026 03:10',
+    received: '14/08/1988 03:10',
     unread: false,
     audience: 'guest',
     body: `Backup noturno ok.
@@ -322,7 +322,7 @@ Pasta compartilhada parcial (alguns diretórios omitidos por ACL).
     fromEmail: 'suporte_ti@lab.local',
     to: 'ti@lab.local',
     subject: 'Re: Política de senhas',
-    received: '07/08/2026 11:40',
+    received: '07/08/1988 11:40',
     unread: false,
     audience: 'guest',
     body: `Ok. Deixei um checklist na área do visitante e uma nota sobre o padrão de digitação dele.
@@ -336,7 +336,7 @@ Não colo a senha montada em lugar nenhum.
     fromEmail: 'sistema@lab.local',
     to: 'todos@lab.local',
     subject: 'Teste de entrega — pode apagar',
-    received: '01/08/2026 09:00',
+    received: '01/08/1988 09:00',
     unread: false,
     audience: 'both',
     body: `Mensagem de teste do servidor de correio local.

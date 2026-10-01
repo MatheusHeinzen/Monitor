@@ -25,6 +25,5 @@ export const SUPORTE_STICKY = `nota suporte (não imprimir)
 
 padrão do HV nas contas locais:
 leet do primeiro nome + @
-tipo H3l1o@…
 (ano? ele muda. ver contrato / RH)
 `;

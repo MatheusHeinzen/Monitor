@@ -15,7 +15,7 @@ export const AUTH_ACCOUNTS: AuthAccount[] = [
     username: 'dr.helio',
     displayName: 'Dr. Hélio Vance',
     role: 'helio',
-    passwords: ['vulkanos1988', 'H3l1o@2026'],
+    passwords: ['vulkanos1956', 'H3l1o@1988'],
     subtitle: 'Chefe de Pesquisa',
   },
   {

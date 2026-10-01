@@ -1,16 +1,38 @@
 <div class="viewer">
   <div class="canvas">
-    <figure>
-      <svg viewBox="0 0 320 210" aria-label="Foto das férias">
-        <rect width="320" height="210" fill="#f4d19b" />
-        <rect y="0" width="320" height="92" fill="#5aa7d4" />
-        <circle cx="258" cy="42" r="22" fill="#ffe08a" />
-        <path d="M0 118 C70 92 140 132 210 108 C250 96 280 118 320 104 V210 H0z" fill="#e8c07a" />
-        <path d="M0 148 C80 128 150 168 230 146 C270 136 300 154 320 148 V210 H0z" fill="#d9a85c" />
-        <path d="M0 168 C90 160 160 186 320 170 V210 H0z" fill="#3aa0c8" />
-        <rect x="138" y="126" width="8" height="36" fill="#8b5a2b" />
-        <path d="M142 92 L168 132 L116 132z" fill="#2f7d3a" />
-      </svg>
+    <figure [class.placa-frame]="scene() === 'placa'">
+      @if (scene() === 'placa') {
+        <div class="placa-photo" aria-label="Foto da placa na portaria">
+          <div class="placa-sky"></div>
+          <div class="placa-wall"></div>
+          <div class="placa-pole"></div>
+          <div class="placa-sign">
+            <div class="placa-bolt tl"></div>
+            <div class="placa-bolt tr"></div>
+            <div class="placa-bolt bl"></div>
+            <div class="placa-bolt br"></div>
+            <div class="placa-badge">V</div>
+            <h2>ESTAÇÃO VULKANOS</h2>
+            <p class="placa-tag">Pesquisa mineral · aproveitamento térmico</p>
+            <div class="placa-rule"></div>
+            <p class="placa-line">Fundação / 1º evento geotérmico: <strong>1956</strong></p>
+            <p class="placa-line">Visitantes: credenciar na recepção</p>
+          </div>
+          <div class="placa-grass"></div>
+          <span class="placa-stamp">celular · 03/08/1988</span>
+        </div>
+      } @else {
+        <svg viewBox="0 0 320 210" aria-label="Foto das férias">
+          <rect width="320" height="210" fill="#f4d19b" />
+          <rect y="0" width="320" height="92" fill="#5aa7d4" />
+          <circle cx="258" cy="42" r="22" fill="#ffe08a" />
+          <path d="M0 118 C70 92 140 132 210 108 C250 96 280 118 320 104 V210 H0z" fill="#e8c07a" />
+          <path d="M0 148 C80 128 150 168 230 146 C270 136 300 154 320 148 V210 H0z" fill="#d9a85c" />
+          <path d="M0 168 C90 160 160 186 320 170 V210 H0z" fill="#3aa0c8" />
+          <rect x="138" y="126" width="8" height="36" fill="#8b5a2b" />
+          <path d="M142 92 L168 132 L116 132z" fill="#2f7d3a" />
+        </svg>
+      }
       <figcaption>{{ title() }}</figcaption>
     </figure>
   </div>
