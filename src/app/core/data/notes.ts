@@ -7,7 +7,7 @@ export const DEFAULT_NOTES = `Lembretes — plantão
 - Ligar pra Facilities sobre o cheiro no Nível 2
 `;
 
-export const SENHAS_BACKUP_NOTES = `CHECKLIST PLANTÃO TI — rascunho
+export const CHECKLIST_PLANTAO = `CHECKLIST PLANTÃO TI — rascunho
 
 [ ] Reiniciar fila SMTP se atraso > 10 min
 [ ] Conferir ACL da pasta compartilhada
@@ -18,6 +18,8 @@ export const SENHAS_BACKUP_NOTES = `CHECKLIST PLANTÃO TI — rascunho
 Obs: se a leitora do arquivo mestre travar, alguém deixou
 um comando na aba Ferramentas do GeoSense. Não testei.
 `;
+
+export const PLAYER_NOTES = ``;
 
 export const SUPORTE_STICKY = `nota suporte (não imprimir)
 

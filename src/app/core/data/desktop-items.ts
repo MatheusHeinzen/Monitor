@@ -1,5 +1,5 @@
 import { DesktopItem } from '../models/desktop-item';
-import { DEFAULT_NOTES, SENHAS_BACKUP_NOTES, SUPORTE_STICKY } from './notes';
+import { CHECKLIST_PLANTAO, DEFAULT_NOTES, PLAYER_NOTES, SUPORTE_STICKY } from './notes';
 import { UserRole } from './auth';
 
 export const DESKTOP_ITEMS: DesktopItem[] = [
@@ -70,14 +70,32 @@ export const DESKTOP_ITEMS: DesktopItem[] = [
     payload: { content: DEFAULT_NOTES },
   },
   {
-    id: 'senhas-backup',
-    label: 'checklist_plantao.txt',
-    icon: 'notepad',
-    appId: 'notepad',
-    windowTitle: 'checklist_plantao.txt - Bloco de notas',
+    id: 'checklist-plantao',
+    label: 'checklist_plantao.doc',
+    icon: 'word',
+    appId: 'word',
+    windowTitle: 'checklist_plantao.doc - Microsoft Word',
     desktopSide: 'left',
     desktopX: 58,
     desktopY: 372,
+    width: 640,
+    height: 480,
+    minWidth: 420,
+    minHeight: 320,
+    maxWidth: 1100,
+    maxHeight: 800,
+    roles: ['guest'],
+    payload: { content: CHECKLIST_PLANTAO },
+  },
+  {
+    id: 'player-notes',
+    label: 'Bloco de Notas',
+    icon: 'notepad',
+    appId: 'notepad',
+    windowTitle: 'Bloco de Notas',
+    desktopSide: 'left',
+    desktopX: 22,
+    desktopY: 484,
     width: 520,
     height: 380,
     minWidth: 280,
@@ -85,7 +103,7 @@ export const DESKTOP_ITEMS: DesktopItem[] = [
     maxWidth: 1000,
     maxHeight: 720,
     roles: ['guest'],
-    payload: { content: SENHAS_BACKUP_NOTES },
+    payload: { content: PLAYER_NOTES, persistKey: 'monitor.player-notes' },
   },
   {
     id: 'suporte-sticky',

@@ -1,6 +1,11 @@
 import { Component, input, linkedSignal, signal } from '@angular/core';
 import { DEFAULT_NOTES } from '../../core/data/notes';
 
+type NotepadPayload = {
+  content?: string;
+  persistKey?: string;
+};
+
 @Component({
   selector: 'app-notepad',
   templateUrl: './notepad.html',
@@ -10,7 +15,13 @@ export class NotepadApp {
   readonly payload = input<unknown>();
   readonly wordWrap = signal(false);
   readonly text = linkedSignal(() => {
-    const payload = this.payload() as { content?: string } | undefined;
+    const payload = this.payload() as NotepadPayload | undefined;
+    if (payload?.persistKey) {
+      const saved = localStorage.getItem(payload.persistKey);
+      if (saved !== null) {
+        return saved;
+      }
+    }
     return payload?.content ?? DEFAULT_NOTES;
   });
 
@@ -19,6 +30,11 @@ export class NotepadApp {
   }
 
   onInput(event: Event): void {
-    this.text.set((event.target as HTMLTextAreaElement).value);
+    const value = (event.target as HTMLTextAreaElement).value;
+    this.text.set(value);
+    const persistKey = (this.payload() as NotepadPayload | undefined)?.persistKey;
+    if (persistKey) {
+      localStorage.setItem(persistKey, value);
+    }
   }
 }
