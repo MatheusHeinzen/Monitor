@@ -1,4 +1,4 @@
-@if (folder(); as current) {
+@if (onDesktop() || folder()) {
   <div class="explorer">
     <div class="menubar">
       <span>Arquivo</span>
@@ -10,7 +10,7 @@
     </div>
 
     <div class="toolbar">
-      <button type="button" class="tool" [disabled]="!current.parentId" (click)="goBack()">Voltar</button>
+      <button type="button" class="tool" [disabled]="!canGoBack()" (click)="goBack()">Voltar</button>
       <span class="tool">Avançar</span>
       <span class="sep"></span>
       <span class="tool">Pesquisar</span>
@@ -21,9 +21,9 @@
       <span class="addr-label">Endereço</span>
       <div class="addr-field">
         <span class="addr-icon" aria-hidden="true">
-          <app-glyph [kind]="current.icon" />
+          <app-glyph [kind]="headerIcon()" />
         </span>
-        {{ current.path }}
+        {{ path() }}
       </div>
     </div>
 
@@ -37,7 +37,7 @@
             Digite a senha
           </div>
           <div class="dialog-body">
-            <p>O arquivo <strong>{{ current.title }}</strong> está protegido por senha.</p>
+            <p>O arquivo <strong>{{ title() }}</strong> está protegido por senha.</p>
             <label for="zip-pass">Senha:</label>
             <form class="pass-row" (ngSubmit)="tryUnlock()">
               <input
@@ -72,14 +72,14 @@
       <div class="workspace">
         <aside class="tasks">
           <section class="box">
-            <h3>{{ current.icon === 'zip' ? 'Arquivo compactado' : 'Tarefas de pasta' }}</h3>
+            <h3>{{ folder()?.icon === 'zip' ? 'Arquivo compactado' : 'Tarefas de pasta' }}</h3>
             <p>Fazer uma cópia</p>
             <p>Mover este item</p>
           </section>
           <section class="box">
             <h3>Outros lugares</h3>
-            <p>Área de trabalho</p>
-            <p>Meus documentos</p>
+            <button type="button" class="place" (click)="goDesktop()">Área de trabalho</button>
+            <button type="button" class="place" (click)="goDocuments()">Meus documentos</button>
           </section>
         </aside>
 
@@ -94,27 +94,27 @@
               </tr>
             </thead>
             <tbody>
-              @for (entry of visibleEntries(); track entry.id) {
+              @for (row of rows(); track row.id) {
                 <tr
                   role="button"
                   tabindex="0"
-                  [class.selected]="selectedId() === entry.id"
-                  [attr.aria-label]="'Abrir ' + entry.name"
-                  (click)="select(entry)"
-                  (dblclick)="openEntry(entry)"
-                  (keydown.enter)="openEntry(entry)"
+                  [class.selected]="selectedId() === row.id"
+                  [attr.aria-label]="'Abrir ' + row.name"
+                  (click)="select(row)"
+                  (dblclick)="openRow(row)"
+                  (keydown.enter)="openRow(row)"
                 >
                   <td>
                     <span class="name">
                       <span class="file-icon">
-                        <app-glyph [kind]="iconFor(entry)" />
+                        <app-glyph [kind]="row.icon" />
                       </span>
-                      {{ entry.name }}
+                      {{ row.name }}
                     </span>
                   </td>
-                  <td>{{ entry.modified }}</td>
-                  <td>{{ entry.type }}</td>
-                  <td>{{ entry.size }}</td>
+                  <td>{{ row.modified }}</td>
+                  <td>{{ row.type }}</td>
+                  <td>{{ row.size }}</td>
                 </tr>
               }
             </tbody>
@@ -123,7 +123,7 @@
       </div>
 
       <footer class="status">
-        {{ visibleEntries().length }} objeto(s) — clique duas vezes para abrir
+        {{ rows().length }} objeto(s) — clique duas vezes para abrir
       </footer>
     }
   </div>

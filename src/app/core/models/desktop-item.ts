@@ -8,7 +8,9 @@ export type DesktopIconKind =
   | 'lab'
   | 'image'
   | 'folder'
-  | 'zip';
+  | 'zip'
+  | 'ie'
+  | 'minesweeper';
 
 export interface DesktopItem {
   id: string;

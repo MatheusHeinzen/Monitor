@@ -1,5 +1,36 @@
 <div class="bar" (click)="$event.stopPropagation()">
-  <button type="button" class="start" aria-label="Iniciar">
+  @if (menuOpen()) {
+    <div class="start-menu" (click)="$event.stopPropagation()">
+      <div class="menu-user">
+        <span class="menu-avatar" aria-hidden="true"></span>
+        <span class="menu-name">{{ userLabel() }}</span>
+      </div>
+      <div class="menu-body">
+        <div class="menu-programs">
+          @for (item of menuItems(); track item.id) {
+            <button type="button" class="menu-item" (click)="openItem(item, $event)">
+              <span class="menu-icon" aria-hidden="true">
+                <app-glyph [kind]="item.icon" />
+              </span>
+              <span class="menu-label">{{ item.label }}</span>
+            </button>
+          }
+        </div>
+      </div>
+      <div class="menu-footer">
+        <button type="button" class="menu-logoff" (click)="logout()">Sair</button>
+      </div>
+    </div>
+  }
+
+  <button
+    type="button"
+    class="start"
+    [class.open]="menuOpen()"
+    aria-label="Iniciar"
+    [attr.aria-expanded]="menuOpen()"
+    (click)="toggleMenu($event)"
+  >
     <svg class="logo" viewBox="0 0 16 16" aria-hidden="true">
       <rect x="1" y="1" width="6" height="6" fill="#f35325" />
       <rect x="9" y="1" width="6" height="6" fill="#81bc06" />

@@ -1,0 +1,54 @@
+<div class="ie">
+  <div class="menubar">
+    <span>Arquivo</span>
+    <span>Editar</span>
+    <span>Exibir</span>
+    <span>Favoritos</span>
+    <span>Ferramentas</span>
+    <span>Ajuda</span>
+  </div>
+
+  <div class="toolbar">
+    <button type="button" class="tool" disabled>Voltar</button>
+    <button type="button" class="tool" disabled>Avançar</button>
+    <button type="button" class="tool" (click)="stop()">Parar</button>
+    <button type="button" class="tool" (click)="refresh()">Atualizar</button>
+    <button type="button" class="tool" (click)="goHome()">Início</button>
+  </div>
+
+  <form class="address" (ngSubmit)="navigate()">
+    <label class="addr-label" for="ie-address">Endereço</label>
+    <input
+      id="ie-address"
+      name="address"
+      type="text"
+      [ngModel]="address()"
+      (ngModelChange)="address.set($event)"
+    />
+    <button type="submit" class="go">Ir</button>
+  </form>
+
+  <div class="page">
+    @if (showError()) {
+      <div class="error-page">
+        <h1>Não é possível exibir a página</h1>
+        <p>
+          A página que você está procurando está indisponível no momento.
+          O site pode estar com problemas técnicos ou você pode precisar
+          ajustar as configurações do seu navegador.
+        </p>
+        <h2>Não é possível encontrar o servidor</h2>
+        <ul>
+          <li>Verifique se o computador está conectado à Internet.</li>
+          <li>A conexão de rede parece estar offline.</li>
+          <li>Entre em contato com o administrador do sistema.</li>
+        </ul>
+        <p class="hint">
+          Clique em <strong>Atualizar</strong> ou tente novamente mais tarde.
+        </p>
+      </div>
+    }
+  </div>
+
+  <footer class="status">Concluído, mas com erros nesta página</footer>
+</div>

@@ -18,6 +18,104 @@
   user-select: none;
 }
 
+.start-menu {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  width: 280px;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid #0831d9;
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+  background: #fff;
+  box-shadow: 2px -2px 8px rgb(0 0 0 / 35%);
+}
+
+.menu-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  background: linear-gradient(180deg, #245edc 0%, #1941a5 100%);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.menu-avatar {
+  width: 36px;
+  height: 36px;
+  border: 2px solid #fff;
+  border-radius: 4px;
+  background: linear-gradient(135deg, #9ec3ff, #3a6fd8);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 35%);
+}
+
+.menu-body {
+  max-height: 320px;
+  overflow: auto;
+  background: #fff;
+}
+
+.menu-programs {
+  display: flex;
+  flex-direction: column;
+  padding: 4px 0;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 6px 12px;
+  border: none;
+  background: transparent;
+  color: #000;
+  font: inherit;
+  font-size: 12px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.menu-item:hover {
+  background: #316ac5;
+  color: #fff;
+}
+
+.menu-icon {
+  display: block;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.menu-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.menu-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 6px 10px;
+  background: linear-gradient(180deg, #245edc 0%, #1941a5 100%);
+}
+
+.menu-logoff {
+  padding: 3px 12px;
+  border: 1px solid #5b9bff;
+  background: linear-gradient(180deg, #3c8ae8 0%, #245edc 100%);
+  color: #fff;
+  font: inherit;
+  font-size: 11px;
+  cursor: pointer;
+}
+
 .start {
   display: flex;
   height: 100%;
@@ -32,7 +130,12 @@
   font-size: 14px;
   font-style: italic;
   font-weight: 700;
-  cursor: default;
+  cursor: pointer;
+}
+
+.start.open {
+  background: linear-gradient(180deg, #3c8a2e 0%, #2f6e24 55%, #24551c 100%);
+  box-shadow: inset 1px 1px 2px rgb(0 0 0 / 30%);
 }
 
 .logo {

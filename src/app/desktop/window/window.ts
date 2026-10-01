@@ -1,6 +1,8 @@
 import { Component, inject, input } from '@angular/core';
 import { FolderExplorer } from '../../apps/folder-explorer/folder-explorer';
+import { InternetExplorerApp } from '../../apps/internet-explorer/internet-explorer';
 import { LabMonitorApp } from '../../apps/lab-monitor/lab-monitor';
+import { MinesweeperApp } from '../../apps/minesweeper/minesweeper';
 import { OutlookApp } from '../../apps/outlook/outlook';
 import { NotepadApp } from '../../apps/notepad/notepad';
 import { PictureViewer } from '../../apps/picture-viewer/picture-viewer';
@@ -23,6 +25,8 @@ const RESIZE_EDGES: ResizeEdge[] = ['n', 's', 'e', 'w', 'ne', 'nw', 'se', 'sw'];
     LabMonitorApp,
     PictureViewer,
     FolderExplorer,
+    MinesweeperApp,
+    InternetExplorerApp,
   ],
   templateUrl: './window.html',
   styleUrl: './window.scss',
