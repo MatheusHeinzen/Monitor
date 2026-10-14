@@ -1,8 +1,6 @@
-import { Component, computed, inject, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { RECYCLE_FILES } from '../../core/data/recycle-files';
 import { RecycleFile } from '../../core/models/recycle-file';
-import { AuthService } from '../../core/services/auth.service';
-import { InvestigationService } from '../../core/services/investigation.service';
 import { WindowManagerService } from '../../core/services/window-manager.service';
 import { AppGlyph } from '../../shared/app-glyph/app-glyph';
 
@@ -14,15 +12,8 @@ import { AppGlyph } from '../../shared/app-glyph/app-glyph';
 })
 export class RecycleBin {
   private readonly wm = inject(WindowManagerService);
-  private readonly auth = inject(AuthService);
-  private readonly investigation = inject(InvestigationService);
-
-  readonly files = computed(() => {
-    const role = this.auth.currentUser()?.role;
-    return RECYCLE_FILES.filter((file) => !file.requiredRole || file.requiredRole === role);
-  });
-
-  readonly selectedId = signal<string | null>(null);
+  readonly files = RECYCLE_FILES;
+  readonly selectedId = signal<string | null>(RECYCLE_FILES[0]?.id ?? null);
 
   select(file: RecycleFile): void {
     this.selectedId.set(file.id);
@@ -30,9 +21,6 @@ export class RecycleBin {
 
   openFile(file: RecycleFile): void {
     this.selectedId.set(file.id);
-    if (file.triggersAlarm) {
-      this.investigation.readFinalLog();
-    }
 
     if (file.kind === 'image') {
       this.wm.open(

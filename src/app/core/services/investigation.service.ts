@@ -2,17 +2,10 @@ import { Injectable, signal } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
 export class InvestigationService {
-  private readonly finalLogRead = signal(false);
   private readonly shutdownTried = signal(false);
 
   readonly alarmVisible = signal(false);
-  readonly logRead = this.finalLogRead.asReadonly();
   readonly pumpShutdownTried = this.shutdownTried.asReadonly();
-
-  readFinalLog(): void {
-    this.finalLogRead.set(true);
-    this.raiseAlarm();
-  }
 
   tryShutdownPump(): void {
     this.shutdownTried.set(true);

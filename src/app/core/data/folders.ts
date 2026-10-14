@@ -101,6 +101,19 @@ Não era uma veia geológica comum. O que extraímos do duto não é apenas magm
 A pressão rompeu a contenção da Sala B. O calor derreteu a liga de titânio do duto. O Senhor P. tentou selar a porta de segurança por fora e trancou a equipe da segurança lá dentro.
 `,
       },
+      {
+        id: 'log-final',
+        name: 'log_final.txt',
+        size: '1 KB',
+        type: 'Documento de Texto',
+        modified: '15/04/1988 21:27',
+        kind: 'text',
+        content: `LOG FINAL
+15/04/1988 21:27
+
+Ele está subindo pelos tubos de ventilação. Se alguém encontrar este terminal, desative a bomba do duto central na sala dos geradores ou o sistema continuará alimentando ele. O código de confirmação está num papel colado por dentro da porta do armário.
+`,
+      },
     ],
   },
 ];
