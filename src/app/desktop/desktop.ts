@@ -21,7 +21,7 @@ export class Desktop {
 
   readonly items = computed(() => {
     const role = this.auth.currentUser()?.role ?? 'guest';
-    return getDesktopItemsForRole(role);
+    return getDesktopItemsForRole(role).filter((item) => !item.menuOnly);
   });
 
   readonly windows = this.wm.windows;

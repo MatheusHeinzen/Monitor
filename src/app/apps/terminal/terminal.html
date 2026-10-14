@@ -1,0 +1,28 @@
+<div class="term" (click)="focusInput()">
+  <div class="scroll" #log>
+    <p class="banner">Estação Monitor — shell de manutenção</p>
+    @for (block of blocks(); track $index) {
+      <p class="line">
+        <span class="prompt">{{ block.prompt }}</span> {{ block.command }}
+      </p>
+      @for (line of block.lines; track $index) {
+        <p class="line">{{ line }}</p>
+      }
+    }
+    <form (submit)="submit($event)">
+      <label>
+        <span class="prompt">{{ prompt() }}</span>
+        <input
+          #cmd
+          [value]="draft()"
+          (input)="draft.set($any($event.target).value)"
+          (keydown)="onKey($event)"
+          autocomplete="off"
+          spellcheck="false"
+          autofocus
+          aria-label="Comando"
+        />
+      </label>
+    </form>
+  </div>
+</div>

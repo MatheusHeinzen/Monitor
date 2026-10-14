@@ -6,10 +6,15 @@ export class InvestigationService {
 
   readonly alarmVisible = signal(false);
   readonly pumpShutdownTried = this.shutdownTried.asReadonly();
+  readonly coolantBleed = signal(false);
 
   tryShutdownPump(): void {
     this.shutdownTried.set(true);
     this.raiseAlarm();
+  }
+
+  openCoolant(): void {
+    this.coolantBleed.set(true);
   }
 
   dismissAlarm(): void {

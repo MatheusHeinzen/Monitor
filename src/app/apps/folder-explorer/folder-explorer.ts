@@ -72,7 +72,9 @@ export class FolderExplorer {
   readonly rows = computed((): ListRow[] => {
     if (this.onDesktop()) {
       const role = this.auth.currentUser()?.role ?? 'guest';
-      return getDesktopItemsForRole(role).map((item) => ({
+      return getDesktopItemsForRole(role)
+        .filter((item) => !item.menuOnly)
+        .map((item) => ({
         id: item.id,
         name: item.label,
         modified: '—',

@@ -30,6 +30,7 @@ export class Taskbar {
       'registros',
       'logs',
       'lab',
+      'terminal',
       'minesweeper',
       'notepad',
       'player-notes',

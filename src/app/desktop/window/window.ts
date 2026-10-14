@@ -8,6 +8,7 @@ import { NotepadApp } from '../../apps/notepad/notepad';
 import { PictureViewer } from '../../apps/picture-viewer/picture-viewer';
 import { RecycleBin } from '../../apps/recycle-bin/recycle-bin';
 import { WordApp } from '../../apps/word/word';
+import { TerminalApp } from '../../apps/terminal/terminal';
 import { AppWindow, ResizeEdge } from '../../core/models/app-window';
 import { WindowManagerService } from '../../core/services/window-manager.service';
 import { AppGlyph } from '../../shared/app-glyph/app-glyph';
@@ -27,6 +28,7 @@ const RESIZE_EDGES: ResizeEdge[] = ['n', 's', 'e', 'w', 'ne', 'nw', 'se', 'sw'];
     FolderExplorer,
     MinesweeperApp,
     InternetExplorerApp,
+    TerminalApp,
   ],
   templateUrl: './window.html',
   styleUrl: './window.scss',

@@ -164,6 +164,7 @@ Carlos
     audience: 'guest',
     body: `O nobreak segurou. Conferir se alguma estação subiu pedindo data.
 O relógio da recepção atrasou quatro minutos.
+O stop do dutoctl só corta a comida e dispara o alarme. O que o manual esconde no central é bleed: abrir a linha de resfriamento.
 `,
   },
   {
@@ -192,6 +193,7 @@ Procedimento padrão no wiki interno.
     audience: 'guest',
     body: `O wiki voltou sozinho às 11h20.
 Ninguém reclamou de arquivo perdido. Só registro.
+O dutoctl da estação voltou a responder depois da queda.
 `,
   },
   {

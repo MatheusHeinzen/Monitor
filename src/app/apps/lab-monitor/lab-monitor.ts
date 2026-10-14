@@ -18,7 +18,7 @@ type LabTab = 'status' | 'valves' | 'tools';
 })
 export class LabMonitorApp implements OnInit {
   private readonly destroyRef = inject(DestroyRef);
-  private readonly investigation = inject(InvestigationService);
+  readonly investigation = inject(InvestigationService);
   readonly sensors = signal<LabSensor[]>(LAB_SENSORS.map((sensor) => ({ ...sensor })));
   readonly alerts = LAB_ALERTS;
   readonly history = TEMP_HISTORY;

@@ -10,7 +10,8 @@ export type DesktopIconKind =
   | 'folder'
   | 'zip'
   | 'ie'
-  | 'minesweeper';
+  | 'minesweeper'
+  | 'terminal';
 
 export interface DesktopItem {
   id: string;
@@ -28,5 +29,6 @@ export interface DesktopItem {
   maxWidth?: number;
   maxHeight?: number;
   roles?: UserRole[];
+  menuOnly?: boolean;
   payload?: Record<string, unknown>;
 }

@@ -114,7 +114,13 @@
     <div class="workspace valves-tab">
       <section class="panel">
         <h2>Sala dos geradores</h2>
-        <p class="hint">A bomba do duto central continua ligada. O cano da montanha ainda alimenta o circuito.</p>
+        <p class="hint">
+          @if (investigation.pumpShutdownTried()) {
+            Alimentação do duto central cortada de uma vez.
+          } @else {
+            A bomba do duto central continua ligada. O cano da montanha ainda alimenta o circuito.
+          }
+        </p>
         <ul class="valves">
           @for (valve of valves; track valve.id) {
             <li [attr.data-state]="valve.state">
