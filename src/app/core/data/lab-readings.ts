@@ -30,38 +30,32 @@ export interface ValveStatus {
 }
 
 export const TEMP_HISTORY: TempHistoryPoint[] = [
-  { label: '01/08', celsius: 198 },
-  { label: '03/08', celsius: 201 },
-  { label: '05/08', celsius: 199 },
-  { label: '07/08', celsius: 204 },
-  { label: '09/08', celsius: 208 },
-  { label: '11/08', celsius: 215 },
-  { label: '12/08', celsius: 240 },
-  { label: '13/08', celsius: 610 },
-  { label: '14/08', celsius: 1400 },
+  { label: '12/04', celsius: 320 },
+  { label: '14/04', celsius: 890 },
+  { label: '15/04', celsius: 1400 },
 ];
 
 export const VALVE_STATUS: ValveStatus[] = [
   {
-    id: 'main',
-    name: 'Tubulação Principal',
-    detail: 'Nível 2 — laboratórios / Setor B',
-    state: 'alarm',
-    stateLabel: 'DANIFICADA / ROMPIDA',
-  },
-  {
-    id: 'silo',
-    name: 'Silo de Reserva de Nitrogênio',
-    detail: 'Acesso manual na sala técnica (Nível 2)',
+    id: 'mountain',
+    name: 'Cano da montanha',
+    detail: 'Chega na sala dos geradores e alimenta o duto central',
     state: 'ok',
-    stateLabel: 'CHEIO',
+    stateLabel: 'FLUXO ATIVO',
   },
   {
-    id: 'water',
-    name: 'Bombas de Água de Refrigeração',
-    detail: 'Câmara B3',
+    id: 'escape',
+    name: 'Válvulas de escape',
+    detail: 'Fechadas por ordem do Senhor P. em 15/04/1988',
     state: 'alarm',
-    stateLabel: 'FALHA',
+    stateLabel: 'FECHADAS',
+  },
+  {
+    id: 'pump',
+    name: 'Bomba do duto central',
+    detail: 'Sala dos geradores — sucção magmática',
+    state: 'alarm',
+    stateLabel: 'LIGADA',
   },
 ];
 
@@ -79,7 +73,7 @@ export const LAB_SENSORS: LabSensor[] = [
     id: 'b3',
     label: 'Câmara B3',
     unit: '°C',
-    value: 1284,
+    value: 1400,
     min: 200,
     max: 1500,
     status: 'alarm',
@@ -124,28 +118,23 @@ export const LAB_SENSORS: LabSensor[] = [
 
 export const LAB_ALERTS: LabAlert[] = [
   {
-    time: '20:41:08',
+    time: '15/04 18:12',
     level: 'alarm',
-    message: 'B3 acima de 1.200 °C — bombas de refrigeração em falha.',
+    message: 'Duto central a 1.400 °C. Válvulas de escape fechadas.',
   },
   {
-    time: '20:38:22',
+    time: '15/04 17:40',
     level: 'alarm',
-    message: 'Sensor de peso: massa 45 kg → 380 kg em 48 h.',
+    message: 'Geração +400% depois do fechamento das válvulas.',
   },
   {
-    time: '19:12:01',
+    time: '14/04 09:05',
     level: 'warn',
-    message: 'Tubulação principal de N₂/água: ruptura detectada no Nível 2.',
+    message: 'Fluido com viscosidade alta e pulsação. Não é lava comum.',
   },
   {
-    time: '18:55:40',
-    level: 'warn',
-    message: 'Selo da porta Setor B: temperatura de vedação crítica.',
-  },
-  {
-    time: '12:08:14',
+    time: '12/04 08:00',
     level: 'ok',
-    message: 'Silo de reserva de nitrogênio: nível CHEIO (manual).',
+    message: '320 °C. Fluxo estável.',
   },
 ];

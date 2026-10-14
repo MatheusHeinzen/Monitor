@@ -121,7 +121,7 @@ export class FolderExplorer {
 
   goDocuments(): void {
     this.denied.set(false);
-    this.navId.set('docs');
+    this.navId.set('avisos');
     this.selectedId.set(null);
     this.unlocked.set(false);
     this.password.set('');
@@ -175,12 +175,13 @@ export class FolderExplorer {
   }
 
   private openDesktopItem(item: DesktopItem): void {
-    if (item.appId === 'folder') {
-      if (item.id === 'docs') {
-        this.goDocuments();
-        return;
-      }
-      this.wm.open(item, { folderId: item.id, ...(item.payload ?? {}) });
+    if (item.appId === 'folder' && getFolder(item.id)) {
+      this.denied.set(false);
+      this.navId.set(item.id);
+      this.selectedId.set(null);
+      this.unlocked.set(false);
+      this.password.set('');
+      this.error.set(false);
       return;
     }
     this.wm.open(item, item.payload);

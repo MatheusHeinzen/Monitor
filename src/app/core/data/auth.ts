@@ -12,10 +12,10 @@ export interface AuthAccount {
 export const AUTH_ACCOUNTS: AuthAccount[] = [
   {
     id: 'helio',
-    username: 'dr.helio',
+    username: 'helio',
     displayName: 'Dr. Hélio Vance',
     role: 'helio',
-    passwords: ['vulkanos1956', 'H3l1o@1988'],
+    passwords: ['H3l10@1988'],
     subtitle: 'Chefe de Pesquisa',
   },
   {
@@ -28,5 +28,3 @@ export const AUTH_ACCOUNTS: AuthAccount[] = [
 ];
 
 export const LOGIN_FOOTER = 'Estação Monitor · rede local 10.0.7.x';
-
-export const LOGIN_POSTIT = 'HV: vulkanos + ???';

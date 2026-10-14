@@ -26,3 +26,47 @@
   position: absolute;
   pointer-events: auto;
 }
+
+.alarm {
+  position: absolute;
+  z-index: 5000;
+  inset: 0 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(120 0 0 / 78%);
+  animation: alarm-flash 0.55s steps(2) infinite;
+}
+
+.alarm-card {
+  max-width: 520px;
+  padding: 28px 32px;
+  border: 3px solid #ffd0d0;
+  background: #6a0000;
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 0 24px rgb(255 40 40 / 65%);
+}
+
+.alarm-card p {
+  margin: 0 0 18px;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.35;
+}
+
+.alarm-card button {
+  padding: 6px 16px;
+  border: 1px solid #fff;
+  background: #3a0000;
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+
+@keyframes alarm-flash {
+  50% {
+    background: rgb(190 0 0 / 92%);
+  }
+}

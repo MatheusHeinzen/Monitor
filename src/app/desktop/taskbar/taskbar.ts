@@ -23,7 +23,17 @@ export class Taskbar {
   readonly menuOpen = signal(false);
   readonly menuItems = computed(() => {
     const role = this.auth.currentUser()?.role ?? 'guest';
-    const preferred = ['ie', 'outlook', 'docs', 'lab', 'minesweeper', 'notepad', 'player-notes'];
+    const preferred = [
+      'ie',
+      'outlook',
+      'avisos',
+      'registros',
+      'logs',
+      'lab',
+      'minesweeper',
+      'notepad',
+      'player-notes',
+    ];
     return getDesktopItemsForRole(role)
       .filter((item) => item.appId !== 'recycle')
       .sort((a, b) => {

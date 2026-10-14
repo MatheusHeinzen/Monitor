@@ -2,42 +2,17 @@ import { RecycleFile } from '../models/recycle-file';
 
 export const RECYCLE_FILES: RecycleFile[] = [
   {
-    id: 'audio-log',
-    name: 'gravacao_14ago_corte.txt',
-    originalPath: 'C:\\Usuários\\dr.helio\\Documentos\\gravacao_14ago_corte.txt',
-    deletedAt: '14/08/1988 22:47',
-    size: '2 KB',
-    type: 'Documento de Texto',
-    kind: 'text',
-    content: `Arquivo: gravacao_14ago.wav (trecho)
-Origem: gravador de bolso
-Qualidade: ruim
-
----
-
-...alguém aí? o piso do B está—
-[estática]
-não é só a rocha, ela—
-[alarme / metal]
-está embaixo, se chegar no—
-[corte]
-
----
-fim do arquivo
-`,
-  },
-  {
     id: 'lista-antiga',
     name: 'lista_almoxarifado.txt',
-    originalPath: 'C:\\Usuários\\dr.helio\\Documentos\\Pessoal\\lista_almoxarifado.txt',
-    deletedAt: '02/08/1988 11:08',
+    originalPath: 'C:\\Usuários\\helio\\lista_almoxarifado.txt',
+    deletedAt: '02/04/1988 11:08',
     size: '1 KB',
     type: 'Documento de Texto',
     kind: 'text',
     content: `Pedido almoxarifado — rascunho
 
 - luvas térmicas (par)
-- filtros HEPA
+- filtros
 - café industrial 5kg
 - fita isolante alta temperatura
 
@@ -45,18 +20,20 @@ fim do arquivo
 `,
   },
   {
-    id: 'rascunho-email',
-    name: 'rascunho_email_cortado.txt',
-    originalPath: 'C:\\Usuários\\dr.helio\\Desktop\\rascunho_email_cortado.txt',
-    deletedAt: '14/08/1988 21:15',
-    size: '1 KB',
-    type: 'Documento de Texto',
+    id: 'duto-bak',
+    name: 'duto_central.bak',
+    originalPath: 'C:\\Usuários\\helio\\Logs_De_Emergencia\\log_final.txt',
+    deletedAt: '15/04/1988 21:27',
+    size: '2 KB',
+    type: 'Cópia de segurança',
     kind: 'text',
-    content: `colei aqui pra não perder — apagar depois
+    requiredRole: 'helio',
+    triggersAlarm: true,
+    content: `LOG FINAL
+15/04/1988 21:27
+cópia recuperada
 
-"...está se alimentando do calor do gerador. Se cortarmos..."
-
-(resto no rascunho do Outlook)
+Ele está subindo pelos tubos de ventilação. Se alguém encontrar este terminal, desative a bomba do duto central na sala dos geradores ou o sistema continuará alimentando ele. O código de confirmação está num papel colado por dentro da porta do armário.
 `,
   },
 ];

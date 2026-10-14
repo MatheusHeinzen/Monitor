@@ -16,5 +16,14 @@
     }
   }
 
+  @if (investigation.alarmVisible()) {
+    <div class="alarm" role="alertdialog" aria-labelledby="alarm-title" (click)="$event.stopPropagation()">
+      <div class="alarm-card">
+        <p id="alarm-title">ALERTA: SOBRECARGA TÉRMICA NO DUTO PRINCIPAL</p>
+        <button type="button" (click)="investigation.dismissAlarm()">Dispensar</button>
+      </div>
+    </div>
+  }
+
   <app-taskbar />
 </div>

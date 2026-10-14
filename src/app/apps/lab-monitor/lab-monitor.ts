@@ -7,6 +7,7 @@ import {
   TEMP_HISTORY,
   VALVE_STATUS,
 } from '../../core/data/lab-readings';
+import { InvestigationService } from '../../core/services/investigation.service';
 
 type LabTab = 'status' | 'valves' | 'tools';
 
@@ -17,6 +18,7 @@ type LabTab = 'status' | 'valves' | 'tools';
 })
 export class LabMonitorApp implements OnInit {
   private readonly destroyRef = inject(DestroyRef);
+  private readonly investigation = inject(InvestigationService);
   readonly sensors = signal<LabSensor[]>(LAB_SENSORS.map((sensor) => ({ ...sensor })));
   readonly alerts = LAB_ALERTS;
   readonly history = TEMP_HISTORY;
@@ -26,6 +28,9 @@ export class LabMonitorApp implements OnInit {
   readonly tab = signal<LabTab>('status');
   readonly overrideInput = signal('');
   readonly overrideMsg = signal('');
+  readonly confirmingPump = signal(false);
+  readonly pumpCode = signal('');
+  readonly pumpCodeError = signal(false);
 
   readonly chart = buildChart(TEMP_HISTORY);
 
@@ -57,6 +62,27 @@ export class LabMonitorApp implements OnInit {
     return level === 'warn' ? 'AVISO' : 'OK';
   }
 
+  askShutdown(): void {
+    this.confirmingPump.set(true);
+    this.pumpCode.set('');
+    this.pumpCodeError.set(false);
+  }
+
+  cancelShutdown(): void {
+    this.confirmingPump.set(false);
+    this.pumpCode.set('');
+    this.pumpCodeError.set(false);
+  }
+
+  confirmShutdown(): void {
+    if (this.pumpCode().trim() !== PUMP_CODE) {
+      this.pumpCodeError.set(true);
+      return;
+    }
+    this.pumpCodeError.set(false);
+    this.investigation.tryShutdownPump();
+  }
+
   runOverride(): void {
     if (this.overrideInput().trim() === 'override_refrigeracao_99') {
       this.overrideMsg.set(
@@ -67,6 +93,8 @@ export class LabMonitorApp implements OnInit {
     this.overrideMsg.set('Comando não reconhecido.');
   }
 }
+
+const PUMP_CODE = '4826';
 
 function buildChart(points: typeof TEMP_HISTORY): {
   polyline: string;

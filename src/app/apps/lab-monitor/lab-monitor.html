@@ -38,7 +38,7 @@
     <div class="workspace status-tab">
       <section class="panel chart-panel">
         <h2>Temperatura — Poço 04 / sonda de fundo</h2>
-        <p class="hint">Série das últimas semanas. Pico no dia 14/08.</p>
+        <p class="hint">Série de abril. Pico no dia 15/04.</p>
         <svg
           class="chart"
           [attr.viewBox]="'0 0 ' + chart.width + ' ' + chart.height"
@@ -113,8 +113,8 @@
   @if (tab() === 'valves') {
     <div class="workspace valves-tab">
       <section class="panel">
-        <h2>Controle de Válvulas de Refrigeração</h2>
-        <p class="hint">Somente status. Intervenções físicas devem ser feitas no local.</p>
+        <h2>Sala dos geradores</h2>
+        <p class="hint">A bomba do duto central continua ligada. O cano da montanha ainda alimenta o circuito.</p>
         <ul class="valves">
           @for (valve of valves; track valve.id) {
             <li [attr.data-state]="valve.state">
@@ -126,9 +126,32 @@
             </li>
           }
         </ul>
-        <p class="note">
-          Silo de reserva: nível CHEIO. Retirada manual na sala técnica (Nível 2).
-        </p>
+        @if (!confirmingPump()) {
+          <button type="button" class="btn on pump" (click)="askShutdown()">Desligar bomba</button>
+        } @else {
+          <form class="confirm" (submit)="$event.preventDefault(); confirmShutdown()">
+            <p class="note">
+              Confirmar o desligamento da bomba do duto central.
+            </p>
+            <label for="pump-code">Código</label>
+            <div class="cmd-row">
+              <input
+                id="pump-code"
+                type="text"
+                inputmode="numeric"
+                maxlength="4"
+                autocomplete="off"
+                [value]="pumpCode()"
+                (input)="pumpCode.set($any($event.target).value)"
+              />
+              <button type="submit" class="btn on">Confirmar</button>
+              <button type="button" class="btn" (click)="cancelShutdown()">Cancelar</button>
+            </div>
+            @if (pumpCodeError()) {
+              <p class="override-msg">Código recusado. A bomba continua ligada.</p>
+            }
+          </form>
+        }
       </section>
     </div>
   }

@@ -1,29 +1,26 @@
 export const DEFAULT_NOTES = `Lembretes — plantão
 
-- Manutenção: borracha do selo Setor B (está ressecada)
-- Óleo do gerador auxiliar (sexta?)
-- Pedir café pra sala 1B
-- override_refri… (completar — post-it sala técnica)
-- Ligar pra Facilities sobre o cheiro no Nível 2
+- Selo do Setor B ressecado
+- Óleo do gerador auxiliar
+- Café da sala 1B
+- Facilities: cheiro no Nível 2
 `;
 
-export const CHECKLIST_PLANTAO = `CHECKLIST PLANTÃO TI — rascunho
+export const CHECKLIST_PLANTAO = `CHECKLIST PLANTÃO TI
 
-[ ] Reiniciar fila SMTP se atraso > 10 min
+[ ] Reiniciar fila SMTP se o atraso passar de 10 min
 [ ] Conferir ACL da pasta compartilhada
-[ ] Contas administrativas: o chefe ainda usa o padrão antigo
-    → projeto + ano do evento fundador
-    (não anotar a senha montada neste arquivo)
+[ ] Toner da impressora 1B
+[ ] Certificado interno antes de setembro
 
-Obs: se a leitora do arquivo mestre travar, alguém deixou
-um comando na aba Ferramentas do GeoSense. Não testei.
+Nada de credencial neste arquivo.
 `;
 
 export const PLAYER_NOTES = ``;
 
-export const SUPORTE_STICKY = `nota suporte (não imprimir)
+export const SUPORTE_STICKY = `nota suporte
 
-padrão do HV nas contas locais:
-leet do primeiro nome + @
-(ano? ele muda. ver contrato / RH)
+Fila SMTP atrasou de novo ontem.
+Backup noturno ok.
+Impressora 1B ainda sem toner.
 `;

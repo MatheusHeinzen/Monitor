@@ -385,6 +385,16 @@ li[data-level='alarm'] .tag {
   color: #1f5a1f;
 }
 
+.pump {
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.confirm label {
+  display: block;
+  margin-top: 8px;
+}
+
 .cmd-row {
   display: flex;
   gap: 8px;

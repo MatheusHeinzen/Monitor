@@ -2,6 +2,7 @@ import { Component, computed, inject, signal } from '@angular/core';
 import { getDesktopItemsForRole } from '../core/data/desktop-items';
 import { DesktopItem } from '../core/models/desktop-item';
 import { AuthService } from '../core/services/auth.service';
+import { InvestigationService } from '../core/services/investigation.service';
 import { WindowManagerService } from '../core/services/window-manager.service';
 import { DesktopIcon } from './desktop-icon/desktop-icon';
 import { Taskbar } from './taskbar/taskbar';
@@ -16,6 +17,7 @@ import { WindowFrame } from './window/window';
 export class Desktop {
   private readonly wm = inject(WindowManagerService);
   private readonly auth = inject(AuthService);
+  readonly investigation = inject(InvestigationService);
 
   readonly items = computed(() => {
     const role = this.auth.currentUser()?.role ?? 'guest';

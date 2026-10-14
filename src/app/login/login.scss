@@ -160,33 +160,6 @@ label,
   text-shadow: 1px 1px 2px rgb(0 0 0 / 35%);
 }
 
-.postit {
-  position: absolute;
-  right: 28px;
-  bottom: 24px;
-  width: 210px;
-  padding: 12px 14px 16px;
-  background: #fff59a;
-  color: #333;
-  font-family: 'Comic Sans MS', 'Segoe Print', cursive, sans-serif;
-  font-size: 12px;
-  line-height: 1.35;
-  box-shadow: 2px 3px 6px rgb(0 0 0 / 35%);
-  transform: rotate(-3deg);
-}
-
-.postit-title {
-  margin: 0 0 6px;
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-
-.postit p:last-child {
-  margin: 0;
-}
-
 .picture,
 .power-glyph {
   overflow: hidden;

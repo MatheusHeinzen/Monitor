@@ -2,286 +2,178 @@ import { MailMessage } from '../models/mail-message';
 
 export const MAIL_MESSAGES: MailMessage[] = [
   {
-    id: 'mail-rh',
-    folder: 'projetos',
-    from: 'RH Sindiminas',
-    fromEmail: 'rh@sindiminas.org',
-    to: 'h.vance@lab.local',
-    subject: 'Re: Verba Poço 04 — nomenclatura nos relatórios',
-    received: '10/08/1988 09:22',
-    unread: true,
-    audience: 'helio',
-    body: `Hélio,
-
-A verba inicial foi aprovada. Só reforçando o que já combinamos com a diretoria: nos documentos externos a unidade deve aparecer como Estação de Pesquisa Mineral e Captura de Geotermia.
-
-Evitem termos que soem a “coleta especial” ou material vivo. Auditoria externa no mês que vem.
-
-RH / Sindiminas
-`,
-  },
-  {
-    id: 'mail-orcamento',
-    folder: 'projetos',
-    from: 'Contabilidade',
-    fromEmail: 'contabilidade@sindiminas.org',
-    to: 'h.vance@lab.local',
-    subject: 'Planilha Q3 — aproveitamento térmico',
-    received: '08/08/1988 15:40',
-    unread: false,
-    audience: 'helio',
-    body: `Dr. Vance,
-
-Segue lembrete da planilha de custos do Poço 04 (perfuração + sensores).
-Prazo interno: sexta.
-
-Sem novidades no contrato do Projeto Vulkanos — vigência 1988.
-
-Contabilidade
-`,
-  },
-  {
-    id: 'mail-mariana',
-    folder: 'projetos',
-    from: 'Dra. Mariana Dias',
-    fromEmail: 'm.dias@lab.local',
-    to: 'h.vance@lab.local',
-    subject: 'Poço 04 / fragmento -400m — sensor estranho',
-    received: '12/08/1988 17:48',
-    unread: true,
-    audience: 'helio',
-    body: `Hélio,
-
-Trouxemos o fragmento do -400m. Viscosidade não bate com basalto nem dacito que eu conheço.
-
-Tentamos resfriar com N₂ no Becker e a leitura de temperatura SUBIU. Acho que o termopar está com defeito — ou a calibração do banco B. Vou isolar no setor térmico B até a gente olhar com calma.
-
-Não manda isso pra fora ainda.
-
-M.
-`,
-  },
-  {
-    id: 'mail-auditoria',
-    folder: 'projetos',
-    from: 'Auditoria Interna',
-    fromEmail: 'auditoria@lab.local',
-    to: 'h.vance@lab.local',
-    subject: 'Classificação da amostra do Poço 04',
-    received: '13/08/1988 10:05',
-    unread: false,
-    audience: 'helio',
-    body: `Prezado,
-
-Para o relatório trimestral, a amostra recuperada deve constar como mineral / fragmento ígneo.
-Não usar categoria biológica sem laudo formal.
-
-Qualquer dúvida, responder este fio.
-
-Auditoria Interna
-`,
-  },
-  {
-    id: 'mail-alerta',
+    id: 'mail-backup',
     folder: 'inbox',
-    from: 'Alerta de Segurança',
-    fromEmail: 'alerta_seguranca@lab.local',
-    to: 'h.vance@lab.local',
-    subject: '[SENSOR] B3 — limiares excedidos',
-    received: '14/08/1988 20:41',
-    unread: true,
-    audience: 'helio',
-    body: `Código: TH-B3-1200
-Unidade: Câmara de isolamento B3
-
-Temp. registrada: > 1.200 °C
-Fluxo refrigeração: abaixo do mínimo
-Sensor de peso: 45 kg → 380 kg (janela 48 h)
-
-Ticket gerado automaticamente. Sem operador na sala no horário do pico.
-`,
-  },
-  {
-    id: 'mail-facilities',
-    folder: 'inbox',
-    from: 'Facilities',
-    fromEmail: 'facilities@lab.local',
-    to: 'h.vance@lab.local',
-    subject: 'Nível 2 — turno da tarde sem retorno',
-    received: '14/08/1988 19:55',
-    unread: true,
-    audience: 'helio',
-    body: `Dr. Vance,
-
-Equipe de manutenção reportou vazamento / vapor no corredor do Nível 2 por volta das 18h.
-Três técnicos não bateram o ponto de saída. Rádio sem resposta.
-
-Vamos manter o gerador como está até orientação de vocês. Não mexemos nas válvulas sem ordem.
-
-Facilities
-`,
-  },
-  {
-    id: 'mail-manutencao',
-    folder: 'inbox',
-    from: 'Facilities',
-    fromEmail: 'facilities@lab.local',
-    to: 'h.vance@lab.local',
-    subject: 'Agendamento: óleo gerador auxiliar',
-    received: '11/08/1988 14:05',
+    from: 'Backup',
+    fromEmail: 'backup@lab.local',
+    to: 'suporte_ti@lab.local',
+    subject: 'Backup noturno concluído',
+    received: '04/04/1988 03:12',
     unread: false,
-    audience: 'helio',
-    body: `Confirmado: sexta, 08h–10h.
-Gerador auxiliar offline só com autorização do plantão.
-
-Facilities
+    audience: 'guest',
+    body: `Backup da noite ok.
+Dois diretórios da pasta compartilhada ficaram de fora por ACL.
 `,
   },
   {
-    id: 'mail-impressora',
+    id: 'mail-disco',
     folder: 'inbox',
-    from: 'Helpdesk',
-    fromEmail: 'helpdesk@lab.local',
-    to: 'h.vance@lab.local',
-    subject: 'Impressora 1B — toner preto',
-    received: '12/08/1988 09:11',
-    unread: false,
-    audience: 'helio',
-    body: `Olá,
+    from: 'Monitoramento',
+    fromEmail: 'noc@lab.local',
+    to: 'suporte_ti@lab.local',
+    subject: 'Disco da estação 10.0.7.4 em 91%',
+    received: '05/04/1988 08:40',
+    unread: true,
+    audience: 'guest',
+    body: `Plantão,
 
-Toner preto da impressora da Sala 1B está em 8%.
-Pedido #2291 aberto no almoxarifado.
-
-Helpdesk
+O volume C: da estação da recepção passou de 90%.
+Limpar temporários e a fila de impressão antes de sexta.
 `,
   },
   {
     id: 'mail-reuniao',
     folder: 'inbox',
-    from: 'Agenda',
+    from: 'Agenda TI',
     fromEmail: 'agenda@lab.local',
-    to: 'h.vance@lab.local',
-    subject: 'Reunião semanal cancelada',
-    received: '09/08/1988 08:30',
+    to: 'suporte_ti@lab.local',
+    subject: 'Reunião de terça cancelada',
+    received: '05/04/1988 17:05',
     unread: false,
-    audience: 'helio',
-    body: `A reunião de terça (Poço 04 / Setor B) foi cancelada.
-Próxima data: a confirmar.
-
-Sala 1B liberada.
+    audience: 'guest',
+    body: `A reunião semanal de infraestrutura foi cancelada.
+Próxima data ainda sem sala.
 `,
   },
   {
-    id: 'mail-ferias',
+    id: 'mail-mouse',
+    folder: 'inbox',
+    from: 'Recepção',
+    fromEmail: 'recepcao@lab.local',
+    to: 'suporte_ti@lab.local',
+    subject: 'Mouse da recepção travando',
+    received: '06/04/1988 10:22',
+    unread: false,
+    audience: 'guest',
+    body: `O mouse da mesa da entrada anda aos saltos.
+Já trocamos o tapete. Podem olhar quando passarem?
+`,
+  },
+  {
+    id: 'mail-ramal',
+    folder: 'inbox',
+    from: 'Facilities',
+    fromEmail: 'facilities@lab.local',
+    to: 'suporte_ti@lab.local',
+    subject: 'Ramal 214 sem tom',
+    received: '06/04/1988 14:18',
+    unread: true,
+    audience: 'guest',
+    body: `Ramal da sala 1B mudo desde o almoço.
+Não é o aparelho: testamos outro e continua sem linha.
+`,
+  },
+  {
+    id: 'mail-boas-vindas',
     folder: 'inbox',
     from: 'RH Sindiminas',
     fromEmail: 'rh@sindiminas.org',
-    to: 'h.vance@lab.local',
-    subject: 'Saldo de férias — lembrete automático',
-    received: '05/08/1988 07:00',
+    to: 'suporte_ti@lab.local',
+    subject: 'Conta nova — helio',
+    received: '06/01/1988 09:14',
     unread: false,
-    audience: 'helio',
-    body: `Lembrete: você possui 12 dias de férias acumulados.
-Agendar até o fim do semestre.
+    audience: 'guest',
+    body: `Plantão,
+
+A conta helio foi criada para o Dr. Hélio Vance.
+Senha provisória de primeiro acesso. Ele precisa trocar no mesmo dia.
 
 RH
 `,
   },
   {
-    id: 'mail-enviado',
-    folder: 'sent',
-    from: 'Dr. Hélio Vance',
-    fromEmail: 'h.vance@lab.local',
-    to: 'm.dias@lab.local',
-    subject: 'Re: Poço 04 / fragmento -400m',
-    received: '12/08/1988 18:10',
+    id: 'mail-antivirus',
+    folder: 'inbox',
+    from: 'Segurança',
+    fromEmail: 'seguranca@lab.local',
+    to: 'suporte_ti@lab.local',
+    subject: 'Assinatura de vírus desatualizada',
+    received: '07/04/1988 07:55',
     unread: false,
-    audience: 'helio',
-    body: `Mariana,
-
-B3. Sem publicação. Olho a planilha amanhã.
-
-H.
+    audience: 'guest',
+    body: `Três estações do Nível 1 estão com a base de janeiro.
+Atualizar no próximo plantão. Não reiniciar a do laboratório sem aviso.
 `,
   },
   {
-    id: 'mail-rascunho',
-    folder: 'deleted',
-    from: 'Dr. Hélio Vance',
-    fromEmail: 'h.vance@lab.local',
-    to: 'm.dias@lab.local',
-    subject: '(rascunho sem assunto)',
-    received: '14/08/1988 21:12',
+    id: 'mail-cracha',
+    folder: 'inbox',
+    from: 'Portaria',
+    fromEmail: 'portaria@lab.local',
+    to: 'suporte_ti@lab.local',
+    subject: 'Leitor de crachá piscando',
+    received: '07/04/1988 09:03',
     unread: false,
-    audience: 'helio',
-    body: `Mariana — não mexam no incinerador ainda. Se a fonte de calor cair, o que estiver no B3 pode...
-`,
-  },
-  {
-    id: 'mail-ti-senha',
-    folder: 'inbox',
-    from: 'TI Corporativo',
-    fromEmail: 'ti@lab.local',
-    to: 'suporte_ti@lab.local',
-    subject: 'Política de senhas — conta administrativa',
-    received: '07/08/1988 11:16',
-    unread: true,
     audience: 'guest',
-    body: `Plantão,
-
-O usuário dr.helio foi advertido de novo. Continua colocando o ano do contrato na senha da estação.
-
-Não enviem credenciais por e-mail. Só reforçar na próxima passagem.
-
-TI
+    body: `O leitor da porta dupla pisca vermelho e não registra saída.
+O pessoal está anotando o horário no caderno.
 `,
   },
   {
-    id: 'mail-ti-contrato',
+    id: 'mail-papel',
     folder: 'inbox',
-    from: 'RH Sindiminas',
-    fromEmail: 'rh@sindiminas.org',
+    from: 'Almoxarifado',
+    fromEmail: 'almox@lab.local',
     to: 'suporte_ti@lab.local',
-    subject: 'Cópia: vigência Projeto Vulkanos',
-    received: '06/08/1988 16:20',
-    unread: true,
+    subject: 'Papel carta — estoque baixo',
+    received: '07/04/1988 15:47',
+    unread: false,
     audience: 'guest',
-    body: `Para o arquivo do suporte (acesso a pastas / contas):
-
-Projeto Vulkanos — vigência 1988
-Responsável técnico: h.vance@lab.local
-
-Anexo omitido (servidor de arquivos).
-
-RH
+    body: `Resma da impressora 1B acaba amanhã.
+Pedido #2304 aberto. Sem previsão de toner preto.
 `,
   },
   {
-    id: 'mail-ti-servidor',
+    id: 'mail-senha-fraca',
     folder: 'inbox',
-    from: 'Monitoramento',
-    fromEmail: 'noc@lab.local',
+    from: 'Carlos Menezes',
+    fromEmail: 'c.menezes@lab.local',
     to: 'suporte_ti@lab.local',
-    subject: 'Fila SMTP atrasada 12 min',
-    received: '13/08/1988 16:02',
-    unread: true,
+    subject: 'Senha do Hélio — de novo',
+    received: '18/02/1988 16:42',
+    unread: false,
     audience: 'guest',
-    body: `Plantão,
+    body: `Pessoal,
 
-Fila SMTP atrasou 12 minutos às 15h40.
-GeoSense e Outlook da estação do chefe na 10.0.7.x — ok.
+O Hélio ainda não trocou a senha provisória. Dá para adivinhar: o primeiro nome com leet, arroba no meio e o ano em que a conta foi aberta.
 
-Ticket #4412.
+Isso é fraco demais. Cobrem a troca antes da auditoria. Não vou escrever a senha neste e-mail.
+
+Carlos
 `,
   },
   {
-    id: 'mail-ti-ssl',
+    id: 'mail-energia',
+    folder: 'inbox',
+    from: 'Facilities',
+    fromEmail: 'facilities@lab.local',
+    to: 'suporte_ti@lab.local',
+    subject: 'Queda breve às 02h',
+    received: '08/04/1988 08:10',
+    unread: false,
+    audience: 'guest',
+    body: `O nobreak segurou. Conferir se alguma estação subiu pedindo data.
+O relógio da recepção atrasou quatro minutos.
+`,
+  },
+  {
+    id: 'mail-cert',
     folder: 'inbox',
     from: 'Certificados',
     fromEmail: 'certs@lab.local',
     to: 'suporte_ti@lab.local',
     subject: 'Certificado interno expira em 40 dias',
-    received: '11/08/1988 08:00',
+    received: '08/04/1988 08:00',
     unread: false,
     audience: 'guest',
     body: `monitor-estacao.lab.local — renovar antes de 20/09.
@@ -289,57 +181,119 @@ Procedimento padrão no wiki interno.
 `,
   },
   {
-    id: 'mail-ti-impressora',
+    id: 'mail-wiki',
+    folder: 'inbox',
+    from: 'Monitoramento',
+    fromEmail: 'noc@lab.local',
+    to: 'suporte_ti@lab.local',
+    subject: 'Wiki interno fora por 20 min',
+    received: '08/04/1988 11:36',
+    unread: true,
+    audience: 'guest',
+    body: `O wiki voltou sozinho às 11h20.
+Ninguém reclamou de arquivo perdido. Só registro.
+`,
+  },
+  {
+    id: 'mail-cabo',
+    folder: 'inbox',
+    from: 'Laboratório',
+    fromEmail: 'lab@lab.local',
+    to: 'suporte_ti@lab.local',
+    subject: 'Cabo serial da bancada 2',
+    received: '08/04/1988 16:28',
+    unread: false,
+    audience: 'guest',
+    body: `O cabo da bancada 2 não encaixa mais no adaptador.
+Se tiverem um reserva no armário do TI, deixem na sala 1B.
+`,
+  },
+  {
+    id: 'mail-smtp',
+    folder: 'inbox',
+    from: 'Monitoramento',
+    fromEmail: 'noc@lab.local',
+    to: 'suporte_ti@lab.local',
+    subject: 'Fila SMTP atrasada 12 min',
+    received: '09/04/1988 16:02',
+    unread: false,
+    audience: 'guest',
+    body: `Plantão,
+
+Fila SMTP atrasou 12 minutos às 15h40.
+Estação da rede 10.0.7.x respondeu.
+
+Ticket #4412.
+`,
+  },
+  {
+    id: 'mail-spam',
+    folder: 'inbox',
+    from: 'Correio',
+    fromEmail: 'postmaster@lab.local',
+    to: 'suporte_ti@lab.local',
+    subject: 'Filtro segurou 40 mensagens',
+    received: '10/04/1988 06:15',
+    unread: false,
+    audience: 'guest',
+    body: `Quase tudo era propaganda de fornecedor.
+Nada encaminhado para as caixas dos pesquisadores.
+`,
+  },
+  {
+    id: 'mail-office',
+    folder: 'inbox',
+    from: 'Licenças',
+    fromEmail: 'licencas@sindiminas.org',
+    to: 'suporte_ti@lab.local',
+    subject: 'Office da estação 7 — número de série',
+    received: '10/04/1988 13:44',
+    unread: false,
+    audience: 'guest',
+    body: `A cópia da estação 7 pede ativação de novo depois da formatação.
+O número está no envelope do armário, gaveta 2. Não mandar por e-mail.
+`,
+  },
+  {
+    id: 'mail-toner',
     folder: 'inbox',
     from: 'Almoxarifado',
     fromEmail: 'almox@lab.local',
     to: 'suporte_ti@lab.local',
     subject: 'Pedido #2291 toner — aguardando',
-    received: '12/08/1988 11:30',
+    received: '11/04/1988 11:30',
     unread: false,
     audience: 'guest',
-    body: `Toner preto 1B ainda sem estoque. Previsão: quarta.
+    body: `Toner preto da impressora 1B ainda sem estoque.
+Previsão: quarta.
 `,
   },
   {
-    id: 'mail-ti-backup',
+    id: 'mail-cadeira',
     folder: 'inbox',
-    from: 'Backup',
-    fromEmail: 'backup@lab.local',
+    from: 'Helpdesk',
+    fromEmail: 'helpdesk@lab.local',
     to: 'suporte_ti@lab.local',
-    subject: 'Backup diário concluído',
-    received: '14/08/1988 03:10',
-    unread: false,
+    subject: 'Cadeira do plantão quebrada',
+    received: '11/04/1988 18:02',
+    unread: true,
     audience: 'guest',
-    body: `Backup noturno ok.
-Pasta compartilhada parcial (alguns diretórios omitidos por ACL).
+    body: `O encosto da cadeira da baia 2 soltou.
+Facilities disse que só olha na quinta. Até lá, usar a da baia vazia.
 `,
   },
   {
-    id: 'mail-ti-enviado',
-    folder: 'sent',
-    from: 'Suporte TI',
-    fromEmail: 'suporte_ti@lab.local',
-    to: 'ti@lab.local',
-    subject: 'Re: Política de senhas',
-    received: '07/08/1988 11:40',
+    id: 'mail-relogio',
+    folder: 'inbox',
+    from: 'Plantão',
+    fromEmail: 'plantao@lab.local',
+    to: 'suporte_ti@lab.local',
+    subject: 'Relógio da estação adiantado',
+    received: '12/04/1988 09:26',
     unread: false,
     audience: 'guest',
-    body: `Ok. Deixei um checklist na área do visitante e uma nota sobre o padrão de digitação dele.
-Não colo a senha montada em lugar nenhum.
-`,
-  },
-  {
-    id: 'mail-both-welcome',
-    folder: 'deleted',
-    from: 'Sistema',
-    fromEmail: 'sistema@lab.local',
-    to: 'todos@lab.local',
-    subject: 'Teste de entrega — pode apagar',
-    received: '01/08/1988 09:00',
-    unread: false,
-    audience: 'both',
-    body: `Mensagem de teste do servidor de correio local.
+    body: `A estação do corredor está 6 minutos na frente das outras.
+Não mexi. Se for o horário de verão, ignorar.
 `,
   },
 ];

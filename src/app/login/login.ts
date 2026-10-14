@@ -1,6 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { AUTH_ACCOUNTS, AuthAccount, LOGIN_FOOTER, LOGIN_POSTIT } from '../core/data/auth';
+import { AUTH_ACCOUNTS, AuthAccount, LOGIN_FOOTER } from '../core/data/auth';
 import { AuthService } from '../core/services/auth.service';
 
 @Component({
@@ -14,7 +14,6 @@ export class Login {
 
   readonly accounts = AUTH_ACCOUNTS;
   readonly footer = LOGIN_FOOTER;
-  readonly postit = LOGIN_POSTIT;
   readonly selected = signal<AuthAccount | null>(null);
   readonly showError = signal(false);
   password = '';
