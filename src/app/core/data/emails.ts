@@ -298,4 +298,122 @@ Facilities disse que só olha na quinta. Até lá, usar a da baia vazia.
 Não mexi. Se for o horário de verão, ignorar.
 `,
   },
+  {
+    id: 'mail-helio-cafe',
+    folder: 'inbox',
+    from: 'Cantina',
+    fromEmail: 'cantina@lab.local',
+    to: 'h.vance@lab.local',
+    subject: 'Café da sala 1B acabou',
+    received: '11/04/1988 08:12',
+    unread: true,
+    audience: 'helio',
+    body: `Dr. Vance,
+
+O pó da sala 1B acabou no turno da manhã.
+Pedido novo sai amanhã. Tem um pacote reserva na cantina do Nível 1.
+`,
+  },
+  {
+    id: 'mail-helio-reuniao',
+    folder: 'inbox',
+    from: 'Agenda',
+    fromEmail: 'agenda@lab.local',
+    to: 'h.vance@lab.local',
+    subject: 'Reunião de terça adiada',
+    received: '12/04/1988 07:40',
+    unread: false,
+    audience: 'helio',
+    body: `A reunião semanal foi adiada.
+A sala 1B fica liberada até nova data.
+`,
+  },
+  {
+    id: 'mail-helio-toner',
+    folder: 'inbox',
+    from: 'Helpdesk',
+    fromEmail: 'helpdesk@lab.local',
+    to: 'h.vance@lab.local',
+    subject: 'Impressora 1B — toner preto',
+    received: '12/04/1988 09:05',
+    unread: false,
+    audience: 'helio',
+    body: `Toner preto em 8%.
+Pedido #2291 já está no almoxarifado. Sem previsão.
+`,
+  },
+  {
+    id: 'mail-helio-ferias',
+    folder: 'inbox',
+    from: 'RH Sindiminas',
+    fromEmail: 'rh@sindiminas.org',
+    to: 'h.vance@lab.local',
+    subject: 'Saldo de férias',
+    received: '08/04/1988 07:00',
+    unread: false,
+    audience: 'helio',
+    body: `Lembrete automático: 12 dias de férias acumulados.
+Agendar até o fim do semestre.
+`,
+  },
+  {
+    id: 'mail-helio-oleo',
+    folder: 'inbox',
+    from: 'Facilities',
+    fromEmail: 'facilities@lab.local',
+    to: 'h.vance@lab.local',
+    subject: 'Óleo do gerador auxiliar',
+    received: '13/04/1988 14:22',
+    unread: true,
+    audience: 'helio',
+    body: `Confirmado sexta, 08h–10h.
+O gerador auxiliar só sai do ar com autorização do plantão.
+`,
+  },
+  {
+    id: 'mail-helio-biblioteca',
+    folder: 'inbox',
+    from: 'Biblioteca',
+    fromEmail: 'biblioteca@lab.local',
+    to: 'h.vance@lab.local',
+    subject: 'Periódico em atraso',
+    received: '10/04/1988 16:18',
+    unread: false,
+    audience: 'helio',
+    body: `O volume de março de Geotermia Aplicada ainda não chegou.
+Avisamos quando entrar.
+`,
+  },
+  {
+    id: 'mail-helio-enviado',
+    folder: 'sent',
+    from: 'Dr. Hélio Vance',
+    fromEmail: 'h.vance@lab.local',
+    to: 'cantina@lab.local',
+    subject: 'Re: Café da sala 1B',
+    received: '11/04/1988 08:30',
+    unread: false,
+    audience: 'helio',
+    body: `Pode deixar o reserva na sala. Eu pego.
+H.
+`,
+  },
+  {
+    id: 'mail-helio-projeto',
+    folder: 'projetos',
+    from: 'Contabilidade',
+    fromEmail: 'contabilidade@sindiminas.org',
+    to: 'h.vance@lab.local',
+    subject: 'Planilha de abril — lembrete',
+    received: '09/04/1988 11:15',
+    unread: false,
+    audience: 'helio',
+    body: `Dr. Vance,
+
+A planilha de custos de abril fecha na sexta.
+Sem anexo neste e-mail.
+
+Contabilidade
+`,
+  },
 ];
