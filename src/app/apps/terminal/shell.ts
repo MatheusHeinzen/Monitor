@@ -24,7 +24,16 @@ const ROOT: Node = {
           children: {
             'notas.txt': {
               kind: 'file',
-              content: 'Plantão\nSelo do Setor B\nÓleo do gerador\n',
+              content: 'Lembre-se de usar o que aprendeu com o Linux. Nem todos os comandos foram listados pelo help.\n',
+            },
+            '.local': {
+              kind: 'dir',
+              children: {
+                'nota.txt': {
+                  kind: 'file',
+                  content: 'Nota — não imprimir\n\nOs comandos da bomba foram enviados para o TI.\n',
+                },
+              },
             },
           },
         },
@@ -133,7 +142,14 @@ function list(cwd: string, args: string[]): ShellReply {
   if (node.kind === 'file') {
     return { lines: [baseName(pathArg ?? cwd)], cwd };
   }
-  const names = Object.keys(node.children).sort();
+  const showHidden = args.some((arg) => arg.startsWith('-') && arg.includes('a'));
+  const names = Object.keys(node.children)
+    .filter((name) => showHidden || !name.startsWith('.'))
+    .sort();
+  if (showHidden) {
+    names.unshift('..');
+    names.unshift('.');
+  }
   return { lines: names.length ? [names.join('  ')] : [], cwd };
 }
 
