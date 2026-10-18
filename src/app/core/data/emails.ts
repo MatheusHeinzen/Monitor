@@ -134,6 +134,23 @@ Pedido #2304 aberto. Sem previsão de toner preto.
 `,
   },
   {
+    id: 'mail-helio-ti-bomba',
+    folder: 'inbox',
+    from: 'Dr. Hélio Vance',
+    fromEmail: 'h.vance@lab.local',
+    to: 'suporte_ti@lab.local',
+    subject: 'Ajuste na estação',
+    received: '09/04/1988 19:12',
+    unread: false,
+    audience: 'guest',
+    body: `Pessoal,
+
+Configurei um comando no terminal para desativar a bomba de forma segura. O Senhor P. não sabe. Ele não aprova a ideia.
+
+Hélio
+`,
+  },
+  {
     id: 'mail-senha-fraca',
     folder: 'inbox',
     from: 'Carlos Menezes',

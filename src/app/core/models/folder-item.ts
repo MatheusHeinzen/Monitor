@@ -10,6 +10,7 @@ export interface FolderEntry {
   modified: string;
   kind: FolderEntryKind;
   content?: string;
+  page?: string;
   scene?: string;
   childFolderId?: string;
   requiredRole?: UserRole;

@@ -136,25 +136,30 @@
           <button type="button" class="btn on pump" (click)="askShutdown()">Desligar bomba</button>
         } @else {
           <form class="confirm" (submit)="$event.preventDefault(); confirmShutdown()">
-            <p class="note">
-              Confirmar o desligamento da bomba do duto central.
-            </p>
-            <label for="pump-code">Código</label>
+            <p class="note">Insira a frequência de meia-vida do elemento para neutralização.</p>
+            <div class="pin" role="group" aria-label="Quatro dígitos">
+              @for (digit of digits(); track $index) {
+                <input
+                  #pin
+                  class="pin-box"
+                  type="text"
+                  inputmode="numeric"
+                  maxlength="1"
+                  autocomplete="off"
+                  [value]="digit"
+                  (input)="onDigit($index, $event)"
+                  (keydown)="onDigitKey($index, $event)"
+                  (paste)="onPaste($event)"
+                />
+              }
+              <span class="pin-unit">(Anos)</span>
+            </div>
             <div class="cmd-row">
-              <input
-                id="pump-code"
-                type="text"
-                inputmode="numeric"
-                maxlength="4"
-                autocomplete="off"
-                [value]="pumpCode()"
-                (input)="pumpCode.set($any($event.target).value)"
-              />
               <button type="submit" class="btn on">Confirmar</button>
               <button type="button" class="btn" (click)="cancelShutdown()">Cancelar</button>
             </div>
             @if (pumpCodeError()) {
-              <p class="override-msg">Código recusado. A bomba continua ligada.</p>
+              <p class="override-msg">REJEITADO: CÓDIGO INVÁLIDO</p>
             }
           </form>
         }

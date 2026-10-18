@@ -233,14 +233,14 @@ export class FolderExplorer {
           icon: 'word',
           appId: 'word',
           windowTitle: `${entry.name} - Microsoft Word`,
-          width: 640,
-          height: 480,
+          width: entry.page ? 760 : 640,
+          height: entry.page ? 640 : 480,
           minWidth: 420,
           minHeight: 320,
           maxWidth: 1100,
-          maxHeight: 800,
+          maxHeight: 900,
         },
-        { content: entry.content },
+        { content: entry.content, page: entry.page },
       );
       return;
     }

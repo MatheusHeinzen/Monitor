@@ -121,14 +121,105 @@
   </div>
 
   <div class="canvas">
-    <div class="page">
-      <textarea
-        [value]="text()"
-        (input)="onInput($event)"
-        spellcheck="false"
-        aria-label="Documento"
-      ></textarea>
-    </div>
+    @if (page() === 'sonda-88') {
+      <article class="page report">
+        <p class="kicker">Projeto geotérmico profundo — análise de campo</p>
+        <h1>Sonda 88-C</h1>
+        <p class="meta">Profundidade 4.200 m · Pressão 1013 atm · Restrito</p>
+
+        <h2>Leituras de núcleo</h2>
+        <ul>
+          <li>Matriz geológica (zircão): 4.400 Ma. Atividade radiogênica nula.</li>
+          <li>Fluido magmático: 1.200 °C. Gradiente térmico crítico.</li>
+        </ul>
+
+        <h2>Registro de anomalia de espectro — tela 04</h2>
+        <p>
+          O espectrômetro acusou emissão orgânica no magma derretido. Abaixo, a leitura de
+          calibração automática dos sensores da sonda.
+        </p>
+
+        <table>
+          <caption>Calibração do espectrômetro</caption>
+          <thead>
+            <tr>
+              <th>Isótopo detectado</th>
+              <th>Freq. base (λ)</th>
+              <th>Magnitude</th>
+              <th>Sinal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>U-238 (rocha)</td>
+              <td>4,47</td>
+              <td>10<sup>9</sup> anos</td>
+              <td>
+                <span class="meter">
+                  <span class="track"><span class="bar" style="width: 100%"></span></span>
+                  <span class="pct">100%</span>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td>K-40 (rocha)</td>
+              <td>1,25</td>
+              <td>10<sup>9</sup> anos</td>
+              <td>
+                <span class="meter">
+                  <span class="track"><span class="bar" style="width: 100%"></span></span>
+                  <span class="pct">100%</span>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td>C-14 (amostra 88-C)</td>
+              <td>5,73</td>
+              <td>10<sup>3</sup> anos</td>
+              <td>
+                <span class="meter">
+                  <span class="track"><span class="bar weak" style="width: 12%"></span></span>
+                  <span class="pct">12%</span>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td>H-3 (água/vapor)</td>
+              <td>1,23</td>
+              <td>10<sup>1</sup> anos</td>
+              <td>
+                <span class="meter">
+                  <span class="track"><span class="bar empty" style="width: 0%"></span></span>
+                  <span class="pct">0%</span>
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>Notas — 14/04/1988</h2>
+        <p>
+          Impossível. A 1200 °C, qualquer rastro desse tipo de carbono deveria ter sumido há
+          dezenas de milênios. No entanto, o pulso do sensor travou na meia-vida dessa amostra
+          orgânica. É como se o tempo para essa matéria estivesse correndo em outra taxa dentro
+          do magma.
+        </p>
+        <p>
+          O GeoSense continua acusando erro de ressonância no duto central. A bomba só desativa
+          se o pulso do filtro for alinhado com a meia-vida exata do elemento que está gerando a
+          anomalia no sensor.
+        </p>
+      </article>
+    } @else {
+      <div class="page">
+        <textarea
+          [value]="text()"
+          (input)="onInput($event)"
+          spellcheck="false"
+          aria-label="Documento"
+        ></textarea>
+      </div>
+    }
   </div>
 
   <footer class="status">

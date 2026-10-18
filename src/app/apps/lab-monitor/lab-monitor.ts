@@ -1,4 +1,4 @@
-import { Component, DestroyRef, inject, OnInit, signal } from '@angular/core';
+import { Component, DestroyRef, ElementRef, inject, OnInit, signal, viewChildren } from '@angular/core';
 import {
   LAB_ALERTS,
   LAB_SENSORS,
@@ -29,8 +29,9 @@ export class LabMonitorApp implements OnInit {
   readonly overrideInput = signal('');
   readonly overrideMsg = signal('');
   readonly confirmingPump = signal(false);
-  readonly pumpCode = signal('');
+  readonly digits = signal(['', '', '', '']);
   readonly pumpCodeError = signal(false);
+  private readonly pinBoxes = viewChildren<ElementRef<HTMLInputElement>>('pin');
 
   readonly chart = buildChart(TEMP_HISTORY);
 
@@ -64,18 +65,48 @@ export class LabMonitorApp implements OnInit {
 
   askShutdown(): void {
     this.confirmingPump.set(true);
-    this.pumpCode.set('');
+    this.digits.set(['', '', '', '']);
     this.pumpCodeError.set(false);
   }
 
   cancelShutdown(): void {
     this.confirmingPump.set(false);
-    this.pumpCode.set('');
+    this.digits.set(['', '', '', '']);
     this.pumpCodeError.set(false);
   }
 
+  onDigit(index: number, event: Event): void {
+    const raw = (event.target as HTMLInputElement).value.replace(/\D/g, '');
+    const digit = raw.slice(-1);
+    this.digits.update((list) => list.map((item, i) => (i === index ? digit : item)));
+    this.pumpCodeError.set(false);
+    if (digit && index < 3) {
+      this.pinBoxes()[index + 1]?.nativeElement.focus();
+    }
+  }
+
+  onDigitKey(index: number, event: KeyboardEvent): void {
+    if (event.key === 'Backspace' && !this.digits()[index] && index > 0) {
+      this.pinBoxes()[index - 1]?.nativeElement.focus();
+    }
+  }
+
+  onPaste(event: ClipboardEvent): void {
+    const text = (event.clipboardData?.getData('text') ?? '').replace(/\D/g, '').slice(0, 4);
+    if (text.length < 2) {
+      return;
+    }
+    event.preventDefault();
+    const next = ['', '', '', ''];
+    text.split('').forEach((char, index) => {
+      next[index] = char;
+    });
+    this.digits.set(next);
+    this.pinBoxes()[Math.min(text.length, 3)]?.nativeElement.focus();
+  }
+
   confirmShutdown(): void {
-    if (this.pumpCode().trim() !== PUMP_CODE) {
+    if (this.digits().join('') !== PUMP_CODE) {
       this.pumpCodeError.set(true);
       return;
     }
@@ -94,7 +125,7 @@ export class LabMonitorApp implements OnInit {
   }
 }
 
-const PUMP_CODE = '4826';
+const PUMP_CODE = '5730';
 
 function buildChart(points: typeof TEMP_HISTORY): {
   polyline: string;

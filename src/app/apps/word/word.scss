@@ -237,6 +237,110 @@
   box-shadow: 0 0 0 1px #5a5a5a, 2px 2px 8px rgba(0, 0, 0, 0.35);
 }
 
+.page.report {
+  width: min(100%, 640px);
+  padding: 28px 32px 36px;
+  overflow: auto;
+  color: #1a1a1a;
+  font: 12px Calibri, 'Segoe UI', Tahoma, sans-serif;
+  line-height: 1.45;
+}
+
+.report .kicker {
+  margin: 0;
+  color: #5a5a5a;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.report h1 {
+  margin: 4px 0 0;
+  font-size: 22px;
+}
+
+.report .meta {
+  margin: 4px 0 16px;
+  color: #444;
+}
+
+.report h2 {
+  margin: 16px 0 6px;
+  font-size: 14px;
+  color: #1f4e79;
+}
+
+.report ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.report table {
+  width: 100%;
+  margin-top: 8px;
+  border-collapse: collapse;
+  font-size: 11px;
+}
+
+.report caption {
+  margin-bottom: 6px;
+  caption-side: top;
+  color: #555;
+  font-size: 11px;
+  text-align: left;
+}
+
+.report th,
+.report td {
+  padding: 6px 8px;
+  border: 1px solid #b7c3d0;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.report th {
+  background: #1f4e79;
+  color: #fff;
+  font-weight: 600;
+}
+
+.report td:last-child {
+  width: 34%;
+}
+
+.meter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.track {
+  width: 88px;
+  height: 10px;
+  flex-shrink: 0;
+  background: #e4e8ee;
+}
+
+.bar {
+  display: block;
+  height: 100%;
+  background: #2e75b6;
+}
+
+.bar.weak {
+  background: #c45911;
+}
+
+.bar.empty {
+  background: transparent;
+}
+
+.pct {
+  width: 36px;
+  color: #333;
+  text-align: right;
+}
+
 textarea {
   box-sizing: border-box;
   display: block;

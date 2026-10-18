@@ -49,6 +49,15 @@ Não é falta de cuidado. É medo de abrir a boca.
     requiredRole: 'helio',
     entries: [
       {
+        id: 'sonda-88',
+        name: 'RELATORIO_SONDA_88.doc',
+        size: '36 KB',
+        type: 'Documento do Microsoft Word',
+        modified: '14/04/1988 22:10',
+        kind: 'document',
+        page: 'sonda-88',
+      },
+      {
         id: 'pressao',
         name: 'pressao_e_calibragem.doc',
         size: '18 KB',
@@ -111,7 +120,7 @@ A pressão rompeu a contenção da Sala B. O calor derreteu a liga de titânio d
         content: `LOG FINAL
 15/04/1988 21:27
 
-Ele está subindo pelos tubos de ventilação. Se alguém encontrar este terminal, desative a bomba do duto central na sala dos geradores ou o sistema continuará alimentando ele. O código de confirmação está num papel colado por dentro da porta do armário.
+Ele está subindo pelos tubos de ventilação. Se alguém encontrar este terminal, desative a bomba do duto central na sala dos geradores ou o sistema continuará alimentando ele.
 `,
       },
     ],

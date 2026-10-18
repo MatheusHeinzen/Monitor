@@ -395,6 +395,27 @@ li[data-level='alarm'] .tag {
   margin-top: 8px;
 }
 
+.pin {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.pin-box {
+  width: 36px;
+  height: 40px;
+  border: 1px solid #7f9db9;
+  background: #fff;
+  font: 18px Consolas, 'Courier New', monospace;
+  text-align: center;
+}
+
+.pin-unit {
+  color: #333;
+  font-size: 12px;
+}
+
 .cmd-row {
   display: flex;
   gap: 8px;
