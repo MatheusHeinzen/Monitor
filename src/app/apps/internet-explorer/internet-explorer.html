@@ -29,7 +29,20 @@
   </form>
 
   <div class="page">
-    @if (showError()) {
+    @if (page() === 'leet') {
+      <article class="leet-page">
+        <h1>Leet</h1>
+        <p>
+          Leet (ou leetspeak) é um jeito de escrever trocando letras por números
+          e símbolos parecidos. A palavra vem de <em>elite</em> e ficou comum
+          em chats, fóruns e jogos a partir dos anos 80.
+        </p>
+        <p>
+          Exemplo: <strong>leet</strong> vira <strong>1337</strong>,
+          e <strong>elite</strong> vira <strong>3l1t3</strong>.
+        </p>
+      </article>
+    } @else {
       <div class="error-page">
         <h1>Não é possível exibir a página</h1>
         <p>
@@ -50,5 +63,5 @@
     }
   </div>
 
-  <footer class="status">Concluído, mas com erros nesta página</footer>
+  <footer class="status">{{ status() }}</footer>
 </div>
