@@ -19,4 +19,15 @@ export const RECYCLE_FILES: RecycleFile[] = [
 (pedido oficial foi pelo sistema)
 `,
   },
+  {
+    id: 'placa-entrada',
+    name: 'placa_entrada.jpg',
+    originalPath: 'C:\\Usuários\\helio\\placa_entrada.jpg',
+    deletedAt: '04/08/1988 09:14',
+    size: '186 KB',
+    type: 'Imagem JPEG',
+    kind: 'image',
+    scene: 'placa',
+    requiredRole: 'helio',
+  },
 ];

@@ -1,3 +1,5 @@
+import { UserRole } from '../data/auth';
+
 export type RecycleKind = 'text' | 'document' | 'image';
 
 export interface RecycleFile {
@@ -9,5 +11,6 @@ export interface RecycleFile {
   type: string;
   kind: RecycleKind;
   content?: string;
-  scene?: 'beach';
+  scene?: 'beach' | 'placa';
+  requiredRole?: UserRole;
 }

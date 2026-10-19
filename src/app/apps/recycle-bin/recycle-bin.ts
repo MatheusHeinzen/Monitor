@@ -1,6 +1,7 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { RECYCLE_FILES } from '../../core/data/recycle-files';
 import { RecycleFile } from '../../core/models/recycle-file';
+import { AuthService } from '../../core/services/auth.service';
 import { WindowManagerService } from '../../core/services/window-manager.service';
 import { AppGlyph } from '../../shared/app-glyph/app-glyph';
 
@@ -12,8 +13,13 @@ import { AppGlyph } from '../../shared/app-glyph/app-glyph';
 })
 export class RecycleBin {
   private readonly wm = inject(WindowManagerService);
-  readonly files = RECYCLE_FILES;
-  readonly selectedId = signal<string | null>(RECYCLE_FILES[0]?.id ?? null);
+  private readonly auth = inject(AuthService);
+  readonly files = computed(() => {
+    const role = this.auth.currentUser()?.role;
+    return RECYCLE_FILES.filter((file) => !file.requiredRole || file.requiredRole === role);
+  });
+  readonly selectedId = signal<string | null>(null);
+
 
   select(file: RecycleFile): void {
     this.selectedId.set(file.id);
@@ -23,6 +29,7 @@ export class RecycleBin {
     this.selectedId.set(file.id);
 
     if (file.kind === 'image') {
+      const isPlaca = file.scene === 'placa';
       this.wm.open(
         {
           id: `file-${file.id}`,
@@ -30,8 +37,8 @@ export class RecycleBin {
           icon: 'image',
           appId: 'viewer',
           windowTitle: file.name,
-          width: 460,
-          height: 390,
+          width: isPlaca ? 420 : 460,
+          height: isPlaca ? 420 : 390,
           minWidth: 280,
           minHeight: 220,
           maxWidth: 900,

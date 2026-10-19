@@ -52,7 +52,7 @@
           </tr>
         </thead>
         <tbody>
-          @for (file of files; track file.id) {
+          @for (file of files(); track file.id) {
             <tr
               role="button"
               tabindex="0"
@@ -81,5 +81,5 @@
     </div>
   </div>
 
-  <footer class="status">{{ files.length }} objeto(s) — clique duas vezes para abrir</footer>
+  <footer class="status">{{ files().length }} objeto(s) — clique duas vezes para abrir</footer>
 </div>
